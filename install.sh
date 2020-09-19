@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eu
+
 cd ${HOME}
 
 echo "Removing unnecessary packages"

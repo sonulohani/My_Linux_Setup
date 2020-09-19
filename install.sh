@@ -53,14 +53,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "Installing powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# ZSH Manually setup----------------------------------------------------
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
-# My changes begin                                                              
-# export PATH=${HOME}/Programs:$PATH                                          
-# My changes end  
-#------------------------------------------------------------------------
-
 echo "Enabling firewall"
 sudo systemctl enable ufw
 
@@ -75,6 +67,13 @@ eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 
 # Extra
+# ZSH Manually setup----------------------------------------------------
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# My changes begin                                                              
+# export PATH=${HOME}/Programs:$PATH                                          
+# My changes end  
+#------------------------------------------------------------------------
 # Install chrome
 # Install code
 # Install virtualbox

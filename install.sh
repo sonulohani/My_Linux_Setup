@@ -81,5 +81,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install virtualbox
 # Install PlugInstall
 # Install k2pdfopt, openshot, mypaint, inkscape
+# change font in terminator and gnome-terminal
 
 

@@ -20,7 +20,7 @@ p7zip-rar neofetch htop silversearcher-ag xclip meld obs-studio snapd flatpak \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev \
 libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
 lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl gimp \
-gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome
+gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome dconf-editor
 
 echo "Creating Programs folder"
 mkdir -p ${HOME}/Programs
@@ -82,6 +82,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install PlugInstall
 # Install k2pdfopt, openshot, mypaint, inkscape
 # change font in terminator and gnome-terminal
-# Extensions: Caffine, clipboard indicator, dash to dock
+# Extensions: Caffine, clipboard indicator, dash to dock(enable trash and click to minimize)
 
 

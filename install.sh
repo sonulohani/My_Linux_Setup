@@ -78,6 +78,6 @@ ssh-add ${HOME}/.ssh/id_rsa
 # Install code
 # Install virtualbox
 # Install PlugInstall
-# 
+# Install k2pdfopt
 
 

@@ -2,11 +2,13 @@
 
 set -eu
 
+SCRIPT_DIR=$(pwd)
+
 cd ${HOME}
 
 echo "Removing unnecessary packages"
-sudo apt purge thunderbird gnome-mahjongg gnome-mines gnome-sudoku
-sudo apt autoremove --purge
+sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
+sudo apt autoremove --purge -y
 
 echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
@@ -32,26 +34,13 @@ echo "Installing VimPlug and configure neovim"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 mkdir -p ${HOME}/.config/nvim
-cp $(pwd)/init.vim ${HOME}/.config/nvim
+cp ${SCRIPT_DIR}/init.vim ${HOME}/.config/nvim
 
 echo "Copying fonts"
 mkdir -p ${HOME}/.local/share/fonts
-cp -r $(pwd)/fonts ${HOME}/.local/share/fonts
+cp -r ${SCRIPT_DIR}/fonts/* ${HOME}/.local/share/fonts
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 fc-cache -fv
-
-echo "Install ohmyzsh"
-cd ${HOME}
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "Installing zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-echo "Installing zsh-syntax-highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-echo "Installing powerlevel10k"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
@@ -65,6 +54,19 @@ echo "Setting ssh"
 ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
+
+echo "Install ohmyzsh"
+cd ${HOME}
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Installing zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "Installing zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+echo "Installing powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
 # Extra
 # ZSH Manually setup----------------------------------------------------

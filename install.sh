@@ -22,6 +22,9 @@ libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libom
 lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl gimp \
 gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome
 
+echo "Enabling trash icon in dock"
+gsettings set org.gnome.nautilus.desktop trash-icon-visible true
+
 echo "Creating Programs folder"
 mkdir -p ${HOME}/Programs
 cd ${HOME}/Programs && curl https://getmic.ro | bash && cd -
@@ -82,6 +85,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install PlugInstall
 # Install k2pdfopt, openshot, mypaint, inkscape
 # change font in terminator and gnome-terminal
-# Extensions: Caffeine, clipboard indicator, dash to dock
+# Extensions: Caffine, clipboard indicator, dash to dock
 
 

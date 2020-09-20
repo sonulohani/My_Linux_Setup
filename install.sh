@@ -80,6 +80,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install code
 # Install virtualbox
 # Install PlugInstall
-# Install k2pdfopt
+# Install k2pdfopt, openshot, mypaint, inkscape
 
 

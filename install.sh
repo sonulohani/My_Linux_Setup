@@ -22,9 +22,6 @@ libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libom
 lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl gimp \
 gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome
 
-echo "Enabling trash icon in dock"
-gsettings set org.gnome.nautilus.desktop trash-icon-visible true
-
 echo "Creating Programs folder"
 mkdir -p ${HOME}/Programs
 cd ${HOME}/Programs && curl https://getmic.ro | bash && cd -

@@ -67,6 +67,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install PlugInstall
 # Install k2pdfopt, openshot, mypaint, inkscape
 # change font in terminator and gnome-terminal
-# Extensions: Caffine, clipboard indicator, dash to dock(enable trash and click to minimize)
-
+# Extensions: Caffeine, clipboard indicator, dash to dock(enable trash and click to minimize), blyr
+# xclip -sel clip < ~/.ssh/id_rsa.pub
 

@@ -83,5 +83,5 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Install k2pdfopt, openshot, mypaint, inkscape
 # change font in terminator and gnome-terminal
 # Extensions: Caffeine, clipboard indicator, dash to dock(enable trash and click to minimize), blyr
-
+# xclip -sel clip < ~/.ssh/id_rsa.pub
 

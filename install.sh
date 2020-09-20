@@ -77,6 +77,7 @@ ssh-add ${HOME}/.ssh/id_rsa
 # Install chrome
 # Install code
 # Install virtualbox
+# Install PlugInstall
 # 
 
 

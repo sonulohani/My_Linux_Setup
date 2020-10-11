@@ -71,3 +71,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Pop Shell, Night theme switcher, Removable driver menu, 
 # xclip -sel clip < ~/.ssh/id_rsa.pub
 
+# For terminal themes
+# bash -c  "$(wget -qO- https://git.io/vQgMr)"

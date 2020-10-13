@@ -73,3 +73,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 # For terminal themes
 # bash -c  "$(wget -qO- https://git.io/vQgMr)"
+
+# Install Joplin
+# https://joplinapp.org/

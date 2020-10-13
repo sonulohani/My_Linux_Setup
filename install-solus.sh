@@ -83,3 +83,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # export PATH=${HOME}/.local/bin:${PATH}
 # My changes end
 
+# Install Joplin
+# https://joplinapp.org/

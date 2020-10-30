@@ -15,16 +15,16 @@ sudo apt update && sudo apt upgrade -y
 
 echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
-timeshift gufw g++ gdb git terminator ubuntu-restricted-extras rar unrar p7zip-full \
-p7zip-rar neofetch htop silversearcher-ag xclip meld obs-studio snapd flatpak \
+gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full \
+p7zip-rar neofetch htop silversearcher-ag xclip meld obs-studio \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev \
 libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
-lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl gimp \
-gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome dconf-editor fd-find extra-cmake-modules
+lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl \
+gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules \
+tlp tlp-rdw smartmontools
 
-echo "Creating Programs folder"
-mkdir -p ${HOME}/Programs
-cd ${HOME}/Programs && curl https://getmic.ro | bash && cd -
+echo "Installing optional packages"
+sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp
 
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
@@ -39,8 +39,8 @@ cp ${SCRIPT_DIR}/init.vim ${HOME}/.config/nvim
 echo "Copying fonts"
 mkdir -p ${HOME}/.local/share/fonts
 cp -r ${SCRIPT_DIR}/fonts/* ${HOME}/.local/share/fonts
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 fc-cache -fv
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
@@ -59,6 +59,22 @@ echo "Install ohmyzsh"
 cd ${HOME}
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+echo "Installing zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+echo "Installing zsh-syntax-highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+echo "Installing powerlevel10k"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# ZSH Manually setup----------------------------------------------------
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+# My changes begin                                                              
+# export PATH=${HOME}/Programs:$PATH                                          
+# My changes end  
+#------------------------------------------------------------------------
 
 # Extra
 # Install chrome

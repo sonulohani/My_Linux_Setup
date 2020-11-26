@@ -21,14 +21,16 @@ clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-de
 libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
 lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl \
 gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules \
-tlp tlp-rdw smartmontools qt5-default mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick
+tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick vlc
 
 echo "Installing optional packages"
-sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp
+sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default
 
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
+git config --global merge.tool meld
+git config --global diff.tool meld
 
 echo "Installing VimPlug and configure neovim"
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \

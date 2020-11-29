@@ -21,7 +21,7 @@ clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-de
 libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
 lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl \
 gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules \
-tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick vlc
+tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick vlc mypaint
 
 echo "Installing optional packages"
 sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default

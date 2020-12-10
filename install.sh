@@ -19,12 +19,12 @@ gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full \
 p7zip-rar neofetch htop silversearcher-ag xclip meld obs-studio \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev \
 libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
-lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https zsh curl \
+lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https curl \
 gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules \
 tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick vlc mypaint
 
 echo "Installing optional packages"
-sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default
+sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh
 
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
@@ -56,6 +56,12 @@ echo "Setting ssh"
 ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
+
+echo "Installing starship"
+curl -fsSL https://starship.rs/install.sh | bash
+
+# Add this in bash
+# eval "$(starship init bash)"
 
 echo "Install ohmyzsh"
 cd ${HOME}

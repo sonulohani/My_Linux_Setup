@@ -5,7 +5,7 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
-Plug  'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 
 call plug#end()
 

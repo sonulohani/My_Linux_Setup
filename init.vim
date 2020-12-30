@@ -5,6 +5,7 @@ Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
+Plug  'puremourning/vimspector'
 
 call plug#end()
 
@@ -30,8 +31,6 @@ set nobackup
 set incsearch
 set termguicolors
 set scrolloff=8
-set undodir="~/.config/nvim/undodir"
-set undofile
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
@@ -212,3 +211,5 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 nnoremap <leader>b :NERDTree<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'

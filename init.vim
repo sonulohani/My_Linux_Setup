@@ -1,7 +1,6 @@
 call plug#begin('~/.local/nvim/plugged')
 
 Plug 'gruvbox-community/gruvbox'
-Plug 'mbbill/undotree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'preservim/nerdcommenter'
@@ -210,6 +209,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 nnoremap <leader>b :NERDTree<CR>
-nnoremap <leader>u :UndotreeShow<CR>
 
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'

@@ -57,8 +57,13 @@ ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 
-echo "Installing starship"
-curl -fsSL https://starship.rs/install.sh | bash
+# echo "Installing starship"
+# curl -fsSL https://starship.rs/install.sh | bash
+
+echo "Installing Copyq"
+sudo add-apt-repository ppa:hluk/copyq
+sudo apt update
+sudo apt install copyq
 
 # Add this in bash
 # eval "$(starship init bash)"

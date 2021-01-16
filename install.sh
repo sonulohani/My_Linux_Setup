@@ -60,13 +60,13 @@ ssh-add ${HOME}/.ssh/id_rsa
 # echo "Installing starship"
 # curl -fsSL https://starship.rs/install.sh | bash
 
+# Add this in bash
+# eval "$(starship init bash)"
+
 echo "Installing Copyq"
 sudo add-apt-repository ppa:hluk/copyq
 sudo apt update
 sudo apt install copyq
-
-# Add this in bash
-# eval "$(starship init bash)"
 
 echo "Install ohmyzsh"
 cd ${HOME}

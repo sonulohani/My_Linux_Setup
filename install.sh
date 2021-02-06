@@ -100,6 +100,9 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Pop Shell, Night theme switcher, Removable driver menu, 
 # xclip -sel clip < ~/.ssh/id_rsa.pub
 
+# peek
+# https://github.com/phw/peek
+
 # For terminal themes
 # bash -c  "$(wget -qO- https://git.io/vQgMr)"
 

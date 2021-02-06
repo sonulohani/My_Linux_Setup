@@ -68,6 +68,11 @@ sudo add-apt-repository ppa:hluk/copyq
 sudo apt update
 sudo apt install copyq
 
+echo "Installing peek"
+sudo add-apt-repository ppa:peek-developers/stable
+sudo apt update
+sudo apt install peek
+
 echo "Install ohmyzsh"
 cd ${HOME}
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

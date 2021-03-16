@@ -30,6 +30,10 @@ set nobackup
 set incsearch
 set termguicolors
 set scrolloff=8
+set foldmethod=indent                                                               
+set foldnestmax=10                                                                  
+set nofoldenable                                                                    
+set foldlevel=2
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "

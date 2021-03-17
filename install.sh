@@ -27,6 +27,9 @@ github-cli
 echo "Installing optional packages"
 sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh
 
+echo "Laptop battery saver"
+sudo apt install tlp tp-smapi-dkms acpi-call-dkms
+
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"

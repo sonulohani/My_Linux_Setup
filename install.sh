@@ -37,10 +37,7 @@ git config --global merge.tool meld
 git config --global diff.tool meld
 
 echo "Installing VimPlug and configure neovim"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-mkdir -p ${HOME}/.config/nvim
-cp ${SCRIPT_DIR}/init.vim ${HOME}/.config/nvim
+curl -sLf https://spacevim.org/install.sh | bash
 
 echo "Copying fonts"
 mkdir -p ${HOME}/.local/share/fonts

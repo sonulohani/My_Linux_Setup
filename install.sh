@@ -36,7 +36,8 @@ git config --global user.email "sonulohani@gmail.com"
 git config --global merge.tool meld
 git config --global diff.tool meld
 
-echo "Installing VimPlug and configure neovim"
+echo "Installing Spacevim"
+# https://spacevim.org/quick-start-guide/
 curl -sLf https://spacevim.org/install.sh | bash
 
 echo "Copying fonts"

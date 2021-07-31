@@ -106,6 +106,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Extensions: Caffeine, clipboard indicator, dash to dock(enable trash and click to minimize), blyr, TopIcon Plus, Desktop Icons NG(DING), KStatusNotifierItem/AppIndicator Support
 # Pop Shell, Night theme switcher, Removable driver menu, 
 # xclip -sel clip < ~/.ssh/id_rsa.pub
+# Install FireDM download manager
 
 # peek
 # https://github.com/phw/peek

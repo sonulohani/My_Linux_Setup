@@ -25,7 +25,8 @@ tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick 
 github-cli
 
 echo "Installing optional packages"
-sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh
+sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
+sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 
 echo "Laptop battery saver"
 sudo apt install tlp tp-smapi-dkms acpi-call-dkms

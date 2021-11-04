@@ -15,21 +15,20 @@ sudo apt update && sudo apt upgrade -y
 
 echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
-gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full \
-p7zip-rar neofetch htop silversearcher-ag xclip meld obs-studio \
-clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 libc++abi-dev \
-libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev libomp5 \
-lld lldb llvm-dev llvm-runtime llvm python-clang apt-transport-https curl \
-gnome-tweaks gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules \
-tlp tlp-rdw smartmontools mesa-common-dev libfontconfig1 libglu1-mesa-dev gpick vlc mypaint git-gui gitk \
-github-cli
+gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetch \
+htop silversearcher-ag xclip meld obs-studio apt-transport-https curl gnome-tweaks \
+gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules tlp \
+smartmontools mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
+libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 
-echo "Installing optional packages"
-sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
-sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+# echo "Installing optional packages"
+# sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
+# sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 
-echo "Laptop battery saver"
-sudo apt install tlp tp-smapi-dkms acpi-call-dkms
+# Fonts
+https://github.com/adobe-fonts/source-code-pro
+https://github.com/microsoft/cascadia-code
+https://github.com/dharmatype/Sometype-Mono
 
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"

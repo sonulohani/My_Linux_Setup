@@ -30,6 +30,9 @@ https://github.com/adobe-fonts/source-code-pro
 https://github.com/microsoft/cascadia-code
 https://github.com/dharmatype/Sometype-Mono
 
+# Configure flathub
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"

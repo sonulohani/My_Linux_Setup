@@ -17,7 +17,7 @@ echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
 gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetch \
 htop silversearcher-ag xclip meld obs-studio apt-transport-https curl gnome-tweaks \
-gnome-shell-extensions uget wget network-manager-openvpn-gnome extra-cmake-modules tlp \
+gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules tlp \
 smartmontools mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
 libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 

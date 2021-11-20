@@ -10,6 +10,9 @@ echo "Removing unnecessary packages"
 sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
 sudo apt autoremove --purge -y
 
+# Fsearch
+sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
+
 echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
 

@@ -22,7 +22,8 @@ gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetc
 htop silversearcher-ag xclip meld obs-studio apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules timeshift \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
-libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf
+libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf \ 
+gnome-text-editor
 
 # echo "Installing optional packages"
 # sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 

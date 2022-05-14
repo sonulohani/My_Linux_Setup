@@ -29,6 +29,9 @@ gnome-text-editor
 # sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
 # sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 
+# Clang
+https://apt.llvm.org/
+
 # Fonts
 https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro

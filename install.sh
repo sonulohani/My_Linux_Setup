@@ -33,8 +33,7 @@ gnome-text-editor
 https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro
 https://www.nerdfonts.com/font-downloads
-https://github.com/madmalik/mononoki/tree/master
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+https://github.com/i-tu/Hasklig
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

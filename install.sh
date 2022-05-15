@@ -37,6 +37,7 @@ https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro
 https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
+https://rubjo.github.io/victor-mono/
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

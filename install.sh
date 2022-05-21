@@ -17,7 +17,7 @@ echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
 
 echo "Installing essential packages"
-sudo apt install -y python3-pip build-essential binutils emacs neovim cmake-qt-gui \
+sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
 gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetch \
 htop silversearcher-ag xclip meld obs-studio apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules timeshift \
@@ -47,9 +47,6 @@ git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
 git config --global merge.tool meld
 git config --global diff.tool meld
-
-echo "Installing Spacemacs"
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 echo "Installing Spacevim"
 curl -sLf https://spacevim.org/install.sh | bash

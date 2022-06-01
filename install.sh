@@ -37,8 +37,7 @@ https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro
 https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
-https://github.com/belluzj/fantasque-sans
-https://github.com/microsoft/cascadia-code
+https://github.com/madmalik/mononoki
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

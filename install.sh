@@ -39,6 +39,7 @@ https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
 https://input.djr.com/download/
+https://github.com/IBM/plex
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

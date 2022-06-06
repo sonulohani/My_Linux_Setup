@@ -41,7 +41,7 @@ https://github.com/adobe-fonts/source-code-pro
 https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
-https://input.djr.com/download/
+https://github.com/be5invis/Iosevka
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo

@@ -22,26 +22,7 @@ gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetc
 htop silversearcher-ag xclip meld obs-studio apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules timeshift \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
-libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf \ 
-gnome-text-editor
-
-# echo "Installing optional packages"
-# sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
-# sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
-
-# Clang
-https://apt.llvm.org/
-
-# Sublime text
-https://www.sublimetext.com/docs/linux_repositories.html
-
-# Fonts
-https://github.com/tonsky/FiraCode
-https://github.com/adobe-fonts/source-code-pro
-https://www.nerdfonts.com/font-downloads
-https://github.com/i-tu/Hasklig
-https://github.com/madmalik/mononoki
-https://github.com/be5invis/Iosevka
+libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf
 
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
@@ -49,8 +30,6 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
-git config --global merge.tool meld
-git config --global diff.tool meld
 
 echo "Installing Spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
@@ -62,6 +41,7 @@ echo "Setting ssh"
 ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
 
 echo "Install ohmyzsh"
 cd ${HOME}
@@ -83,6 +63,27 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # export PATH=${HOME}/Programs:$PATH                                          
 # My changes end  
 #------------------------------------------------------------------------
+
+# echo "Installing optional packages"
+# sudo apt install -y dconf-editor timeshift terminator snapd flatpak gimp qt5-default zsh 
+
+# Clang
+https://apt.llvm.org/
+
+# Sublime text
+https://www.sublimetext.com/docs/linux_repositories.html
+
+# Fonts
+https://github.com/tonsky/FiraCode
+https://github.com/adobe-fonts/source-code-pro
+https://www.nerdfonts.com/font-downloads
+https://github.com/i-tu/Hasklig
+https://github.com/madmalik/mononoki
+https://github.com/be5invis/Iosevka
+
+# Configuring merge/diff tool
+git config --global merge.tool meld
+git config --global diff.tool meld
 
 # Extra
 # Install chrome

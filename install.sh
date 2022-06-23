@@ -105,3 +105,7 @@ git config --global diff.tool meld
 
 # Install Joplin
 # https://joplinapp.org/
+
+# Changing zsh shell from bashrc
+# Just put the below line at the end of bashrc
+[ ! -z "$PS1" ] && exec /usr/bin/zsh

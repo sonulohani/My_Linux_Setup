@@ -23,6 +23,9 @@ gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
 libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf
 
+# Snap refresh
+sudo snap refresh
+
 # Configure flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 

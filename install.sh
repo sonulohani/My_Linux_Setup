@@ -6,6 +6,9 @@ SCRIPT_DIR=$(pwd)
 
 sudo apt install -y timeshift
 
+# minimize on click
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
 # Fsearch
 sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
 

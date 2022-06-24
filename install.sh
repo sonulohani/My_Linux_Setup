@@ -29,6 +29,8 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
+git config --global merge.tool meld
+git config --global diff.tool meld
 ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
@@ -77,10 +79,6 @@ https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
 https://github.com/be5invis/Iosevka
-
-# Configuring merge/diff tool
-git config --global merge.tool meld
-git config --global diff.tool meld
 
 # Extra
 # Install chrome

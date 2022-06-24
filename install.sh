@@ -4,11 +4,7 @@ set -eu
 
 SCRIPT_DIR=$(pwd)
 
-cd ${HOME}
-
-echo "Removing unnecessary packages"
-sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
-sudo apt autoremove --purge -y
+sudo apt install -y timeshift
 
 # Fsearch
 sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
@@ -20,7 +16,7 @@ echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
 gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetch \
 htop silversearcher-ag xclip meld apt-transport-https curl gnome-tweaks \
-gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules timeshift \
+gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
 libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf
 
@@ -30,18 +26,16 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 echo "Configure git username/email"
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add ${HOME}/.ssh/id_rsa
+xclip -sel clip < ~/.ssh/id_rsa.pub
 
 echo "Installing Spacevim"
 curl -sLf https://spacevim.org/install.sh | bash
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
-
-echo "Setting ssh"
-ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add ${HOME}/.ssh/id_rsa
-xclip -sel clip < ~/.ssh/id_rsa.pub
 
 echo "Install ohmyzsh"
 cd ${HOME}
@@ -108,4 +102,8 @@ git config --global diff.tool meld
 
 # Changing zsh shell from bashrc
 # Just put the below line at the end of bashrc
-[ ! -z "$PS1" ] && exec /usr/bin/zsh
+# [ ! -z "$PS1" ] && exec /usr/bin/zsh
+
+echo "Removing unnecessary packages"
+# sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
+# sudo apt autoremove --purge -y

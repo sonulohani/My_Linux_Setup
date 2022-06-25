@@ -21,7 +21,7 @@ gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetc
 htop silversearcher-ag xclip meld apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
-libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf
+libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf tmux
 
 # Snap refresh
 sudo snap refresh
@@ -38,6 +38,13 @@ ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
+
+# tmux
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+# For more info: https://www.youtube.com/watch?v=cPWEX2446B4
 
 echo "Installing Spacevim"
 curl -sLf https://spacevim.org/install.sh | bash

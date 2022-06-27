@@ -23,6 +23,11 @@ gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
 libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf tmux
 
+# deb-get
+curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
+
+deb-get install google-chrome-stable code
+
 # Snap refresh
 sudo snap refresh
 

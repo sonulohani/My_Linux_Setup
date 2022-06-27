@@ -68,6 +68,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' .zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' .zshrc
+sed -i -e '$a\PATH=$PATH:~/.local/bin' .zshrc 
 
 ######################################## Optional setup ########################################
 

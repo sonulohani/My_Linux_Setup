@@ -17,7 +17,7 @@ sudo apt update && sudo apt upgrade -y
 
 echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
-gufw g++ gdb git ubuntu-restricted-extras rar unrar p7zip-full p7zip-rar neofetch \
+gufw g++ gdb git rar unrar p7zip-full p7zip-rar neofetch \
 htop silversearcher-ag xclip meld apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
@@ -86,7 +86,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #------------------------------------------------------------------------
 
 # echo "Installing optional packages"
-# sudo apt install -y dconf-editor timeshift terminator snapd qt5-default obs-studio 
+# sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qt5-default obs-studio 
 
 # Clang
 https://apt.llvm.org/

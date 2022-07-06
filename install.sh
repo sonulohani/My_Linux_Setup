@@ -109,8 +109,8 @@ https://github.com/be5invis/Iosevka
 # Install PlugInstall
 # Install k2pdfopt, openshot, mypaint, inkscape
 # change font in terminator and gnome-terminal
-# Extensions: Caffeine, clipboard indicator, dash to dock(enable trash and click to minimize), blyr, TopIcon Plus, Desktop Icons NG(DING), KStatusNotifierItem/AppIndicator Support
-# Pop Shell, https://extensions.gnome.org/extension/1238/time/, Night theme switcher, Removable driver menu, https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/, https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
+# Extensions: Clipboard indicator, https://extensions.gnome.org/extension/3193/blur-my-shell/, Desktop Icons NG(DING), KStatusNotifierItem/AppIndicator Support
+# https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/, https://extensions.gnome.org/extension/1238/time/, Night theme switcher, Removable driver menu, https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/, https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
 # xclip -sel clip < ~/.ssh/id_rsa.pub
 # Install FireDM download manager
 

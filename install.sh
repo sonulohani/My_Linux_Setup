@@ -9,9 +9,6 @@ sudo apt install -y timeshift
 # minimize on click
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 
-# Fsearch
-sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
-
 echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
 
@@ -21,11 +18,11 @@ gufw g++ gdb git rar unrar p7zip-full p7zip-rar neofetch \
 htop silversearcher-ag xclip meld apt-transport-https curl gnome-tweaks \
 gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
-libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fsearch fonts-hack-ttf tmux
+libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fonts-hack-ttf tmux
 
 # deb-get
 curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
-deb-get install google-chrome-stable code
+deb-get install google-chrome-stable code fsearch
 
 # Snap refresh
 sudo snap refresh

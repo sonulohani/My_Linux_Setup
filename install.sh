@@ -98,6 +98,7 @@ https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
 https://github.com/be5invis/Iosevka
+http://eastfarthing.com/luculent/
 
 # Extra
 # Install chrome

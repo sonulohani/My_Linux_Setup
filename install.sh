@@ -20,10 +20,6 @@ gnome-shell-extensions wget network-manager-openvpn-gnome extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
 libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fonts-hack-ttf tmux
 
-# deb-get
-curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
-deb-get install google-chrome-stable code fsearch
-
 # Snap refresh
 sudo snap refresh
 
@@ -88,9 +84,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 # Clang
 https://apt.llvm.org/
 
-# Sublime text
-https://www.sublimetext.com/docs/linux_repositories.html
-
 # Fonts
 https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro
@@ -98,7 +91,10 @@ https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
 https://github.com/be5invis/Iosevka
-http://eastfarthing.com/luculent/
+
+# deb-get
+curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
+deb-get install google-chrome-stable code fsearch
 
 # Extra
 # Install chrome
@@ -110,7 +106,7 @@ http://eastfarthing.com/luculent/
 # Extensions: Clipboard indicator, https://extensions.gnome.org/extension/3193/blur-my-shell/, Desktop Icons NG(DING), KStatusNotifierItem/AppIndicator Support
 # https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/, https://extensions.gnome.org/extension/1238/time/, Night theme switcher, Removable driver menu, https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/, https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
 # xclip -sel clip < ~/.ssh/id_rsa.pub
-# Install FireDM download manager
+# https://github.com/source-foundry/font-line
 
 # peek
 # https://github.com/phw/peek
@@ -120,10 +116,6 @@ http://eastfarthing.com/luculent/
 
 # Install Joplin
 # https://joplinapp.org/
-
-# Changing zsh shell from bashrc
-# Just put the below line at the end of bashrc
-# [ ! -z "$PS1" ] && exec /usr/bin/zsh
 
 echo "Removing unnecessary packages"
 # sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot

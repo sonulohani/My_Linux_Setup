@@ -87,6 +87,7 @@ https://apt.llvm.org/
 # Fonts
 https://github.com/tonsky/FiraCode
 https://github.com/adobe-fonts/source-code-pro
+https://github.com/microsoft/cascadia-code
 https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki

@@ -96,6 +96,10 @@ https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
 https://github.com/be5invis/Iosevka
 
+# Nerd fonts
+# Cascadia code
+# Code New Roman
+
 # deb-get
 curl -sL https://raw.githubusercontent.com/wimpysworld/deb-get/main/deb-get | sudo -E bash -s install deb-get
 deb-get install google-chrome-stable code fsearch

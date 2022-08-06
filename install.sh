@@ -115,6 +115,7 @@ deb-get install google-chrome-stable code fsearch
 # https://extensions.gnome.org/extension/4937/draw-on-you-screen-2/, https://extensions.gnome.org/extension/1238/time/, Night theme switcher, Removable driver menu, https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/, https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
 # xclip -sel clip < ~/.ssh/id_rsa.pub
 # https://github.com/source-foundry/font-line
+# https://nomacs.org/download/
 
 # peek
 # https://github.com/phw/peek

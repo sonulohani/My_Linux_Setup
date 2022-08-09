@@ -12,6 +12,9 @@ gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
 
+# Install homebrew
+# https://brew.sh/
+
 echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
 gufw g++ gdb git rar unrar p7zip-full p7zip-rar neofetch fonts-dejavu \

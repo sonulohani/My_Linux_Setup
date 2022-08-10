@@ -6,24 +6,19 @@ SCRIPT_DIR=$(pwd)
 
 sudo apt install -y timeshift
 
-# minimize on click
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-
 echo "Updating the system"
 sudo apt update && sudo apt upgrade -y
 
-# Install homebrew
-# https://brew.sh/
-
 echo "Installing essential packages"
-sudo apt install -y python3-pip build-essential binutils neovim cmake-qt-gui \
-gufw g++ gdb git rar unrar p7zip-full p7zip-rar neofetch fonts-dejavu \
-htop silversearcher-ag xclip meld curl \
+sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
+gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
+htop xclip meld curl \
 wget extra-cmake-modules \
-mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh ninja-build gettext \
-libtool libtool-bin autoconf automake cmake g++ pkg-config unzip fonts-hack-ttf tmux
+mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext \
+libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf
 
-# Gnome packages
+# Gnome packages / Tweaks
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install gnome-tweaks gnome-shell-extensions
 
 # Snap refresh
@@ -67,10 +62,16 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
-sed -i -e '$a\export PATH=$PATH:~/.local/bin' ~/.zshrc 
+sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:~/.local/bin:$PATH' ~/.zshrc 
+
+# Install homebrew
+# https://brew.sh/
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Homebrew packages
+brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux
 
 ######################################## Optional setup ########################################
-
 
 echo "Installing powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k

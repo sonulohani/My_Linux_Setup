@@ -75,7 +75,6 @@ sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxb
 # Install homebrew
 # https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew tap homebrew/cask
 
 # Homebrew packages
 brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux

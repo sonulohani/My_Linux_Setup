@@ -21,6 +21,14 @@ libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install gnome-tweaks gnome-shell-extensions
 
+# Fsearch installation
+sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
+sudo apt update
+sudo apt install fsearch
+
+# To remove apt key deprecated warning due to above commands follow the instruction here: 
+# https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system
+
 # Snap refresh
 sudo snap refresh
 

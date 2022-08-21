@@ -70,7 +70,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
-sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:~/.local/bin:$PATH' ~/.zshrc 
+sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:~/.local/bin:$PATH' ~/.zshrc
+sed -i -e '$a\eval "$(starship init zsh)"' ~/.zshrc
 
 # Install homebrew
 # https://brew.sh/
@@ -78,9 +79,6 @@ sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxb
 
 # Homebrew packages
 brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux starship aria2
-
-# Add startship at the end in .zshrc
-eval "$(starship init zsh)"
 
 ######################################## Optional setup ########################################
 

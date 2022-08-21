@@ -77,7 +77,10 @@ sed -i -e '$a\export PATH=/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxb
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Homebrew packages
-brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux
+brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux starship
+
+# Add startship at the end in .zshrc
+eval "$(starship init zsh)"
 
 ######################################## Optional setup ########################################
 

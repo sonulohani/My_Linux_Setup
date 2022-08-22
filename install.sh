@@ -107,7 +107,7 @@ https://github.com/microsoft/cascadia-code
 https://www.nerdfonts.com/font-downloads
 https://github.com/i-tu/Hasklig
 https://github.com/madmalik/mononoki
-https://input.djr.com/download/ -> Monaco Style with * modified, 1.4x
+https://input.djr.com/download/?customize&fontSelection=whole&a=ss&g=ss&i=serifs&l=serifs&zero=slash&asterisk=height&braces=0&preset=monaco&line-height=1.4&email=
 
 # Nerd fonts
 # Cascadia code

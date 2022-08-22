@@ -78,7 +78,7 @@ sed -i -e '$a\eval "$(starship init zsh)"' ~/.zshrc
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Homebrew packages
-brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux starship aria2
+brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux starship aria2 ffmpeg
 
 ######################################## Optional setup ########################################
 

@@ -14,7 +14,7 @@ sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl \
 wget extra-cmake-modules \
-mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext \
+mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf
 
 # Gnome packages / Tweaks
@@ -78,7 +78,7 @@ sed -i -e '$a\eval "$(starship init zsh)"' ~/.zshrc
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Homebrew packages
-brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-modules ninja nano curl tmux starship aria2 ffmpeg micro
+brew install neovim gcc gdb git neofetch the_silver_searcher ninja nano curl tmux starship aria2 ffmpeg micro
 
 ######################################## Optional setup ########################################
 

@@ -85,6 +85,8 @@ brew install neovim gcc gdb git neofetch the_silver_searcher cmake extra-cmake-m
 echo "Installing powerlevel10k"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
+exho "Installing Kitty"
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # ZSH Manually setup----------------------------------------------------
 # ZSH_THEME="powerlevel10k/powerlevel10k"

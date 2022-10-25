@@ -15,7 +15,8 @@ gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl \
 wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext ninja-build \
-libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf
+libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
+neofetch silversearcher-ag aria2 ffmpeg
 
 # Gnome packages / Tweaks
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
@@ -70,15 +71,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
-sed -i -e '$a\export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/sonul/.local/bin:$PATH"' ~/.zshrc
-sed -i -e '$a\eval "$(starship init zsh)"' ~/.zshrc
-
-# Install homebrew
-# https://brew.sh/
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Homebrew packages
-brew install neovim gcc gdb git neofetch the_silver_searcher ninja nano curl tmux starship aria2 ffmpeg micro
+sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.zshrc
 
 ######################################## Optional setup ########################################
 

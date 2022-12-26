@@ -16,7 +16,7 @@ htop xclip meld curl \
 wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
-neofetch silversearcher-ag aria2 ffmpeg aptitude tlp tlp-rdw
+neofetch silversearcher-ag aria2 ffmpeg aptitude tlp tlp-rdw nomacs
 
 # Gnome packages / Tweaks
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'

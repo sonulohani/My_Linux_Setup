@@ -140,3 +140,9 @@ deb-get install google-chrome-stable code fsearch
 echo "Removing unnecessary packages"
 # sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
 # sudo apt autoremove --purge -y
+
+# Linux mint bluetooth
+sudo systemctl enable --now bluetooth
+
+# Virtualbox
+sudo usermod -a -G vboxsf "$USER"

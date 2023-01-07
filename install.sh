@@ -12,11 +12,16 @@ sudo apt update && sudo apt upgrade -y
 echo "Installing essential packages"
 sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
-htop xclip meld curl \
-wget extra-cmake-modules \
-mesa-common-dev libglu1-mesa-dev vlc flatpak gimp zsh gettext ninja-build \
+htop xclip meld curl wget extra-cmake-modules \
+mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
-neofetch silversearcher-ag aria2 ffmpeg aptitude tlp tlp-rdw nomacs mpv
+neofetch silversearcher-ag aria2 ffmpeg aptitude nomacs mpv
+
+# Tlp
+sudo apt install tlp tlp-rdw
+
+# Zsh
+sudo apt install zsh
 
 # Gnome packages / Tweaks
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
@@ -43,6 +48,10 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
+
+# oh-my-bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.bashrc
 
 echo "Install ohmyzsh"
 cd ${HOME}

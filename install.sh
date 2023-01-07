@@ -22,11 +22,6 @@ neofetch silversearcher-ag aria2 ffmpeg aptitude tlp tlp-rdw nomacs mpv
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 sudo apt install gnome-tweaks gnome-shell-extensions
 
-# Fsearch installation
-sudo add-apt-repository ppa:christian-boxdoerfer/fsearch-stable
-sudo apt update
-sudo apt install fsearch
-
 # To remove apt key deprecated warning due to above commands follow the instruction here: 
 # https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system
 
@@ -45,16 +40,6 @@ ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
-
-# tmux
-cd
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-# For more info: https://www.youtube.com/watch?v=cPWEX2446B4
-
-echo "Installing Spacevim"
-curl -sLf https://spacevim.org/install.sh | bash
 
 echo "Enabling firewall"
 sudo systemctl enable ufw

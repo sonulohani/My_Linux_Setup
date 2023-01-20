@@ -46,6 +46,10 @@ eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
+# Vim plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 echo "Enabling firewall"
 sudo systemctl enable ufw
 

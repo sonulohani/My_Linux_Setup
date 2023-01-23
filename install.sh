@@ -151,5 +151,5 @@ echo "Removing unnecessary packages"
 # Linux mint bluetooth
 sudo systemctl enable --now bluetooth
 
-# Virtualbox
-sudo usermod -a -G vboxsf "$USER"
+# Damask
+flatpak install flathub app.drey.Damask

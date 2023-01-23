@@ -7,10 +7,14 @@ SCRIPT_DIR=$(pwd)
 sudo apt install -y timeshift
 
 echo "Updating the system"
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt install nala
+sudo nala fetch
+sudo nala update
+sudo nala upgrade
 
 echo "Installing essential packages"
-sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
+sudo nala install -y python3-pip build-essential binutils cmake-qt-gui \
 gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
@@ -18,14 +22,14 @@ libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
 neofetch silversearcher-ag aria2 ffmpeg aptitude nomacs mpv
 
 # Tlp
-sudo apt install tlp tlp-rdw
+sudo nala install tlp tlp-rdw
 
 # Zsh
-sudo apt install zsh
+sudo nala install zsh
 
 # Gnome packages / Tweaks
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-sudo apt install gnome-tweaks gnome-shell-extensions
+sudo nala install gnome-tweaks gnome-shell-extensions
 
 # To remove apt key deprecated warning due to above commands follow the instruction here: 
 # https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system
@@ -52,6 +56,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
+
+# LLVM Clang
+sudo nala install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
+libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
+libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang 
 
 # oh-my-bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"

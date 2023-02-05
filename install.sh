@@ -20,11 +20,17 @@ neofetch silversearcher-ag aria2 ffmpeg aptitude nomacs mpv
 # Tlp
 sudo apt install tlp tlp-rdw
 
+# LLVM Clang
+sudo apt install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
+libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
+libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang 
+
 # Zsh
 sudo apt install zsh
 
 # Gnome packages / Tweaks
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
 sudo apt install gnome-tweaks gnome-shell-extensions
 
 # To remove apt key deprecated warning due to above commands follow the instruction here: 
@@ -52,11 +58,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 echo "Enabling firewall"
 sudo systemctl enable ufw
-
-# LLVM Clang
-sudo apt install clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
-libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
-libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang 
 
 # oh-my-bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"

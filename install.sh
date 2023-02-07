@@ -148,5 +148,5 @@ echo "Removing unnecessary packages"
 # Linux mint bluetooth
 sudo systemctl enable --now bluetooth
 
-# Damask
-flatpak install flathub app.drey.Damask
+# Paint Program
+flatpak install flathub org.kde.kolourpaint

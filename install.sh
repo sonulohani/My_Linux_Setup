@@ -59,10 +59,6 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 echo "Enabling firewall"
 sudo systemctl enable ufw
 
-# oh-my-bash
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.bashrc
-
 echo "Install ohmyzsh"
 cd ${HOME}
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -150,3 +146,7 @@ sudo systemctl enable --now bluetooth
 
 # Paint Program
 flatpak install flathub org.kde.kolourpaint
+
+# oh-my-bash
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.bashrc

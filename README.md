@@ -95,41 +95,6 @@ sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting
 sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.zshrc
 ```
 
-######################################## Optional setup ########################################
-
-### Installing powerlevel10k
-
-```
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-```
-
-<!-- To remove apt key deprecated warning due to above commands follow the instruction here: 
-https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system -->
-
-### Installing optional packages
-
-```
-sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qt5-default obs-studio
-```
-
-### Extra
-
-#### Removing unnecessary packages
-```
-sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
-sudo apt autoremove --purge -y
-```
-
-#### Linux mint bluetooth
-```
-sudo systemctl enable --now bluetooth
-```
-
-### Paint Program
-```
-flatpak install flathub org.kde.kolourpaint
-```
-
 ### Neovim init.vim
 ```
 mkdir -p ~/.config/nvim && cat <<EOF >~/.config/nvim/init.vim
@@ -166,4 +131,39 @@ let mapleader=","
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 EOF
+```
+
+######################################## Optional setup ########################################
+
+### Installing powerlevel10k
+
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+<!-- To remove apt key deprecated warning due to above commands follow the instruction here: 
+https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system -->
+
+### Installing optional packages
+
+```
+sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qt5-default obs-studio
+```
+
+### Extra
+
+#### Removing unnecessary packages
+```
+sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
+sudo apt autoremove --purge -y
+```
+
+#### Linux mint bluetooth
+```
+sudo systemctl enable --now bluetooth
+```
+
+### Paint Program
+```
+flatpak install flathub org.kde.kolourpaint
 ```

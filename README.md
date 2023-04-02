@@ -132,7 +132,7 @@ flatpak install flathub org.kde.kolourpaint
 
 ### Neovim init.vim
 ```
-mkdir -p ~/.config/nvim && cat <<EOF >init.vim
+mkdir -p ~/.config/nvim && cat <<EOF >~/.config/nvim/init.vim
 call plug#begin()
 
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar

@@ -117,9 +117,14 @@ EOF
 ```
 
 ### Fonts
-1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)<br>
-2. [Fira code](https://github.com/tonsky/FiraCode)<br>
-3. [Iosevka Font](https://github.com/be5invis/Iosevka)<br>
+1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)
+2. [Fira code](https://github.com/tonsky/FiraCode)
+3. [Iosevka Font](https://github.com/be5invis/Iosevka)
+
+### Deb softwares
+1. [Google chrome](https://www.google.com/intl/en_in/chrome/)
+2. [VS Code](https://code.visualstudio.com/)
+3. [Edge](https://www.microsoft.com/en-gb/edge)
 
 ######################################## Optional setup ########################################
 

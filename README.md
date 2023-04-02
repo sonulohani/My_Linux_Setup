@@ -116,6 +116,11 @@ let g:NERDTreeDirArrowCollapsible="~"
 EOF
 ```
 
+### Fonts
+1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)<br>
+2. [Fira code](https://github.com/tonsky/FiraCode)<br>
+3. [Iosevka Font](https://github.com/be5invis/Iosevka)<br>
+
 ######################################## Optional setup ########################################
 
 ### Tlp

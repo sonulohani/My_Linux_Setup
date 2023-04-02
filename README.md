@@ -132,6 +132,7 @@ flatpak install flathub org.kde.kolourpaint
 
 ### Neovim init.vim
 ```
+mkdir -p ~/.config/nvim && cat <<EOF >init.vim
 call plug#begin()
 
 Plug 'https://github.com/vim-airline/vim-airline' " Status bar
@@ -164,4 +165,5 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 let mapleader=","
 let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
+EOF
 ```

@@ -1,11 +1,9 @@
 ### Updating the system
-
 ```
 sudo apt update && sudo apt upgrade
 ```
 
 ### Installing essential packages
-
 ```
 sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
@@ -18,14 +16,7 @@ libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev li
 libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh
 ```
 
-### Tlp
-
-```
-sudo apt install tlp tlp-rdw
-```
-
 ### Gnome packages / Tweaks
-
 ```
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
@@ -34,19 +25,16 @@ sudo apt install gnome-tweaks gnome-shell-extensions
 ```
 
 ### Snap refresh
-
 ```
 sudo snap refresh
 ```
 
 ### Configure flathub
-
 ```
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
 ### Configure git username/email
-
 ```
 git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
@@ -59,32 +47,27 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
 ### Vim plug
-
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 
 ### Enabling firewall
-
 ```
 sudo systemctl enable ufw
 ```
 
 ### Install ohmyzsh
-
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ### Installing zsh-autosuggestions
-
 ```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 ### Installing zsh-syntax-highlighting
-
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
@@ -135,8 +118,12 @@ EOF
 
 ######################################## Optional setup ########################################
 
-### Installing powerlevel10k
+### Tlp
+```
+sudo apt install tlp tlp-rdw
+```
 
+### Installing powerlevel10k
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
@@ -145,13 +132,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system -->
 
 ### Installing optional packages
-
 ```
 sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qt5-default obs-studio
 ```
 
 ### Extra
-
 #### Removing unnecessary packages
 ```
 sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot

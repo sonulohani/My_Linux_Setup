@@ -134,6 +134,11 @@ sed -i -e '$a\export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linux
 brew install podman gcc gdb neovim
 ```
 
+### Distrobox
+```
+curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --next --prefix ~/.local
+```
+
 ### Fonts
 1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)
 2. [Fira code](https://github.com/tonsky/FiraCode)

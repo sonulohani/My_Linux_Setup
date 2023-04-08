@@ -74,8 +74,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ```
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
-sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' ~/.zshrc
-sed -i -e '$a\export PATH="/home/sonul/.local/bin:$PATH"' ~/.zshrc
+sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting emoji emotty)/g' ~/.zshrc
 ```
 
 ### Neovim init.vim
@@ -116,17 +115,35 @@ let g:NERDTreeDirArrowCollapsible="~"
 EOF
 ```
 
+### Brew
+
+#### Installing brew
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+#### Adding brew to .zprofile and .zshrc
+```
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/sonul/.zprofile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sed -i -e '$a\export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/sonul/.local/bin:$PATH"' ~/.zshrc
+```
+
+#### Brew install packages
+```
+brew install podman gcc gdb neovim
+```
+
 ### Fonts
 1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)
 2. [Fira code](https://github.com/tonsky/FiraCode)
-3. [Iosevka Font](https://github.com/be5invis/Iosevka)
 
 ### Deb softwares
 1. [Google chrome](https://www.google.com/intl/en_in/chrome/)
 2. [VS Code](https://code.visualstudio.com/)
 3. [Edge](https://www.microsoft.com/en-gb/edge)
 
-######################################## Optional setup ########################################
+## Optional
 
 ### Tlp
 ```

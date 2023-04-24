@@ -184,3 +184,6 @@ sudo systemctl enable --now bluetooth
 ```
 flatpak install flathub org.kde.kolourpaint
 ```
+### Qt alternative tool
+ - Doc link - https://aqtinstall.readthedocs.io/_/downloads/en/latest/pdf/
+ - Tool link - https://github.com/engnr/qt-downloader

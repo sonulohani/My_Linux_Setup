@@ -187,3 +187,8 @@ flatpak install flathub org.kde.kolourpaint
 ### Qt alternative tool
  - Doc link - https://aqtinstall.readthedocs.io/_/downloads/en/latest/pdf/
  - Tool link - https://github.com/engnr/qt-downloader
+```
+aqt install-qt linux desktop 6.4.3 gcc_64 -O /home/sonul/Qt
+aqt install-tool linux desktop tools_qtcreator_gui -O /home/sonul/Qt
+aqt install-example linux desktop 6.4.3 -O /home/sonul/Qt/6.4.3/
+```

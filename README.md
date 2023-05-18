@@ -6,7 +6,7 @@ sudo apt update && sudo apt upgrade
 ### Installing essential packages
 ```
 sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
-gufw g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
+g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 neovim htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
@@ -50,11 +50,6 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
-### Enabling firewall
-```
-sudo systemctl enable ufw
 ```
 
 ### Install ohmyzsh
@@ -114,6 +109,9 @@ let g:NERDTreeDirArrowExpandable="+"
 let g:NERDTreeDirArrowCollapsible="~"
 EOF
 ```
+
+### Install opensnitch
+[Opensnitch](https://github.com/evilsocket/opensnitch)
 
 ### Brew
 

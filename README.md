@@ -10,13 +10,20 @@ sudo nala update && sudo nala upgrade
 ```
 sudo nala install -y python3-pip build-essential binutils cmake-qt-gui \
 g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
-neovim htop xclip meld curl wget extra-cmake-modules \
+htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
-neofetch silversearcher-ag aria2 ffmpeg aptitude nomacs mpv \
+neofetch silversearcher-ag aria2 ffmpeg nomacs mpv \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
 libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv
+```
+
+### Neovim
+```
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo nala update && sudo nala install neovim
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 ```
 
 ### Gnome packages / Tweaks

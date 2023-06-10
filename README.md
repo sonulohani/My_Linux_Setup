@@ -56,12 +56,6 @@ ssh-add ${HOME}/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
-### Vim plug
-```
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-
 ### Install ohmyzsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -80,44 +74,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 ```
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting emoji emotty)/g' ~/.zshrc
-```
-
-### Neovim init.vim
-```
-mkdir -p ~/.config/nvim && cat <<EOF >~/.config/nvim/init.vim
-call plug#begin()
-
-Plug 'https://github.com/vim-airline/vim-airline' " Status bar
-Plug 'https://github.com/preservim/nerdtree' " NerdTree
-Plug 'preservim/nerdcommenter'
-
-call plug#end()
-
-filetype plugin indent on
-set number
-set relativenumber
-set mouse=a
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
-set incsearch ignorecase smartcase hlsearch
-set wildmode=longest,list,full wildmenu
-set ruler laststatus=2 showcmd showmode
-set list listchars=trail:»,tab:»-
-set fillchars+=vert:\ 
-set wrap breakindent
-set encoding=utf-8
-set textwidth=0
-set hidden
-set title
-set clipboard+=unnamedplus
-
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-
-let mapleader=","
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
-EOF
 ```
 
 ### Install opensnitch

@@ -1,11 +1,14 @@
+### Install nala
+https://gitlab.com/volian/nala/-/releases
+
 ### Updating the system
 ```
-sudo apt update && sudo apt upgrade
+sudo nala update && sudo nala upgrade
 ```
 
 ### Installing essential packages
 ```
-sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
+sudo nala install -y python3-pip build-essential binutils cmake-qt-gui \
 g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 neovim htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
@@ -21,7 +24,7 @@ libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-vir
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
-sudo apt install gnome-tweaks gnome-shell-extensions
+sudo nala install gnome-tweaks gnome-shell-extensions
 ```
 
 ### Snap refresh

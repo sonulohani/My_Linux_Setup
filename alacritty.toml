@@ -1,6 +1,6 @@
 [window]
 opacity = 1
-decorations = "full"
+decorations = "None"
 
 [scrolling]
 history = 15_000

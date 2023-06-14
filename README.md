@@ -16,7 +16,7 @@ libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
 neofetch silversearcher-ag aria2 ffmpeg nomacs mpv \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
-libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv
+libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv tmux
 ```
 
 ### Neovim
@@ -54,6 +54,21 @@ ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ${HOME}/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
+### Tmux
+```
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
+```
+
+### Add these config 
+```
+nvim .tmux.conf
+// set -g mouse on
+// set -ga terminal-overrides ',*256color*:smcup@:rmcup@'
 ```
 
 ### Install ohmyzsh

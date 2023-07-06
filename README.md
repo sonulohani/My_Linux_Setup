@@ -185,3 +185,5 @@ sudo transactional-update pkg install systemd-zram-service
 ```
 sudo systemctl enable zramswap --now
 ```
+#### For other system zram config
+[ZRam setup link](https://fosspost.org/enable-zram-on-linux-better-system-performance/)

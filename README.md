@@ -19,11 +19,14 @@ libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev li
 libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv tmux
 ```
 
+### Install wezterm
+[Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
+
 ### Neovim
 ```
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo nala update && sudo nala install neovim
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
 
 ### Gnome packages / Tweaks

@@ -177,3 +177,11 @@ aqt install-example linux desktop 6.4.3 -O /home/sonul/Qt/6.4.3/
 
 ### Set path for sudo commands 
 https://superuser.com/a/927599
+
+### For zram in open suse microos
+```
+sudo transactional-update pkg install systemd-zram-service
+```
+```
+sudo systemctl enable zramswap --now
+```

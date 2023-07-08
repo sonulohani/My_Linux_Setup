@@ -132,6 +132,11 @@ curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -
 
 ## Optional
 
+### Arch linux container
+```
+sudo pacman -S gdb clang lldb lld qtcreator qt6 ffmpeg mpv vlc neovim cmake extra-cmake-modules gimp mesa htop neofetch python curl wget ninja meson the_silver_searcher aria2 unzip git base-devel
+```
+
 ### Tlp
 ```
 sudo apt install tlp tlp-rdw

@@ -192,3 +192,6 @@ sudo systemctl enable zramswap --now
 ```
 #### For other system zram config
 [ZRam setup link](https://fosspost.org/enable-zram-on-linux-better-system-performance/)
+
+### Lapce text editor
+https://lapce.dev/

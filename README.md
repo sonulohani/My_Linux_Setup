@@ -195,3 +195,6 @@ sudo systemctl enable zramswap --now
 
 ### Lapce text editor
 https://lapce.dev/
+
+### i3 Multi monitor 
+https://fedoramagazine.org/using-i3-with-multiple-monitors/

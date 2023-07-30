@@ -198,3 +198,9 @@ https://lapce.dev/
 
 ### i3 Multi monitor 
 https://fedoramagazine.org/using-i3-with-multiple-monitors/
+
+### Some Other i3 Config 
+https://github.com/Raymo111/i3lock-color
+https://itsfoss.com/i3-customization/
+https://jasoneckert.github.io/myblog/configuring-i3/
+https://github.com/denisse-dev/dotfiles

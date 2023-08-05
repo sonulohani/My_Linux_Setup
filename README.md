@@ -1,14 +1,11 @@
-### Install nala
-https://gitlab.com/volian/nala/-/releases
-
 ### Updating the system
 ```
-sudo nala update && sudo nala upgrade
+sudo apt update && sudo apt upgrade
 ```
 
 ### Installing essential packages
 ```
-sudo nala install -y python3-pip build-essential binutils cmake-qt-gui \
+sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
@@ -22,19 +19,12 @@ libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-vir
 ### Install wezterm
 [Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
 
-### Neovim
-```
-sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo nala update && sudo nala install neovim
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-```
-
 ### Gnome packages / Tweaks
 ```
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
-sudo nala install gnome-tweaks gnome-shell-extensions
+sudo apt install gnome-tweaks gnome-shell-extensions
 ```
 
 ### Snap refresh
@@ -53,10 +43,6 @@ git config --global user.name "Sonu Lohani"
 git config --global user.email "sonulohani@gmail.com"
 git config --global merge.tool meld
 git config --global diff.tool meld
-ssh-keygen -t rsa -b 4096 -C "sonulohani@gmail.com"
-eval "$(ssh-agent -s)"
-ssh-add ${HOME}/.ssh/id_rsa
-xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
 ### Tmux
@@ -70,8 +56,8 @@ cp .tmux/.tmux.conf.local .
 ### Add these config 
 ```
 nvim .tmux.conf
-// set -g mouse on
-// set -ga terminal-overrides ',*256color*:smcup@:rmcup@'
+set -g mouse on
+set -ga terminal-overrides ',*256color*:smcup@:rmcup@'
 ```
 
 ### Install ohmyzsh
@@ -90,30 +76,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 ```
 
 ```
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="random"/g' ~/.zshrc
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting emoji emotty)/g' ~/.zshrc
-```
-
-### Install opensnitch
-[Opensnitch](https://github.com/evilsocket/opensnitch)
-
-### Brew
-
-#### Installing brew
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-#### Adding brew to .zprofile and .zshrc
-```
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> /home/sonul/.zprofile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-sed -i -e '$a\export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/home/sonul/.local/bin:$PATH"' ~/.zshrc
-```
-
-#### Brew install packages
-```
-brew install podman gcc gdb neovim
 ```
 
 ### Distrobox
@@ -135,11 +98,6 @@ curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -
 ### Arch linux container
 ```
 sudo pacman -S gdb clang lldb lld qtcreator qt6 ffmpeg mpv vlc neovim cmake extra-cmake-modules gimp mesa htop neofetch python curl wget ninja meson the_silver_searcher aria2 unzip git base-devel pcmanfm gnome-terminal gnome-text-editor python-pip rust xclip
-```
-
-### Tlp
-```
-sudo apt install tlp tlp-rdw
 ```
 
 ### Installing powerlevel10k
@@ -171,14 +129,6 @@ sudo systemctl enable --now bluetooth
 ```
 flatpak install flathub org.kde.kolourpaint
 ```
-### Qt alternative tool
- - Doc link - https://aqtinstall.readthedocs.io/_/downloads/en/latest/pdf/
- - Tool link - https://github.com/engnr/qt-downloader
-```
-aqt install-qt linux desktop 6.4.3 gcc_64 -O /home/sonul/Qt
-aqt install-tool linux desktop tools_qtcreator_gui -O /home/sonul/Qt
-aqt install-example linux desktop 6.4.3 -O /home/sonul/Qt/6.4.3/
-```
 
 ### Set path for sudo commands 
 https://superuser.com/a/927599
@@ -196,11 +146,3 @@ sudo systemctl enable zramswap --now
 ### Lapce text editor
 https://lapce.dev/
 
-### i3 Multi monitor 
-https://fedoramagazine.org/using-i3-with-multiple-monitors/
-
-### Some Other i3 Config 
-https://github.com/Raymo111/i3lock-color
-https://itsfoss.com/i3-customization/
-https://jasoneckert.github.io/myblog/configuring-i3/
-https://github.com/denisse-dev/dotfiles

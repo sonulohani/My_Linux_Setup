@@ -14,7 +14,7 @@ neofetch silversearcher-ag aria2 ffmpeg nomacs mpv \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
 libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv tmux preload \
-ripgrep fdfind
+ripgrep fd-find
 ```
 
 ### Install wezterm

@@ -13,12 +13,13 @@ end
 -- This is where you actually apply your config choices
 
 -- For example, changing the color scheme:
-config.color_scheme = 'Gruvbox dark, medium (base16)'
+config.color_scheme = 'Catppuccin Mocha'
 config.enable_scroll_bar = true
-config.font = wezterm.font('CaskaydiaCove Nerd Font')
+config.font = wezterm.font('Monolisa Nerd Font')
 config.font_size = 11.0
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.95
+config.use_fancy_tab_bar = false
 
 -- and finally, return the configuration to wezterm
 return config

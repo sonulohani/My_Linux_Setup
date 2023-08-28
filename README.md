@@ -144,6 +144,19 @@ sudo systemctl enable zramswap --now
 #### For other system zram config
 [ZRam setup link](https://fosspost.org/enable-zram-on-linux-better-system-performance/)
 
+###  Best gnome extension
+1. https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/
+2. https://extensions.gnome.org/extension/4269/alphabetical-app-grid/
+3. https://extensions.gnome.org/extension/517/caffeine/
+4. https://extensions.gnome.org/extension/3396/color-picker/
+5. https://extensions.gnome.org/extension/4451/logo-menu/
+6. https://extensions.gnome.org/extension/19/user-themes/
+7. https://extensions.gnome.org/extension/779/clipboard-indicator/
+8. https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/
+9. https://extensions.gnome.org/extension/615/appindicator-support/
+10. https://extensions.gnome.org/extension/1460/vitals/
+11. https://extensions.gnome.org/extension/3843/just-perfection/
+
 ### Lapce text editor
 https://lapce.dev/
 

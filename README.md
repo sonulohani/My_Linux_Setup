@@ -3,7 +3,7 @@
 sudo apt update && sudo apt upgrade
 ```
 
-### Installing essential packages
+### Installing essential packages (Ubuntu)
 ```
 sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
@@ -17,15 +17,47 @@ libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-vir
 ripgrep fd-find
 ```
 
+### Installing essential packages (Arch Linux)
+```
+sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator neofetch aria2 zsh tmux gnome-terminal neovim 
+```
+
 ### Install wezterm
 [Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
 
-### Gnome packages / Tweaks
+### Gnome packages / Tweaks (Ubuntu)
 ```
 gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
 sudo apt install gnome-tweaks gnome-shell-extensions
+```
+
+### Gnome packages / Tweaks (Arch Linux)
+```
+gsettings set org.gnome.mutter center-new-windows true
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
+sudo pacman -S --needed gnome-tweaks gnome-browser-connector gnome-shell-extensions
+```
+
+### Yay packages
+```
+yay timeshift visual-studio-code-bin google-chrome
+```
+
+### Lazy vim
+#### If neovim config is present in the system
+```
+# required
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.local/state/nvim
+rm -rf ~/.cache/nvim
+```
+```
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 ```
 
 ### Snap refresh

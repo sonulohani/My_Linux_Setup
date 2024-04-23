@@ -194,3 +194,17 @@ https://lapce.dev/
 
 ### Podman backup and restore
 https://fedoramagazine.org/backup-and-restore-toolboxes-with-podman/
+
+### Show icon in dash to dock
+Launch one such application, say Terminator, whose correct icon is not seen in Ubuntu Dock.
+Run xprop WM_CLASS in Terminal. The cursor should turn into a crosshair.
+Place the crosshair over Terminator and click. You should get a WM_CLASS string for Terminator.
+
+Open Terminator's .desktop file and add the following line
+
+StartupWMClass=OBTAINED-VALUE
+
+In place of OBTAINED-VALUE put a value you got from step 3 without any quotes.
+
+Save the .desktop file.
+

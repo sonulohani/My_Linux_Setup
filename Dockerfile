@@ -18,15 +18,22 @@ RUN add-apt-repository ppa:zhangsongcui3371/fastfetch && apt-get update && apt i
 RUN nala update && nala install -y sudo
 
 # Set password variable
+ARG USERNAME=ubuntu
 ARG PASSWORD=docker
+
+# Create a new user
+# RUN useradd -m $USERNAME
+
+RUN usermod -aG sudo,audio,dip,video $USERNAME
 
 # Generate password hash
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    openssl \
-  && rm -rf /var/lib/apt/lists/* \
-  && usermod --lock root \
-  && echo "ubuntu:$PASSWORD" | chpasswd \
-  && usermod --unlock root
+   openssl \
+ && rm -rf /var/lib/apt/lists/* \
+ && usermod --lock root \
+ && echo "$USERNAME:$PASSWORD" | chpasswd \
+ && usermod --unlock root \
+ && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-# Set default user
-USER ubuntu
+# Set the default user
+USER $USERNAME

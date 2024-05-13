@@ -5,7 +5,7 @@
 5. `docker stop $(docker ps -q)`
 6. `docker rm -f <container_id>`
 7. `docker start my_container`
-8. `docker run -it --rm --privileged --net=host -e DISPLAY=$DISPLAY -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR --name ubuntu-rolling --user=$(id -u):$(id -g) -v /home/sonul/Documents/docker/InsideDocker/home/ubuntu:/home/ubuntu -v /run/user/$(id -u):/run/user/1000 --device /dev/snd:/dev/snd ubuntu_rolling_image zsh`
+8. `docker run -it --rm --privileged --net=host -e DISPLAY=$DISPLAY -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY -e XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR --name ubuntu-rolling --user=$(id -u):$(id -g) -v /home/sonul/Documents/docker/InsideDocker/home/ubuntu:/home/ubuntu -v /run/user/$(id -u):/run/user/1000 -v /tmp:/tmp ubuntu_rolling_image zsh`
 9. for running gui apps and audio do this in docker container: `sudo chown -R 1000:1000 /run/user/1000/*`
 
 

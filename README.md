@@ -19,7 +19,17 @@ ripgrep fd-find
 
 ### Installing essential packages (Arch Linux)
 ```
-sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator neofetch aria2 zsh tmux gnome-terminal neovim podman distrobox
+sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift podman distrobox
+```
+
+```
+yay -S fastfetch
+yay -S bibata-cursor-theme
+yay -S nomacs
+yay -S timeshift-autosnap
+yay -S timeshift-systemd-timer
+yay -S microsoft-edge-stable-bin
+yay -S visual-studio-code-bin
 ```
 
 ### Install wezterm

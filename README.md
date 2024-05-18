@@ -138,6 +138,9 @@ sudo pacman -S gdb clang lldb lld qtcreator qt6 ffmpeg mpv vlc neovim cmake extr
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
+### Alternate zsh theme
+xiong-chiamiov-plus
+
 <!-- To remove apt key deprecated warning due to above commands follow the instruction here: 
 https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system -->
 

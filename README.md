@@ -41,6 +41,7 @@ gsettings set org.gnome.mutter center-new-windows true
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
 sudo apt install gnome-tweaks gnome-shell-extensions
+gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
 ```
 
 ### Gnome packages / Tweaks (Arch Linux)

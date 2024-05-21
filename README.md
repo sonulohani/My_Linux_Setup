@@ -31,6 +31,10 @@ yay -S timeshift-systemd-timer
 yay -S microsoft-edge-stable-bin
 yay -S visual-studio-code-bin
 ```
+### For Microsoft surface laptop
+```
+sudo pacman -S linux-firmware-marvell
+```
 
 ### Install wezterm
 [Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)

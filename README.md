@@ -206,9 +206,6 @@ sudo systemctl enable zramswap --now
 10. https://extensions.gnome.org/extension/1460/vitals/
 11. https://extensions.gnome.org/extension/3843/just-perfection/
 
-### Lapce text editor
-https://lapce.dev/
-
 ### Podman backup and restore
 https://fedoramagazine.org/backup-and-restore-toolboxes-with-podman/
 
@@ -225,3 +222,7 @@ In place of OBTAINED-VALUE put a value you got from step 3 without any quotes.
 
 Save the .desktop file.
 
+# Enable fractional scaling in gnome wayland
+```
+gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+```

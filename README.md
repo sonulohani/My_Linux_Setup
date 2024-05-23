@@ -23,7 +23,7 @@ sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep
 ```
 
 ```
-yay -S fastfetch bibata-cursor-theme nomacs timeshift-autosnap timeshift-systemd-timer microsoft-edge-stable-bin visual-studio-code-bin
+yay -S fastfetch bibata-cursor-theme nomacs timeshift-autosnap timeshift-systemd-timer microsoft-edge-stable-bin visual-studio-code-bin chrome-gnome-shell
 ```
 ### For Microsoft surface laptop
 ```

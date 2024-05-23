@@ -19,21 +19,20 @@ ripgrep fd-find
 
 ### Installing essential packages (Arch Linux)
 ```
-sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift pinta podman distrobox
+sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift pinta podman distrobox intel-ucode
 ```
 
 ```
-yay -S fastfetch
-yay -S bibata-cursor-theme
-yay -S nomacs
-yay -S timeshift-autosnap
-yay -S timeshift-systemd-timer
-yay -S microsoft-edge-stable-bin
-yay -S visual-studio-code-bin
+yay -S fastfetch bibata-cursor-theme nomacs timeshift-autosnap timeshift-systemd-timer microsoft-edge-stable-bin visual-studio-code-bin
 ```
 ### For Microsoft surface laptop
 ```
 sudo pacman -S linux-firmware-marvell
+```
+### Enable fstrim.timer
+
+```
+sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer
 ```
 
 ### Install wezterm

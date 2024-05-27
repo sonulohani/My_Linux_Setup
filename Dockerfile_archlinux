@@ -1,0 +1,41 @@
+FROM docker.io/library/archlinux:latest
+
+# Modify pacman.conf to enable parallel downloads of 15
+RUN sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 15/' /etc/pacman.conf
+
+# Update the system and install necessary packages
+RUN pacman -Syu --noconfirm
+
+RUN pacman -Sy --noconfirm reflector
+
+RUN reflector --country 'India' --sort rate --number 3 --save /etc/pacman.d/mirrorlist
+
+RUN pacman -Syu --noconfirm
+
+# Set password variable
+ARG USERNAME=sonul
+ARG PASSWORD=docker
+
+# Optionally, install some packages to test parallel downloads
+RUN pacman -Sy --noconfirm sudo base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja ffmpeg aria2 zsh gnome-terminal neovim btop
+
+# RUN pacman -Sy --noconfirm --needed git base-devel && git clone --depth=1 https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+
+RUN useradd -m -u 1000 -G wheel -s /bin/zsh $USERNAME
+
+RUN echo "$USERNAME:$PASSWORD" | chpasswd
+
+# Add 'myuser' to the 'sudo' group
+RUN groupadd sudo && usermod -aG sudo $USERNAME
+
+# Allow 'wheel' group users to use sudo without password (optional, for convenience)
+# RUN sed -i 's/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/' /etc/sudoers
+# RUN echo '%sudo ALL=(ALL:ALL) ALL' >> /etc/sudoers
+RUN echo "$USERNAME  ALL=(ALL) ALL" >> /etc/sudoers
+
+# Switch to 'myuser' (optional, if you want to run further commands as 'myuser')
+USER $USERNAME
+
+# Default command
+CMD ["/bin/zsh"]
+

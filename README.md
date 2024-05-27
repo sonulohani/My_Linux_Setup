@@ -35,6 +35,11 @@ sudo pacman -S linux-firmware-marvell
 sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer
 ```
 
+### Enable ufw
+```
+sudo ufw enable
+```
+
 ### Install wezterm
 [Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
 
@@ -226,3 +231,7 @@ Save the .desktop file.
 ```
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 ```
+
+### Rofi and dynamic wallpaper config
+[Rofi Config](https://github.com/adi1090x/rofi)
+[Dynamic Wallpaper](https://github.com/adi1090x/dynamic-wallpaper)

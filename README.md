@@ -242,3 +242,8 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 ### Rofi and dynamic wallpaper config
 [Rofi Config](https://github.com/adi1090x/rofi)
 [Dynamic Wallpaper](https://github.com/adi1090x/dynamic-wallpaper)
+
+### Disk usage analyzer
+```
+sudo apt install baobab
+```

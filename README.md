@@ -22,15 +22,22 @@ ripgrep fd-find
 sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift pinta podman distrobox intel-ucode gufw
 ```
 
+### Installing yay
+```
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+### Installing packages from AUR
 ```
 yay -S fastfetch bibata-cursor-theme nomacs timeshift-autosnap timeshift-systemd-timer microsoft-edge-stable-bin visual-studio-code-bin chrome-gnome-shell
 ```
+
 ### For Microsoft surface laptop
 ```
 sudo pacman -S linux-firmware-marvell
 ```
-### Enable fstrim.timer
 
+### Enable fstrim.timer
 ```
 sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer
 ```

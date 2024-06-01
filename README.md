@@ -185,9 +185,9 @@ sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
 sudo apt autoremove --purge -y
 ```
 
-#### Linux mint bluetooth
+#### Start Bluetooth
 ```
-sudo systemctl enable --now bluetooth
+sudo systemctl enable bluetooth.service && sudo systemctl start bluetooth.service 
 ```
 
 ### Paint Program

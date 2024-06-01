@@ -32,7 +32,7 @@ sudo pacman -S timeshift-autosnap pamac-aur bibata-cursor-theme nomacs microsoft
 
 ### Installing packages from AUR
 ```
-pamac install timeshift-systemd-timer chrome-gnome-shell
+yay -Syu timeshift-systemd-timer chrome-gnome-shell
 ```
 
 ### For Microsoft surface laptop

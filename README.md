@@ -22,14 +22,17 @@ ripgrep fd-find
 sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift pinta podman distrobox intel-ucode gufw
 ```
 
-### Installing yay
+### Chaotic AUR
+https://aur.chaotic.cx/
+
+### From Chaotic AUR
 ```
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S timeshift-autosnap pamac-aur bibata-cursor-theme nomacs microsoft-edge-stable-bin visual-studio-code-bin yay fastfetch
 ```
 
 ### Installing packages from AUR
 ```
-yay -S fastfetch bibata-cursor-theme nomacs timeshift-autosnap timeshift-systemd-timer microsoft-edge-stable-bin visual-studio-code-bin chrome-gnome-shell
+pamac install timeshift-systemd-timer chrome-gnome-shell
 ```
 
 ### For Microsoft surface laptop

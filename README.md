@@ -27,7 +27,7 @@ https://aur.chaotic.cx/
 
 ### From Chaotic AUR
 ```
-sudo pacman -S timeshift-autosnap pamac-aur bibata-cursor-theme nomacs microsoft-edge-stable-bin visual-studio-code-bin yay fastfetch
+sudo pacman -S timeshift-autosnap pamac-aur bibata-cursor-theme nomacs microsoft-edge-stable-bin visual-studio-code-bin yay fastfetch oh-my-posh
 ```
 
 ### Installing packages from AUR
@@ -139,6 +139,11 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ```
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting emoji emotty)/g' ~/.zshrc
+```
+
+### Adding oh-my-posh
+```
+eval "$(oh-my-posh init zsh --config ~/.theme.omp.json)"
 ```
 
 ### Distrobox

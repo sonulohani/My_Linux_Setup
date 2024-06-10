@@ -1,6 +1,6 @@
 format = """
 [░▒▓](#a3aed2)\
-[  ](bg:#a3aed2 fg:#090c0c)\
+${custom.os_icon}\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
 [](fg:#769ff0 bg:#394260)\
@@ -16,8 +16,8 @@ $time\
 [ ](fg:#1d2230)\
 \n$character"""
 
-right_format = """
-${custom.os}"""
+# right_format = """
+# ${custom.os}"""
 
 [directory]
 style = "fg:#e3e5e5 bg:#769ff0"
@@ -73,7 +73,19 @@ source /etc/os-release
 OS_NAME="${ID}-${VERSION_ID}"
 echo ${OS_NAME}
 """
-format = '[$output](white) '
+format = '[[($output) ](fg:#769ff0 bg:#212736)]($style)'
 shell = ['zsh', '-c']
 use_stdin = false
 when = true
+style = "bg:#1d2230"
+
+[custom.os_icon]
+disabled = false
+command = """
+source $HOME/.local/bin/echo_os_icon.sh
+"""
+format = '[ ($output) ]($style)'
+shell = ['zsh', '-c']
+use_stdin = false
+when = true
+style = "bg:#a3aed2 fg:#090c0c"

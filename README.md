@@ -255,3 +255,8 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 ```
 sudo apt install baobab
 ```
+
+### Patching Nerd fonts
+```
+for FONT in static/*; do fontforge -script font-patcher --complete --makegroup 0 $FONT; done
+```

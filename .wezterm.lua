@@ -17,7 +17,7 @@ config.color_scheme = 'Catppuccin Mocha'
 config.enable_scroll_bar = true
 config.font = wezterm.font('Monolisa Nerd Font')
 config.font_size = 11.0
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_background_opacity = 0.95
 config.use_fancy_tab_bar = false
 

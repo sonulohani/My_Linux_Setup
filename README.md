@@ -141,9 +141,20 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting emoji emotty)/g' ~/.zshrc
 ```
 
-### Adding oh-my-posh
+### Installing starship
 ```
-eval "$(oh-my-posh init zsh --config ~/.theme.omp.json)"
+curl -sS https://starship.rs/install.sh | sh
+```
+
+### Installing wezterm
+
+```
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+```
+
+```
+sudo apt update && sudo apt install wezterm
 ```
 
 ### Distrobox

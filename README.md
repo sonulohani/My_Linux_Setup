@@ -13,7 +13,7 @@ libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
 neofetch silversearcher-ag aria2 ffmpeg nomacs mpv \
 clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
-libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv tmux preload \
+libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang zsh uidmap python3-virtualenv preload \
 ripgrep fd-find
 ```
 
@@ -107,14 +107,6 @@ git config --global merge.tool meld
 git config --global diff.tool meld
 ```
 
-### Tmux
-```
-cd
-git clone https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-```
-
 ### Add these config 
 ```
 nvim .tmux.conf
@@ -161,6 +153,8 @@ sudo apt update && sudo apt install wezterm
 ```
 curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --next --prefix ~/.local
 ```
+### Zellij
+https://zellij.dev/
 
 ### Fonts
 1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)

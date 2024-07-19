@@ -138,6 +138,12 @@ sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting
 curl -sS https://starship.rs/install.sh | sh
 ```
 
+### Atuin
+
+```
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+```
+
 ### Installing wezterm
 
 ```

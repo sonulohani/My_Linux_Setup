@@ -240,6 +240,10 @@ sudo systemctl enable zramswap --now
 #### For other system zram config
 [ZRam setup link](https://fosspost.org/enable-zram-on-linux-better-system-performance/)
 
+### Add wezterm in nautilus context menu
+
+https://github.com/Stunkymonkey/nautilus-open-any-terminal
+
 ###  Best gnome extension
 1. https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/
 2. https://extensions.gnome.org/extension/4269/alphabetical-app-grid/

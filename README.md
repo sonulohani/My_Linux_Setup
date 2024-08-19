@@ -70,6 +70,7 @@ sudo ufw enable
 ### Install kitty
 ```
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+cd $HOME/.local/kitty.app
 find . -type f -exec sh -c 'mkdir -p /home/sonul/.local/$(dirname "{}"); ln -s $(realpath "{}") /home/sonul/.local/"{}"' \;
 ```
 

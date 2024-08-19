@@ -67,6 +67,12 @@ sudo ufw enable
 ### Install wezterm
 [Wezterm link](https://wezfurlong.org/wezterm/install/linux.html#installing-on-ubuntu-and-debian-based-systems)
 
+### Install kitty
+```
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+find . -type f -exec sh -c 'mkdir -p /home/sonul/.local/$(dirname "{}"); ln -s $(realpath "{}") /home/sonul/.local/"{}"' \;
+```
+
 ### Gnome packages / Tweaks (Ubuntu)
 ```
 gsettings set org.gnome.mutter center-new-windows true

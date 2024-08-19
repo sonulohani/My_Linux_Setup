@@ -9,10 +9,8 @@ sudo apt install -y python3-pip build-essential binutils cmake-qt-gui \
 g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
-libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
-neofetch silversearcher-ag aria2 ffmpeg nomacs mpv \
-zsh uidmap python3-virtualenv preload \
-ripgrep fd-find bat
+libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf ffmpeg nomacs mpv \
+zsh uidmap python3-virtualenv preload
 ```
 
 ### Clang compiler
@@ -20,6 +18,17 @@ ripgrep fd-find bat
 sudo apt install -y clang-format clang-tidy clang-tools clang clangd libc++-dev libc++1 \
 libc++abi-dev libc++abi1 libclang-dev libclang1 liblldb-dev libllvm-ocaml-dev libomp-dev \
 libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
+```
+
+### Homebrew installation
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Homebrew Pakages
+```
+brew install lazygit fastfetch ripgrep fd aria2 bat
 ```
 
 ### Installing essential packages (Arch Linux)

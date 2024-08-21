@@ -28,7 +28,7 @@ libomp5 lld lldb llvm-dev llvm-runtime llvm python3-clang
 
 ### Homebrew Pakages
 ```
-brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger
+brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
 ```
 
 ### Installing essential packages (Arch Linux)

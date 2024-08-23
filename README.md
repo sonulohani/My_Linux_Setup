@@ -305,3 +305,5 @@ for FONT in static/*; do fontforge -script font-patcher --complete --makegroup 0
 ```
 echo export 'XDG_DATA_DIRS="/opt/myapp/share:$XDG_DATA_DIRS"' >> ~/.xsessionrc
 ```
+
+Taken from: https://unix.stackexchange.com/questions/471327/whats-the-right-way-to-add-directories-to-xdg-data-dirs

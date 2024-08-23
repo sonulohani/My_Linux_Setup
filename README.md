@@ -128,13 +128,6 @@ git config --global merge.tool meld
 git config --global diff.tool meld
 ```
 
-### Add these config 
-```
-nvim .tmux.conf
-set -g mouse on
-set -ga terminal-overrides ',*256color*:smcup@:rmcup@'
-```
-
 ### Install ohmyzsh
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -306,4 +299,9 @@ sudo apt install baobab
 ### Patching Nerd fonts
 ```
 for FONT in static/*; do fontforge -script font-patcher --complete --makegroup 0 $FONT; done
+```
+
+### Add custom share folder
+```
+echo export 'XDG_DATA_DIRS="/opt/myapp/share:$XDG_DATA_DIRS"' >> ~/.xsessionrc
 ```

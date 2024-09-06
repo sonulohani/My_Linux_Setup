@@ -33,7 +33,7 @@ brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
 
 ### Installing essential packages (Arch Linux)
 ```
-sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop timeshift pinta podman distrobox intel-ucode gufw
+sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop pinta podman distrobox intel-ucode gufw
 ```
 
 ### Chaotic AUR
@@ -185,6 +185,18 @@ https://zellij.dev/
 ```
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+```
+
+### Timeshift backup utility
+```
+yay -S timeshift timeshift-autosnap grub-btrfs inotify-tools
+```
+
+#### Configure backup
+sudo /etc/grub.d/41_snapshots-btrfs
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo systemctl edit --full grub-btrfsd
+sudo systemctl enable grub-btrfsd && sudo systemctl start grub-btrfsd
 ```
 
 ### Fonts

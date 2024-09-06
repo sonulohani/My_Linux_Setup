@@ -196,7 +196,7 @@ yay -S timeshift timeshift-autosnap grub-btrfs inotify-tools
 ```
 sudo /etc/grub.d/41_snapshots-btrfs
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo systemctl edit --full grub-btrfsd
+sudo systemctl edit --full grub-btrfsd #Change to this "ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto"
 sudo systemctl enable grub-btrfsd && sudo systemctl start grub-btrfsd
 ```
 

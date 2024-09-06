@@ -193,6 +193,7 @@ yay -S timeshift timeshift-autosnap grub-btrfs inotify-tools
 ```
 
 #### Configure backup
+```
 sudo /etc/grub.d/41_snapshots-btrfs
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 sudo systemctl edit --full grub-btrfsd

@@ -198,6 +198,8 @@ sudo systemctl edit --full grub-btrfsd # Change to this "ExecStart=/usr/bin/grub
 sudo systemctl enable grub-btrfsd && sudo systemctl start grub-btrfsd
 ```
 
+More on this: https://www.youtube.com/watch?v=V1wxgWU0j0E
+
 ### Fonts
 1. [Nerd fonts](https://www.nerdfonts.com/font-downloads)
 2. [Fira code](https://github.com/tonsky/FiraCode)

@@ -33,7 +33,7 @@ brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
 
 ### Installing essential packages (Arch Linux)
 ```
-sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop pinta podman distrobox intel-ucode gufw thunar
+sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop pinta podman distrobox intel-ucode gufw thunar catfish thunar-archive-plugin
 ```
 
 ### Thunar - Configure open in terminal 

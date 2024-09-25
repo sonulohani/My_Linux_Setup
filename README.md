@@ -37,9 +37,7 @@ sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep
 ```
 
 ### Thunar - Configure open in terminal 
-```
 https://askubuntu.com/a/1462901
-```
 
 ### Chaotic AUR
 https://aur.chaotic.cx/

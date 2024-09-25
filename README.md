@@ -36,6 +36,11 @@ brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
 sudo pacman -S --needed base-devel binutils cmake extra-cmake-modules fd ripgrep gdb clang lld lldb git htop xclip meld curl wget mesa meson ninja vlc mpv ffmpeg gimp qt6 qtcreator aria2 zsh tmux gnome-terminal neovim papirus-icon-theme btop pinta podman distrobox intel-ucode gufw thunar catfish thunar-archive-plugin xarchiver
 ```
 
+### Make thunar default file manager
+```
+xdg-mime default thunar.desktop inode/directory
+```
+
 ### Thunar - Configure open in terminal 
 https://askubuntu.com/a/1462901
 

@@ -328,3 +328,6 @@ echo export 'XDG_DATA_DIRS="/opt/myapp/share:$XDG_DATA_DIRS"' >> ~/.xsessionrc
 ```
 
 Taken from: https://unix.stackexchange.com/questions/471327/whats-the-right-way-to-add-directories-to-xdg-data-dirs
+
+# Docker: Non Shared Mounts
+https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared-mounts

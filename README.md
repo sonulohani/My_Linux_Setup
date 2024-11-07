@@ -186,6 +186,11 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 ```
 sudo apt update && sudo apt install wezterm
 ```
+### Superfile
+
+```
+bash -c "$(curl -sLo- https://superfile.netlify.app/install.sh)"
+```
 
 ### Distrobox
 ```

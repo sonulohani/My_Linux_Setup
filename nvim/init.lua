@@ -1,6 +1,2 @@
-vim.loader.enable()
-
-require('settings')
-require('plugins')
-require('keybinds')
-require('mason-config')
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

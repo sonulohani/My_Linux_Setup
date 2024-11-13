@@ -239,9 +239,6 @@ sudo pacman -S gdb clang lldb lld qtcreator qt6 ffmpeg mpv vlc neovim cmake extr
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-### Alternate zsh theme
-xiong-chiamiov-plus
-
 <!-- To remove apt key deprecated warning due to above commands follow the instruction here: 
 https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updating-system -->
 
@@ -251,20 +248,10 @@ sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator s
 ```
 
 ### Extra
-#### Removing unnecessary packages
-```
-sudo apt purge -y thunderbird gnome-mahjongg gnome-mines gnome-sudoku aisleriot
-sudo apt autoremove --purge -y
-```
 
 #### Start Bluetooth
 ```
 sudo systemctl enable bluetooth.service && sudo systemctl start bluetooth.service 
-```
-
-### Paint Program
-```
-flatpak install flathub org.kde.kolourpaint
 ```
 
 ### Set path for sudo commands 
@@ -297,9 +284,6 @@ https://github.com/Stunkymonkey/nautilus-open-any-terminal
 10. https://extensions.gnome.org/extension/1460/vitals/
 11. https://extensions.gnome.org/extension/3843/just-perfection/
 
-### Podman backup and restore
-https://fedoramagazine.org/backup-and-restore-toolboxes-with-podman/
-
 ### Show icon in dash to dock
 Launch one such application, say Terminator, whose correct icon is not seen in Ubuntu Dock.
 Run xprop WM_CLASS in Terminal. The cursor should turn into a crosshair.
@@ -317,10 +301,6 @@ Save the .desktop file.
 ```
 gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
 ```
-
-### Rofi and dynamic wallpaper config
-[Rofi Config](https://github.com/adi1090x/rofi)
-[Dynamic Wallpaper](https://github.com/adi1090x/dynamic-wallpaper)
 
 ### Disk usage analyzer
 ```
@@ -341,3 +321,7 @@ Taken from: https://unix.stackexchange.com/questions/471327/whats-the-right-way-
 
 # Docker: Non Shared Mounts
 https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared-mounts
+
+### Drawpile
+
+[Download link](https://github.com/drawpile/drawpile)

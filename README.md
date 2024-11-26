@@ -10,7 +10,7 @@ g++ gdb git rar unrar p7zip-full p7zip-rar fonts-dejavu \
 htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev vlc flatpak gimp gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf ffmpeg nomacs mpv \
-zsh uidmap python3-virtualenv preload cgroupfs-mount
+zsh uidmap python3-virtualenv preload cgroupfs-mount mc
 ```
 
 ### Clang compiler

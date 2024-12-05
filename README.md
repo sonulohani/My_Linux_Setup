@@ -307,10 +307,6 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 sudo apt install baobab
 ```
 
-### PDF arranger
-
-(Download link)[https://flathub.org/apps/com.github.jeromerobert.pdfarranger]
-
 ### Patching Nerd fonts
 ```
 for FONT in static/*; do fontforge -script font-patcher --complete --makegroup 0 $FONT; done
@@ -329,3 +325,7 @@ https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared
 ### Drawpile
 
 [Download link](https://github.com/drawpile/drawpile)
+
+### PDF arranger
+
+[Download link](https://flathub.org/apps/com.github.jeromerobert.pdfarranger)

@@ -218,3 +218,8 @@ https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared
 ### PDF arranger
 
 [Download link](https://flathub.org/apps/com.github.jeromerobert.pdfarranger)
+
+### Upsacyl
+```
+flatpak install flathub org.upscayl.Upscayl
+```

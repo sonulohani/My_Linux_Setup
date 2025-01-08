@@ -21,7 +21,7 @@ zsh python3-virtualenv preload mc
 
 ### Homebrew Pakages
 ```
-brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
+brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli hwatch
 ```
 
 ### Chaotic AUR

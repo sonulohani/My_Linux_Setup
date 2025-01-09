@@ -223,3 +223,7 @@ https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared
 ```
 flatpak install flathub org.upscayl.Upscayl
 ```
+
+### ExcaliDraw
+
+[Link to access](https://github.com/excalidraw/excalidraw)

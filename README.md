@@ -21,7 +21,7 @@ zsh python3-virtualenv preload mc
 
 ### Homebrew Pakages
 ```
-brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli
+brew install lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli hwatch
 ```
 
 ### Chaotic AUR
@@ -218,3 +218,12 @@ https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared
 ### PDF arranger
 
 [Download link](https://flathub.org/apps/com.github.jeromerobert.pdfarranger)
+
+### Upsacyl
+```
+flatpak install flathub org.upscayl.Upscayl
+```
+
+### ExcaliDraw
+
+[Link to access](https://github.com/excalidraw/excalidraw)

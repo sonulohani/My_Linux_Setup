@@ -227,3 +227,6 @@ flatpak install flathub org.upscayl.Upscayl
 ### ExcaliDraw
 
 [Link to access](https://github.com/excalidraw/excalidraw)
+
+### Kitty Terminfo
+[Link to access](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work)

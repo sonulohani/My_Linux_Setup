@@ -17,7 +17,7 @@ sudo pacman -Syu
 Install essential tools for development and system management:
 ```bash
 # Core build tools and utilities
-sudo pacman -S base-devel git python-pip cmake qt6-tools gcc gdb unrar p7zip htop xclip meld curl wget extra-cmake-modules mesa ninja libtool autoconf automake pkgconf unzip ttf-hack zsh python-virtualenv mc \\
+sudo pacman -S base-devel git python-pip cmake qt6-tools gcc gdb unrar p7zip htop xclip meld curl wget extra-cmake-modules mesa ninja libtool autoconf automake pkgconf unzip ttf-hack zsh python-virtualenv mc \
 lazygit fastfetch ripgrep fd aria2 bat neovim ranger trash-cli hwatch
 
 # Optional but recommended

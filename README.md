@@ -19,7 +19,7 @@ htop xclip meld curl wget extra-cmake-modules \
 mesa-common-dev libglu1-mesa-dev gettext ninja-build \
 libtool libtool-bin autoconf automake pkg-config unzip fonts-hack-ttf \
 zsh python3-virtualenv preload mc \
-fastfetch ripgrep fd-find aria2 bat neovim ranger trash-cli
+ripgrep fd-find aria2 bat neovim ranger trash-cli
 ```
 *Note: The `bat` package installs as `batcat` on Ubuntu. You might want to create a symlink: `ln -s $(which batcat) ~/.local/bin/bat`.*
 *Note: The `fd-find` package installs as `fdfind`. You might want to create a symlink: `ln -s $(which fdfind) ~/.local/bin/fd`.*
@@ -33,6 +33,11 @@ sudo ufw enable
 ### Enable SSD Trim (fstrim.timer)
 ```bash
 sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer
+```
+
+### Fastfetch
+```bash
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch && sudo apt update && sudo apt install fastfetch
 ```
 
 ### Flatpak Setup

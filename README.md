@@ -91,6 +91,11 @@ sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlightin
 ```
 *Remember to source your `~/.zshrc` or restart your shell after modifying it.*
 
+### Some more modification to zshrc
+```bash
+echo 'alias cp="rsync -avhW --no-compress --progress --info=progress2"' >> ~/.zshrc
+```
+
 ### Atuin Shell History
 Install Atuin for enhanced shell history:
 ```bash

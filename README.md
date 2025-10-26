@@ -41,8 +41,9 @@ sudo add-apt-repository ppa:zhangsongcui3371/fastfetch && sudo apt update && sud
 ```
 
 ### Flatpak Setup
-Configure Flathub repository:
+Install Flatpak and configure the Flathub repository:
 ```bash
+sudo apt install -y flatpak gnome-software-plugin-flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
@@ -103,7 +104,10 @@ curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 ```
 
 ### Zellij Terminal Multiplexer
-[Zellij Website](https://zellij.dev/) (Installation instructions available on the website)
+```bash
+sudo apt install -y zellij
+```
+[Zellij Website](https://zellij.dev/)
 
 ### Kitty Terminal
 Install Kitty terminal emulator:
@@ -124,6 +128,11 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 
 # Optional: If you want kitty to be the default for xdg-terminal-exec
 # echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+```
+[Compile Kitty terminfo locally (recommended for remote connections)](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work):
+```bash
+tic -x -o ~/.terminfo ~/.local/kitty.app/share/terminfo/kitty.terminfo
+infocmp kitty
 ```
 [Kitty Terminfo Fix](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work)
 
@@ -229,9 +238,11 @@ flatpak install flathub org.upscayl.Upscayl
 ### Distrobox
 Install Distrobox for managing containerized environments:
 ```bash
+sudo apt install -y distrobox
+# or install the latest release manually
 curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --next --prefix ~/.local
 ```
-*Ensure `~/.local/bin` is in your PATH.*
+*Ensure `~/.local/bin` is in your PATH if you use the manual installer.*
 
 [Docker: Non Shared Mounts Compatibility Info](https://github.com/89luca89/distrobox/blob/main/docs/compatibility.md#non-shared-mounts)
 

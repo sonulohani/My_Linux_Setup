@@ -108,22 +108,6 @@ Install uv:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-### grex
-Generate regular expressions from example strings — https://github.com/pemistahl/grex
-
-Install from GitHub Releases (replace VERSION and ARCH as appropriate):
-```bash
-# Example: replace VERSION and ARCH (e.g., x86_64-unknown-linux-musl)
-curl -LO "https://github.com/pemistahl/grex/releases/download/VERSION/grex-VERSION-ARCH.tar.gz"
-tar -xzf "grex-VERSION-ARCH.tar.gz"
-sudo mv grex /usr/local/bin/
-```
-
-Or install via cargo:
-```bash
-cargo install grex
-```
-
 ### Zellij Terminal Multiplexer
 [Zellij Website](https://zellij.dev/) (Installation instructions available on the website)
 

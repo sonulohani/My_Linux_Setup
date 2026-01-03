@@ -110,7 +110,7 @@ Install `zoxide` and initialize it for `zsh`:
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 # Initialize for zsh (run now or add the line to ~/.zshrc)
-eval "$(zoxide init zsh)"
+eval "$(zoxide init bash --cmd cd)"
 ```
 
 Repository: https://github.com/ajeetdsouza/zoxide

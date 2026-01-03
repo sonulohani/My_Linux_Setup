@@ -133,6 +133,29 @@ sed -i "s|Exec=kitty|Exec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.loca
 ```
 [Kitty Terminfo Fix](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work)
 
+### Yazi Terminal File Manager
+Yazi is a blazing-fast terminal file manager written in Rust. On Debian/Ubuntu you can either download the official binary release or build from source. Recommended optional dependencies:
+
+```bash
+# Optional dependencies (recommended)
+sudo apt install -y ffmpeg p7zip-full jq poppler-utils fd-find ripgrep fzf zoxide imagemagick
+
+# Note: 'fd-find' installs as 'fdfind' on Debian/Ubuntu; you may want to create a symlink:
+ln -s $(which fdfind) ~/.local/bin/fd
+
+# Download official binary releases:
+# https://github.com/sxyazi/yazi/releases
+
+# Or build from source:
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+git clone https://github.com/sxyazi/yazi.git
+cd yazi
+cargo install --path .
+```
+
+Documentation: https://yazi-rs.github.io/docs/installation
+Repository: https://github.com/sxyazi/yazi
+
 ## Desktop Environment (GNOME)
 
 ### Essential GNOME Packages & Tweaks

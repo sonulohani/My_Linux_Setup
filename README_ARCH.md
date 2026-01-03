@@ -121,6 +121,17 @@ sudo pacman -S kitty
 ```
 [Kitty Terminfo Fix](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work)
 
+### Yazi Terminal File Manager
+Yazi is a blazing-fast terminal file manager written in Rust. Install it and recommended optional dependencies:
+
+```bash
+# Official Arch package
+sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
+```
+
+Documentation: https://yazi-rs.github.io/docs/installation
+Repository: https://github.com/sxyazi/yazi
+
 ## Desktop Environment (GNOME)
 
 ### Essential GNOME Packages & Tweaks

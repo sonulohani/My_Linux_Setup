@@ -100,6 +100,22 @@ sudo pacman -S atuin
 # or using an AUR helper: yay -S atuin
 ```
 
+### zoxide — Smart directory jumper
+Install `zoxide` and initialize it for `zsh` (Arch options):
+
+```bash
+# Install from official repos
+sudo pacman -S zoxide
+
+# Or use the official install script (works on any distro)
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# Initialize for zsh (run now or add the line to ~/.zshrc)
+eval "$(zoxide init zsh)"
+```
+
+Repository: https://github.com/ajeetdsouza/zoxide
+
 ### uv
 Install uv:
 ```bash

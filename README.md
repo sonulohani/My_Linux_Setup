@@ -102,6 +102,19 @@ Install Atuin for enhanced shell history:
 curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 ```
 
+### zoxide — Smart directory jumper
+Install `zoxide` and initialize it for `zsh`:
+
+```bash
+# Install via official install script
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# Initialize for zsh (run now or add the line to ~/.zshrc)
+eval "$(zoxide init zsh)"
+```
+
+Repository: https://github.com/ajeetdsouza/zoxide
+
 ### uv
 Install uv:
 ```bash

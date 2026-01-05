@@ -30,6 +30,31 @@ ripgrep fd-find aria2 bat neovim ranger trash-cli
 sudo ufw enable
 ```
 
+### Host-based application firewall: OpenSnitch
+
+OpenSnitch is an interactive application firewall (inspired by Little Snitch) that lets you monitor and control outbound connections per application.
+
+**Install (Ubuntu 24.04+):**
+
+- Download the latest Debian packages from the releases page: https://github.com/evilsocket/opensnitch/releases
+  - `opensnitch*.deb` (daemon)
+  - `python3-opensnitch-ui*.deb` (UI)
+
+- From the folder with the downloaded files:
+```bash
+sudo apt install ./opensnitch*.deb ./python3-opensnitch-ui*.deb
+```
+
+**Start & enable the daemon:**
+```bash
+sudo systemctl enable --now opensnitch || sudo systemctl enable --now opensnitchd
+```
+
+**Launch the GUI:**
+```bash
+opensnitch-ui
+```
+
 ### Enable SSD Trim (fstrim.timer)
 ```bash
 sudo systemctl enable fstrim.timer && sudo systemctl start fstrim.timer

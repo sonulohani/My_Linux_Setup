@@ -7,3 +7,5 @@ vim.opt.relativenumber = false
 
 -- Ensure absolute numbering is on
 vim.opt.number = true
+
+vim.opt.clipboard = "unnamedplus"

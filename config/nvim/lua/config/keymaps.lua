@@ -16,3 +16,7 @@ keymap("n", "<A-Up>", ":m .-2<CR>==", { desc = "Move line up" })
 -- 'v' mode covers both Visual and Visual-Line modes
 keymap("v", "<A-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 keymap("v", "<A-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+-- Alt+j / Alt+k to switch buffers
+keymap("n", "<M-j>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+keymap("n", "<M-k>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })

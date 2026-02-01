@@ -194,6 +194,14 @@ cargo install --path .
 Documentation: https://yazi-rs.github.io/docs/installation
 Repository: https://github.com/sxyazi/yazi
 
+### cpx — fast replacement for cp
+A modern, fast file copy tool with progress bars, parallel copy, and resume support.
+
+```bash
+# Quick install (install script)
+curl -fsSL https://raw.githubusercontent.com/11happy/cpx/main/install.sh | bash
+```
+
 ## Desktop Environment (GNOME)
 
 ### Essential GNOME Packages & Tweaks

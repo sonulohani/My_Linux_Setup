@@ -135,7 +135,7 @@ Install `zoxide` and initialize it for `zsh`:
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 # Initialize for zsh (run now or add the line to ~/.zshrc)
-eval "$(zoxide init bash --cmd cd)"
+eval "$(zoxide init zsh --cmd cd)"
 ```
 
 Repository: https://github.com/ajeetdsouza/zoxide
@@ -292,7 +292,7 @@ flatpak install flathub org.upscayl.Upscayl
 ### Drawpile Collaborative Drawing
 [Download from GitHub Releases](https://github.com/drawpile/drawpile/releases) (AppImage recommended for easy use)
 
-### ExcaliDraw Whiteboard
+### Excalidraw Whiteboard
 [Web Application Link](https://excalidraw.com/) or [GitHub Repo](https://github.com/excalidraw/excalidraw)
 
 ### Web Browsers (.deb)
@@ -326,7 +326,7 @@ Install optional packages via Snap:
 ```
 Install other optional apt packages:
 ```bash
-sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qt5-default
+sudo apt install -y ubuntu-restricted-extras dconf-editor timeshift terminator snapd qtbase5-dev
 ```
 
 ### Powerlevel10k Zsh Theme

@@ -78,3 +78,20 @@ clipboard-write = allow
 clipboard-paste-protection = true
 clipboard-paste-bracketed-safe = true
 ```
+
+---
+
+# Setting Ghostty as Default Terminal (Nemo)
+
+Run the following command to set Ghostty as the default for Nemo with the correct directory flag:
+
+```bash
+gsettings set org.cinnamon.desktop.default-applications.terminal exec 'ghostty'
+```
+
+Then, specifically for Nemo’s behavior, run:
+
+```bash
+gsettings set org.cinnamon.desktop.default-applications.terminal exec 'ghostty --working-directory=%P'
+```
+

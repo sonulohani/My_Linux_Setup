@@ -11,6 +11,18 @@ Keep your system up-to-date:
 sudo pacman -Syu
 ```
 
+## Install an AUR Helper (yay)
+
+[`yay`](https://wiki.archlinux.org/title/Yay) simplifies installing and updating packages from the Arch User Repository (AUR). Install the prerequisites, clone the repository, and build the package:
+```bash
+sudo pacman -S --needed base-devel git
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
+After installation, you can install AUR packages with `yay -S <package-name>` and update everything with `yay -Syu`.
+
 ## Essential Packages & Setup
 
 ### Core Development & System Tools
@@ -135,7 +147,19 @@ Install Kitty terminal emulator:
 ```bash
 sudo pacman -S kitty
 ```
-[Kitty Terminfo Fix](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work)
+To ensure applications recognize Kitty's terminfo (needed especially when connecting to remote systems), compile and install the terminfo entry:
+```bash
+tic -x -o ~/.terminfo /usr/lib/kitty/terminfo/kitty.terminfo
+```
+You can copy the terminfo entry to remote hosts by running:
+```bash
+kitty +kitten ssh <remote-host>
+```
+Verify that the terminfo is available with:
+```bash
+infocmp kitty
+```
+Refer to the [Kitty Terminfo FAQ](https://sw.kovidgoyal.net/kitty/faq/#i-get-errors-about-the-terminal-being-unknown-or-opening-the-terminal-failing-or-functional-keys-like-arrow-keys-don-t-work) for troubleshooting details.
 
 ### Yazi Terminal File Manager
 Yazi is a blazing-fast terminal file manager written in Rust. Install it and recommended optional dependencies:
@@ -273,33 +297,6 @@ sudo pacman -S podman
 *(The `install_podman.sh` script in this repo provides a way to install a specific static version if needed, but the `pacman` version is usually preferred.)*
 
 ## Optional / Advanced
-
-### Snap Packages
-Install Snap daemon and enable the service:
-```bash
-sudo pacman -S snapd
-sudo systemctl enable --now snapd.socket
-# Optional: Create classic snap support link
-sudo ln -s /var/lib/snapd/snap /snap
-# Optional: For snap GUI apps needing theme integration
-# yay -S snapd-glib
-```
-Refresh installed snaps:
-```bash
-sudo snap refresh
-```
-Install optional packages via Snap:
-```bash
-# Example: sudo snap install package-name
-```
-Install other optional packages (Arch equivalents):
-```bash
-# Codecs (equivalent to parts of ubuntu-restricted-extras)
-sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
-
-# Other tools
-sudo pacman -S dconf-editor timeshift terminator qt6-base # qt5-base if needed for specific apps
-```
 
 ### Powerlevel10k Zsh Theme
 ```bash

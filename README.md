@@ -355,3 +355,9 @@ https://askubuntu.com/questions/1398344/apt-key-deprecation-warning-when-updatin
 ### Node Js 
 
 Go to this link: [Installation](https://nodesource.com/products/distributions)
+
+### UV Tool
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```

@@ -494,6 +494,7 @@ sudo systemctl enable --now bluetooth.service
 
 ### 5. Hyprland Setup
 Go to this [link](https://ml4w.com/os/)
+
 For [snappy-switcher](https://github.com/OpalAayan/snappy-switcher) and youtube [link](https://www.youtube.com/watch?v=EggzYV_DSws&t=191s)
 
 ---

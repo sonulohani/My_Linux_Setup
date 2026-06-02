@@ -472,7 +472,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 ### 3. ZRam Swapping optimization via Generator
 Arch natively features `systemd-zram-generator` for low-overhead dynamic RAM swaps:
 1. Install generator:
-   ```bash
+   ```bashz
    sudo pacman -S systemd-zram-generator
    ```
 2. Create configuration file `/etc/systemd/zram-generator.conf`:
@@ -491,6 +491,9 @@ Arch natively features `systemd-zram-generator` for low-overhead dynamic RAM swa
 sudo pacman -S bluez bluez-utils
 sudo systemctl enable --now bluetooth.service
 ```
+
+### 5. Hyprland Setup
+Go to this [link](https://ml4w.com/os/)
 
 ---
 

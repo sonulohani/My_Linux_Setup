@@ -499,6 +499,9 @@ Go to this [link](https://danklinux.com/docs/)
 
 For [snappy-switcher](https://github.com/OpalAayan/snappy-switcher) and youtube [link](https://www.youtube.com/watch?v=EggzYV_DSws&t=191s)
 
+### 6. Niri & Noctalia Shell
+For installing Niri with Noctalia Shell on CachyOS (packages, config, clipboard history, and Clipper plugin setup), see [Niri and Noctalia.md](Niri%20and%20Noctalia.md).
+
 ---
 
 ## 📚 General Arch Resources

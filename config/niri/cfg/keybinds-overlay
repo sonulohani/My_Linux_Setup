@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Show the niri-style keybind overlay UI.
+#
+# Example keybind:
+#   Mod+Shift+Slash  hotkey-overlay-title="Show Custom Keybinds" { spawn-sh "~/.config/niri/cfg/keybinds-overlay"; }
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+APP="$SCRIPT_DIR/keybinds-overlay.py"
+LOG_FILE="${XDG_RUNTIME_DIR:-/tmp}/niri-keybinds-overlay.log"
+
+if [[ ! -f "$APP" ]]; then
+    echo "Error: overlay app not found: $APP" >&2
+    exit 1
+fi
+
+pkill -9 -f keybinds-overlay.py 2>/dev/null || true
+rm -f "${XDG_RUNTIME_DIR:-/tmp}/niri-keybinds-overlay.pid" "${XDG_RUNTIME_DIR:-/tmp}/niri-keybinds-overlay.lock"
+
+python3 "$APP" >>"$LOG_FILE" 2>&1 &

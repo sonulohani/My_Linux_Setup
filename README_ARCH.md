@@ -38,60 +38,63 @@ sudo pacman -Syyu
 
 ---
 
-## 🛡️ BTRFS, System Recovery & Backups
+## 🛡️ BTRFS, LUKS Encryption & System Recovery
 
-For systems running on a BTRFS filesystem, this setup integrates automatic system recovery points using Timeshift, automatically generating GRUB boot entries for snapshots before any system update.
+The system uses LUKS full-disk encryption on top of BTRFS with separate subvolumes (`@`, `@home`, `@root`, `@srv`, `@cache`, `@log`, `@tmp`). Automatic snapshots are managed by **Snapper** with Limine boot-menu integration — not Timeshift/GRUB.
 
-### 1. Install Timeshift & Snapping Hooks
+### 1. Install Snapper & Limine Integration
+CachyOS provides helper packages that wire everything together:
 ```bash
-# Install core utilities from official repositories
-sudo pacman -S timeshift
-
-# Install snapshot hooks and GRUB integration from AUR
-yay -S timeshift-autosnap grub-btrfs
+sudo pacman -S snapper btrfs-progs btrfs-assistant \
+  limine limine-snapper-sync cachyos-snapper-support
 ```
 
-### 2. Configure Automatic GRUB Menu Generation
-To automatically append Timeshift backup points to your GRUB boot options upon system upgrades, enable the `grub-btrfsd` systemd service:
-
-1. Edit the service unit to listen specifically to Timeshift changes:
-   ```bash
-   sudo systemctl edit --full grub-btrfsd
-   ```
-2. Modify the `ExecStart` line to include the `--timeshift-auto` flag:
-   ```ini
-   ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto
-   ```
-3. Reload `systemd`, then enable and start the daemon:
-   ```bash
-   sudo systemctl daemon-reload
-   sudo systemctl enable --now grub-btrfsd
-   ```
+### 2. Verify Snapper Configuration
+```bash
+snapper list-configs
+snapper list
+```
 
 ### 3. BTRFS Assistant (GUI Manager)
-For managing BTRFS subvolumes, Snapper configs, and Timeshift backups via a premium GUI, you can launch:
+For managing BTRFS subvolumes, Snapper configs, and snapshots via a GUI:
 ```bash
-btrfs-assistant-launcher
+btrfs-assistant
+```
+
+### 4. LUKS Layout Reference
+```
+nvme0n1p1  →  /boot   (vfat, EFI)
+nvme0n1p2  →  LUKS    (btrfs)
+  ├─ @       →  /
+  ├─ @home   →  /home
+  ├─ @root   →  /root
+  ├─ @srv    →  /srv
+  ├─ @cache  →  /var/cache
+  ├─ @log    →  /var/log
+  └─ @tmp    →  /var/tmp
+zram0      →  [SWAP]
 ```
 
 ---
 
 ## 🎮 NVIDIA Graphics & Container Toolkit
 
-### 1. Proprietary NVIDIA DKMS Drivers
-For machines utilizing NVIDIA graphics cards, install the DKMS-enabled drivers so they update automatically along with kernel changes:
+### 1. NVIDIA Open Kernel Modules (CachyOS)
+On CachyOS, the recommended approach is the prebuilt open-kernel-module package that tracks the CachyOS kernel:
 ```bash
-sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
+sudo pacman -S linux-cachyos-nvidia-open nvidia-utils lib32-nvidia-utils nvidia-settings
 ```
+*This replaces the manual `nvidia-dkms` approach — the open modules are rebuilt automatically with each kernel update.*
 
-### 2. Hybrid Graphics / Optimus Switcher
-If you are on an Optimus/hybrid graphics laptop, install `nvidia-prime` to run heavy tasks on the discrete GPU:
+### 2. Hybrid Graphics / Optimus (RTX 2000 Ada + Intel Arc)
+This laptop uses hybrid graphics. Install `nvidia-prime` and enable `switcheroo-control` for runtime GPU switching:
 ```bash
-yay -S nvidia-prime prime-run
+sudo pacman -S nvidia-prime switcheroo-control
+sudo systemctl enable --now switcheroo-control
 ```
 *Usage:* Run `prime-run <command>` (e.g., `prime-run steam`).
 
-### 3. NVIDIA Container Toolkit (Docker/Podman Integration)
+### 3. NVIDIA Container Toolkit (Docker GPU Integration)
 To enable GPU-accelerated container workflows:
 ```bash
 sudo pacman -S nvidia-container-toolkit
@@ -101,94 +104,57 @@ sudo pacman -S nvidia-container-toolkit
 
 ## ⚙️ Power Management, Key Remapping & Tuning
 
-### 1. Thermal & Performance Optimization
-CachyOS is optimized for performance, but you can configure hardware-specific power-saving/tuning daemons to manage CPU states dynamically:
+### 1. CPU Power & Hybrid Graphics
 ```bash
-# Install CPU power & thermald
-sudo pacman -S cpupower thermald
+# Install CPU power management
+sudo pacman -S cpupower
 
-# Disable the standard power-profiles-daemon to prevent conflicts
+# Disable power-profiles-daemon to prevent conflicts with cpupower
 sudo systemctl disable --now power-profiles-daemon
 
-# Enable and start optimized services
+# Enable cpupower
 sudo systemctl enable --now cpupower.service
-sudo systemctl enable --now thermald
 ```
 
 ### 2. Keyd Key Remapping
 `keyd` is an extremely low-overhead system-level key remapping daemon.
 
 ```bash
-# Install keyd from official repos
 sudo pacman -S keyd
-
-# Enable and start keyd service
 sudo systemctl enable --now keyd
 ```
 
-*Configure keymappings at `/etc/keyd/default.conf`. For example:*
+*Configure keymappings at `/etc/keyd/default.conf`. Current Copilot key mapping:*
 ```ini
 [ids]
 *
 
 [main]
-# Map capslock to escape when pressed, or control when held
-capslock = overload(control, esc)
+# Map the Copilot key chord to Right Control
+leftmeta+leftshift+f23 = rightcontrol
 ```
 Reload config:
 ```bash
 sudo systemctl restart keyd
 ```
 
-#### Custom Mapping: Copilot Key to Right Ctrl / Compose
-Modern laptops with a Copilot key don't emit a single scan code. Instead, the firmware sends a keyboard chord, typically `leftmeta + leftshift + f23` or `leftmeta + leftshift`. We can use `keyd` to capture and remap this combination.
+#### Finding the Copilot Key Scan Code
+1. Run `sudo keyd monitor` (or `sudo evtest`) and press the Copilot key.
+2. Note the emitted combination (e.g., `leftmeta+leftshift+f23`).
+3. Add the mapping to `/etc/keyd/default.conf` and restart keyd.
 
-1. **Find what the Copilot key emits**:
-   Run:
-   ```bash
-   sudo keyd monitor
-   # or
-   sudo evtest
-   ```
-   Press the Copilot key and look for the emitted combination (e.g., `leftmeta+leftshift+f23`).
-
-2. **Add the mapping to `/etc/keyd/default.conf`**:
-   ```ini
-   [ids]
-   *
-
-   [main]
-   # Map the Copilot key chord to Right Control
-   leftmeta+leftshift+f23 = rightcontrol
-
-   # If your firmware sends f23 sequentially rather than as a chord, map f23 alone:
-   # f23 = rightcontrol
-
-   # Alternatively, restore the classic Menu/Compose behavior:
-   # f23 = compose
-   # f23 = menu
-   ```
-
-3. **Restrict to the Laptop Keyboard only (Optional)**:
-   To prevent external keyboards from being affected, run `keyd monitor` to identify your built-in keyboard's hardware ID (e.g., `0001:0001`) and target only that device in the config:
-   ```ini
-   [ids]
-   0001:0001  # Replace with your laptop keyboard ID
-
-   [main]
-   leftmeta+leftshift+f23 = rightcontrol
-   ```
-
-4. **Reload keyd**:
-   ```bash
-   sudo systemctl restart keyd
-   ```
-
+To restrict remapping to the built-in laptop keyboard only, replace `*` in `[ids]` with the hardware ID from `keyd monitor` (e.g., `0001:0001`).
 
 ### 3. SSD Trim Activation
-Enable standard automatic solid-state drive cell optimization:
 ```bash
 sudo systemctl enable --now fstrim.timer
+```
+
+### 4. Firewall (UFW)
+```bash
+sudo pacman -S ufw ufw-extras
+sudo systemctl enable --now ufw
+sudo ufw enable
 ```
 
 ---
@@ -202,8 +168,8 @@ unzip zip p7zip unrar tar lrzip xclip meld curl wget extra-cmake-modules \
 mesa ninja libtool autoconf automake pkgconf zsh python-virtualenv mc \
 fastfetch ripgrep fd aria2 bat neovim ranger trash-cli hwatch tree \
 xarchiver ntfsfix ntfs-3g openconnect gtk-engine-murrine \
-copyq evince gnome-text-editor loupe gnome-calculator flameshot \
-libsecret nodejs npm git-lfs pwvucontrol vulkan-devel cronie
+copyq evince flameshot libsecret nodejs npm git-lfs \
+vulkan-devel cronie starship
 ```
 
 *Start cron scheduler:*
@@ -211,11 +177,11 @@ libsecret nodejs npm git-lfs pwvucontrol vulkan-devel cronie
 sudo systemctl enable --now cronie.service
 ```
 
-### 2. AUR Helper Setup (`yay` or `paru`)
-If you do not have an AUR helper installed, compile and bootstrap `yay` directly from source:
+### 2. AUR Helper Setup (`paru`)
+CachyOS ships with `paru` preinstalled. If you need to bootstrap it manually:
 ```bash
-git clone https://aur.archlinux.org/yay.git
-cd yay
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 ```
 
@@ -223,39 +189,27 @@ makepkg -si
 
 ## 🐚 Terminal Enhancements
 
-### 1. Oh My Zsh & Custom Plugins
-Install Oh My Zsh:
+### 1. CachyOS Zsh Config & Starship Prompt
+CachyOS provides a preconfigured zsh environment via `cachyos-zsh-config` (includes Oh My Zsh, fzf, and sensible defaults). Pair it with **Starship** for a fast, customizable prompt:
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo pacman -S cachyos-zsh-config starship
 ```
 
-Clone highly recommended productivity plugins:
+Ensure your `~/.zshrc` sources the CachyOS config:
 ```bash
-# Zsh Autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Zsh Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Zsh You-Should-Use (reminds you of aliases)
-git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
-
-# Safe RM (prevent accidental data loss)
-git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-safe-rm
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+eval "$(starship init zsh)"
 ```
 
-Update the plugin activation array in your `~/.zshrc`:
-```bash
-sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-safe-rm emoji emotty)/' ~/.zshrc
-```
+A custom Starship config is available in this repo at [`config/starship.toml`](config/starship.toml).
 
 ### 2. Atuin (Fuzzy Shell History Search)
-Install and initialize Atuin for modern, SQLite-backed shell history search:
+Install Atuin for modern, SQLite-backed shell history search:
 ```bash
-# Install via pacman
-sudo pacman -S atuin
+# Install via official script (or: sudo pacman -S atuin)
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
 
-# Import existing zsh history into Atuin
+# Import existing zsh history
 atuin import auto
 
 # Initialize for zsh
@@ -264,7 +218,7 @@ echo 'eval "$(atuin init zsh)"' >> ~/.zshrc
 
 ### 3. Zoxide, UV, & Zellij
 ```bash
-# Install zoxide directory jumper and zellij multiplexer
+# Directory jumper and terminal multiplexer
 sudo pacman -S zoxide zellij
 
 # Initialize zoxide in ~/.zshrc
@@ -279,101 +233,97 @@ Run an MCP proxy from your named server config when you need a stateless HTTP en
 uvx mcp-proxy --named-server-config ~/.mcp.json --allow-origin "*" --port 8001 --stateless
 ```
 
-This is useful for exposing MCP servers to local tools or web clients that expect HTTP transport. Adjust the config path, port, or origin policy as needed.
-
-### 4. Modern Terminal Emulators
-- **Wezterm**: `sudo pacman -S wezterm`
+### 4. Terminal Emulators
+Currently installed terminals:
+- **Ghostty** (primary): `sudo pacman -S ghostty`
 - **Kitty**: `sudo pacman -S kitty`
-- **Ghostty**: Install the ultimate high-performance terminal emulator from AUR:
-  ```bash
-  yay -S ghostty
-  ```
+- **Alacritty**: `sudo pacman -S alacritty`
 
 #### Ghostty Custom Configuration (`~/.config/ghostty/config`):
 ```ini
-font-family = "MonoLisa Nerd Font"
+# Fonts
+font-family = "Maple Mono NF"
 font-size = 10
-gtk-titlebar = true
-window-decoration = true
-gtk-tabs-location = top
-freetype-load-flags = no-hinting
-gtk-titlebar-style = tabs
-theme = Catppuccin Mocha
 
-# === Cursor Settings ===
-cursor-style = block
-cursor-style-blink = false
-cursor-click-to-move = true
-
-# === Shell Integration ===
-shell-integration = detect
-shell-integration-features = cursor,sudo,title
-
-# === Quick Terminal (Dropdown / Overlay) ===
-quick-terminal-screen = main
-quick-terminal-position = top
-quick-terminal-size = 40%,100%
-quick-terminal-animation-duration = 0.2
-
-# === Misc Settings ===
-clipboard-read = allow
-clipboard-write = allow
-clipboard-paste-protection = true
-clipboard-paste-bracketed-safe = true
+# Custom shader (optional)
+custom-shader = /home/sonul/Documents/github/ghostty-shaders/smear_cursor_blocks.glsl
 ```
 
-#### Nemo File Manager Integration:
-To open Ghostty directly from the Nemo context menu inside the current directory:
-```bash
-gsettings set org.cinnamon.desktop.default-applications.terminal exec 'ghostty --working-directory=%P'
-```
+Kitty theme configs are available in this repo at [`config/kitty/`](config/kitty/).
 
 ### 5. Yazi Terminal File Manager
-Yazi is an asynchronous Rust terminal file manager. Install Yazi along with its extensive suite of optional preview/compression engines:
 ```bash
 sudo pacman -S yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick
 ```
 
 ---
 
-## 🎨 Desktop Environment (GNOME & Styling)
+## 🎨 Desktop Environment (KDE Plasma 6)
 
-### 1. Essential GNOME Tools & Frameworks
-Ensure your GNOME environment supports custom layouts, extensions, and styling hooks:
+### 1. Core KDE Packages
+CachyOS ships a full Plasma 6 desktop. Key packages already in use:
 ```bash
-sudo pacman -S gnome-tweaks extension-manager gnome-browser-connector gnome-themes-extra
+sudo pacman -S plasma-desktop konsole dolphin kate spectacle copyq \
+  kdeconnect powerdevil kde-gtk-config plasma-browser-integration
 ```
 
-### 2. Premium Themes & Icon Packs
-Install the user-preferred visual assets:
+CachyOS-specific KDE theming and settings:
 ```bash
-# Official packages
-sudo pacman -S papirus-icon-theme morewaita-icon-theme
-
-# AUR packages
-yay -S bibata-cursor-theme-bin graphite-gtk-theme graphite-gtk-theme-wallpaper
-yay -S mint-themes mint-y-icons mint-x-icons mint-backgrounds mint-sounds
+sudo pacman -S cachyos-kde-settings cachyos-iridescent-kde \
+  cachyos-nord-kde-theme-git cachyos-emerald-kde-theme-git
 ```
 
-### 3. GNOME Advanced Configuration Tweaks
-Run these GSettings commands to tailor system behavior:
+### 2. Recommended KDE Tools
 ```bash
-# Center all newly spawned application windows
-gsettings set org.gnome.mutter center-new-windows true
-
-# Enable desktop dash click action to minimize active windows
-# (Note: Requires Dash-to-Dock or Dash-to-Panel extensions enabled)
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-
-# Open folders automatically on drag-and-drop hover in Nautilus
-gsettings set org.gnome.nautilus.preferences open-folder-on-dnd-hover true
-
-# Overamplify volume slider (Allow volume level above 100%)
-gsettings set org.gnome.desktop.sound allow-volume-above-100-percent true
-
-# Enable high-density multi-monitor Fractional Scaling (Wayland)
-gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffer']"
+sudo pacman -S ark gwenview haruna filelight partitionmanager \
+  kcalc kwalletmanager kinfocenter kscreen meld
 ```
+
+### 3. Material You Colors (Dynamic Theming)
+Generates Material You color schemes from your wallpaper and applies them across the Plasma desktop.
+
+```bash
+paru -S kde-material-you-colors
+```
+
+#### Light Mode
+Apply a light Material You theme from the current wallpaper:
+```bash
+kde-material-you-colors --light
+```
+
+To switch to dark mode instead:
+```bash
+kde-material-you-colors --dark
+```
+
+#### Autostart on Login
+Enable automatic theming at KDE startup (runs after the panel loads):
+```bash
+kde-material-you-colors --light --autostart
+```
+
+This copies a desktop entry to `~/.config/autostart/`. To use light mode, ensure the `Exec` line reads:
+```ini
+Exec=kde-material-you-colors --light
+```
+
+Or create/edit `~/.config/autostart/kde-material-you-colors.desktop` manually:
+```ini
+[Desktop Entry]
+Exec=kde-material-you-colors --light
+Name=kde-material-you-colors
+Type=Application
+Terminal=False
+X-KDE-autostart-after=panel
+```
+
+#### Optional Configuration
+Copy the default config file for persistent settings (scheme variant, pywal integration, opacity, etc.):
+```bash
+kde-material-you-colors --copyconfig
+```
+Edit `~/.config/kde-material-you-colors/config.conf` to customize. CLI flags like `--light` override values in the config file.
 
 ---
 
@@ -385,15 +335,19 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
   git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf ~/.config/nvim/.git
   ```
-- **Visual Studio Code**: `sudo pacman -S visual-studio-code-bin` or AUR `visual-studio-code-insiders-bin`
-- **Cursor IDE**: Install the AI code editor:
-  ```bash
-  yay -S cursor-bin
-  ```
+  Neovim plugin configs are in this repo at [`config/nvim/`](config/nvim/).
+- **Visual Studio Code**: `paru -S visual-studio-code-bin`
+- **Cursor IDE**: `paru -S cursor-bin`
+- **Fresh Editor**: `paru -S fresh-editor-bin`
 
-### 2. Modern Web Browsers
+### 2. Web Browsers
 ```bash
-yay -S google-chrome zen-browser-bin microsoft-edge-stable-bin
+paru -S brave-bin vivaldi microsoft-edge-stable-bin
+```
+
+### 3. Perforce (Game Dev)
+```bash
+sudo pacman -S p4 p4v
 ```
 
 ---
@@ -401,106 +355,70 @@ yay -S google-chrome zen-browser-bin microsoft-edge-stable-bin
 ## 🎞️ Multimedia & Productivity Apps
 
 ### 1. Media Engines & Codecs
-To ensure smooth playbacks and encoding capabilities across all applications:
 ```bash
 sudo pacman -S gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 ```
 
 ### 2. Multimedia Tools
 ```bash
-# Official repositories
-sudo pacman -S vlc gimp ffmpeg nomacs mpv obs-studio
-
-# AUR / Specialized tools
-yay -S krita blender bulky
+sudo pacman -S vlc gimp ffmpeg obs-studio haruna
 ```
 
-### 3. Productivity & Whiteboarding
-- **OnlyOffice Suite**: `yay -S onlyoffice-bin`
-- **Spacedrive (File Manager)**: `yay -S spacedrive-bin`
-- **MarkText (Markdown Editor)**: `paru -S MarkText` or `yay -S marktext-bin`
-- **LM Studio (Local LLMs)**: `paru -S lmstudio-bin`
-- **Beyond Compare (Diff/Merge)**: `paru -S bcompare`
-- **RenderDoc (Graphics Debugger)**: `paru -S renderdoc`
+### 3. Productivity & Utilities
+- **OnlyOffice Suite**: `paru -S onlyoffice-bin`
+- **Draw.io Desktop**: `paru -S drawio-desktop`
+- **CopyQ** (clipboard manager): `sudo pacman -S copyq`
+- **Glances** (system monitor): `sudo pacman -S glances`
+- **Gufw** (UFW GUI): `sudo pacman -S gufw`
+
+### 4. Flatpak Apps
+```bash
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Installed flatpaks
+flatpak install flathub net.cozic.joplin_desktop    # Joplin notes
+flatpak install flathub net.meshlab.MeshLab          # MeshLab 3D
+flatpak install flathub org.gnome.gitlab.YaLTeR.VideoTrimmer
+flatpak install flathub com.github.tchx84.Flatseal   # Flatpak permissions manager
+```
 
 ---
 
 ## 🐳 Virtualization & Containers
 
-### 1. Distrobox
+### 1. Docker
+```bash
+sudo pacman -S docker docker-compose
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+```
+
+### 2. Distrobox
 Create and run containerized Linux distributions with zero overhead and full desktop integration:
 ```bash
 sudo pacman -S distrobox
 ```
 
-### 2. Rootless Podman Setup
-Arch offers natively optimized rootless Podman setup, avoiding manual compile scripts:
-```bash
-# Install Podman
-sudo pacman -S podman
-
-# Enable support for user namespaces & rootless execution
-if [ ! -e /etc/subuid ] || [ ! -e /etc/subgid ]; then
-    sudo pacman -S shadow  # Ensures newuidmap/newgidmap are available
-    echo "$(whoami):100000:65536" | sudo tee /etc/subuid | sudo tee /etc/subgid
-fi
-
-# Run migrate to configure container backend
-podman system migrate
-```
+### 3. Rootless Podman Setup (Alternative)
+See the [`install_podman.sh`](install_podman.sh) script in this repository for a rootless Podman setup.
 
 ---
 
 ## ⚙️ Optional / Advanced Configurations
 
-### 1. Flatpak Setup
+### 1. ZRam Swapping
+CachyOS enables zram swap by default (~50% of RAM, zstd compression). Verify with:
 ```bash
-sudo pacman -S flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+zramctl
 ```
+No manual `systemd-zram-generator` configuration is needed on a stock CachyOS install.
 
-### 2. Snap Packages Support
-```bash
-# Install snap daemon
-sudo pacman -S snapd
-sudo systemctl enable --now snapd.socket
-
-# Add classic symbolic link integration
-sudo ln -s /var/lib/snapd/snap /snap
-```
-
-### 3. ZRam Swapping optimization via Generator
-Arch natively features `systemd-zram-generator` for low-overhead dynamic RAM swaps:
-1. Install generator:
-   ```bashz
-   sudo pacman -S systemd-zram-generator
-   ```
-2. Create configuration file `/etc/systemd/zram-generator.conf`:
-   ```ini
-   [zram0]
-   zram-size = ram / 2
-   ```
-3. Load dynamic swapping block:
-   ```bash
-   sudo systemctl daemon-reload
-   sudo systemctl start systemd-zram-setup@zram0.service
-   ```
-
-### 4. Bluetooth Stack
+### 2. Bluetooth Stack
 ```bash
 sudo pacman -S bluez bluez-utils
 sudo systemctl enable --now bluetooth.service
 ```
-
-### 5. Hyprland Setup
-Go to this [link](https://ml4w.com/os/)
-
-Go to this [link](https://danklinux.com/docs/)
-
-For [snappy-switcher](https://github.com/OpalAayan/snappy-switcher) and youtube [link](https://www.youtube.com/watch?v=EggzYV_DSws&t=191s)
-
-### 6. Niri & Noctalia Shell
-For installing Niri with Noctalia Shell on CachyOS (packages, config, clipboard history, and Clipper plugin setup), see [Niri and Noctalia.md](Niri%20and%20Noctalia.md).
 
 ---
 

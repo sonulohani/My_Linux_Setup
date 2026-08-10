@@ -105,6 +105,8 @@ Install Zsh plugins:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # Syntax Highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# History Substring Search
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 # You Should Use
 git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use
 # Safe RM
@@ -112,7 +114,7 @@ git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm.git ${ZSH
 ```
 Enable plugins in `~/.zshrc`:
 ```bash
-sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting you-should-use zsh-safe-rm emoji emotty)/' ~/.zshrc
+sed -i 's/^plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search you-should-use zsh-safe-rm emoji emotty fzf extract)/' ~/.zshrc
 ```
 *Remember to source your `~/.zshrc` or restart your shell after modifying it.*
 

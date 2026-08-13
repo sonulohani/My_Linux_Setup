@@ -168,7 +168,7 @@ unzip zip p7zip unrar tar lrzip xclip meld curl wget extra-cmake-modules \
 mesa ninja libtool autoconf automake pkgconf zsh python-virtualenv mc \
 fastfetch ripgrep fd aria2 bat neovim ranger trash-cli hwatch tree \
 xarchiver ntfsfix ntfs-3g openconnect gtk-engine-murrine \
-copyq evince flameshot libsecret nodejs npm git-lfs \
+copyq evince satty grim slurp libsecret nodejs npm git-lfs \
 vulkan-devel cronie starship
 ```
 

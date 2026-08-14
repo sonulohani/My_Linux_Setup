@@ -370,6 +370,7 @@ sudo pacman -S vlc gimp ffmpeg obs-studio haruna
 - **CopyQ** (clipboard manager): `sudo pacman -S copyq`
 - **Glances** (system monitor): `sudo pacman -S glances`
 - **Gufw** (UFW GUI): `sudo pacman -S gufw`
+- **Drawy**: `sudo pacman -S drawy`
 
 ### 4. Flatpak Apps
 ```bash

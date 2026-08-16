@@ -38,6 +38,44 @@ Then copy the default configuration:
 cp -r /etc/skel/.config/* "$HOME/.config/"
 ```
 
+## DankMaterialShell (DMS)
+
+To install DankMaterialShell with its Niri integration and optional media and
+theming support:
+
+```bash
+sudo pacman -S \
+  niri \
+  xwayland-satellite \
+  xdg-desktop-portal-gnome \
+  xdg-desktop-portal-gtk \
+  alacritty \
+  dms-shell-niri \
+  matugen \
+  cava \
+  qt6-multimedia-ffmpeg --needed
+```
+
+Start DMS and bind it to the Niri user session:
+
+```bash
+systemctl --user add-wants niri.service dms
+systemctl --user start dms
+```
+
+The `add-wants` command starts DMS whenever the Niri user service starts. If
+you want DMS to start in every graphical user session instead, use
+`systemctl --user enable --now dms` in place of the two commands above.
+
+Run the setup wizard to generate the initial DMS configuration:
+
+```bash
+dms setup
+```
+
+If DMS is started through the Niri service, remove any separate `dms run`
+startup command from your Niri configuration to avoid launching it twice.
+
 ### Package overview
 
 | Package | Purpose |
@@ -56,6 +94,10 @@ cp -r /etc/skel/.config/* "$HOME/.config/"
 | `cliphist` / `wl-clipboard` | Clipboard history backend |
 | `wtype` | Wayland text injection (used by Clipper auto-paste) |
 | `xdg-desktop-portal-gnome` | Desktop portal for file dialogs, screen share, etc. |
+| `dms-shell-niri` | DankMaterialShell with Niri integration |
+| `matugen` | Material Design color generation for themes |
+| `cava` | Audio visualizer used by shell widgets |
+| `qt6-multimedia-ffmpeg` | Multimedia backend for Qt audio features |
 
 ---
 

@@ -40,6 +40,7 @@ uwsm start -e -D Hyprland hyprland.desktop
 | `quickshell` | 0.3.1-1.1 | Required shell framework |
 | `accountsservice` | 26.27.3-1.1 | User profile persistence |
 | `dgop` | 0.2.3-1.1 | Detailed system metrics |
+| `dsearch` | d95d611 | Filesystem search, built from Git source |
 | `cava` | 0.10.7-1.1 | Audio visualizer |
 | `matugen` | 4.2.0-1.1 | Material color generation |
 | `dankcalendar-bin` | 0.3.1-1 | Calendar integration |
@@ -48,9 +49,12 @@ uwsm start -e -D Hyprland hyprland.desktop
 | `cliphist` / `wl-clipboard` | 0.7.0 / 2.3.0 | Clipboard history |
 | `grim` / `slurp` | 1.5.0 / 1.5.0 | Screenshots and region selection |
 
-The upstream optional packages `dsearch` and `i2c-tools` are **not installed**.
-`brightnessctl` and `playerctl` are also missing; install them if the related
-hardware/media controls need those command-line backends.
+The upstream optional package `i2c-tools` is **not installed**. `brightnessctl`
+and `playerctl` are also missing; install them if the related hardware/media
+controls need those command-line backends.
+
+DSearch was built from `~/Documents/github/danksearch` and installed as
+`/usr/local/bin/dsearch`. Its systemd user service is installed but disabled.
 
 The installed `dms-shell-git` package files, Quickshell package files, and DMS
 service were verified. The DMS service is currently active.
@@ -107,7 +111,7 @@ paru -S --needed \
   hyprland uwsm sddm \
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   quickshell accountsservice dgop \
-  dsearch matugen cava dankcalendar-bin \
+  matugen cava dankcalendar-bin \
   qt6-multimedia qt6-multimedia-ffmpeg \
   i2c-tools brightnessctl playerctl \
   cliphist wl-clipboard grim slurp
@@ -115,6 +119,41 @@ paru -S --needed \
 
 Only Quickshell is strictly required by upstream DMS. The other DMS packages
 enable their corresponding widgets and integrations.
+
+### Build and install DSearch from Git
+
+DSearch is installed directly from its Git repository in this setup, not with
+`paru`. Its upstream README requires Go 1.24 or newer.
+
+Install the build dependencies:
+
+```bash
+sudo pacman -S --needed base-devel git go
+```
+
+Clone, build, and install DSearch using the upstream commands:
+
+```bash
+mkdir -p "$HOME/Documents/github"
+git clone https://github.com/AvengeMedia/danksearch.git \
+  "$HOME/Documents/github/danksearch"
+cd "$HOME/Documents/github/danksearch"
+make && sudo make install && make install-service
+```
+
+The build installs the binary to `/usr/local/bin/dsearch` and the user unit to
+`~/.config/systemd/user/dsearch.service`. Enable and start the search service:
+
+```bash
+systemctl --user enable --now dsearch.service
+```
+
+Check the source build and service:
+
+```bash
+dsearch version
+systemctl --user status dsearch.service
+```
 
 Enable SDDM as the system display manager:
 
@@ -287,6 +326,15 @@ Update the AUR development build and the rest of CachyOS:
 paru -Syu
 ```
 
+Update and rebuild DSearch from its source checkout:
+
+```bash
+git -C "$HOME/Documents/github/danksearch" pull --ff-only
+cd "$HOME/Documents/github/danksearch"
+make && sudo make install && make install-service
+systemctl --user restart dsearch.service
+```
+
 Update Qylock and redeploy the chosen theme so changes reach SDDM:
 
 ```bash
@@ -302,6 +350,11 @@ If using Qylock as the desktop lockscreen, rerun `./quickshell.sh` too.
 ```bash
 # Development package, compositor, and session manager
 pacman -Q dms-shell-git hyprland uwsm quickshell
+
+# Source-built DSearch and its user service
+dsearch version
+systemctl --user is-enabled dsearch.service
+systemctl --user is-active dsearch.service
 
 # Confirm the stable DMS payload is not installed
 pacman -Q dms-shell 2>/dev/null || echo "Stable dms-shell is not installed"
@@ -326,6 +379,7 @@ journalctl --user -u dms.service -b --no-pager
 - [DMS installation](https://danklinux.com/docs/dankmaterialshell/installation)
 - [DMS keybinds and IPC](https://danklinux.com/docs/dankmaterialshell/keybinds-ipc)
 - [Managing DMS](https://danklinux.com/docs/dankmaterialshell/managing)
+- [DSearch](https://github.com/AvengeMedia/danksearch)
 - [Hyprland with UWSM](https://wiki.hypr.land/Useful-Utilities/Systemd-start/)
 - [Qylock](https://github.com/Darkkal44/qylock)
 - [SDDM - ArchWiki](https://wiki.archlinux.org/title/SDDM)

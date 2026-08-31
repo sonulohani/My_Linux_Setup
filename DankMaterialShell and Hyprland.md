@@ -114,7 +114,7 @@ paru -S --needed \
   matugen cava dankcalendar-bin \
   qt6-multimedia qt6-multimedia-ffmpeg \
   i2c-tools brightnessctl playerctl \
-  cliphist wl-clipboard grim slurp
+  cliphist wl-clipboard grim slurp xdg-terminal-exec
 ```
 
 Only Quickshell is strictly required by upstream DMS. The other DMS packages

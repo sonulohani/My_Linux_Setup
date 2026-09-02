@@ -236,6 +236,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 9.  [AppIndicator Support](https://extensions.gnome.org/extension/615/appindicator-support/)
 10. [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 11. [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+12. [https://itsfoss.com/gnome-extensions-customization/](Others)
 
 ### Fix Application Icons in Dash/Dock
 If an application icon isn't displaying correctly:

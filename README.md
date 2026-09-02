@@ -237,6 +237,7 @@ gsettings set org.gnome.mutter experimental-features "['scale-monitor-framebuffe
 10. [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 11. [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
 12. [Others](https://itsfoss.com/gnome-extensions-customization/)
+13. [Wack Sonoma Lockscreen](https://github.com/rinzler69-wastaken/wack-sonoma-lockscreen)
 
 ### Fix Application Icons in Dash/Dock
 If an application icon isn't displaying correctly:

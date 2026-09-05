@@ -108,7 +108,7 @@ installed:
 
 ```bash
 paru -S --needed \
-  hyprland uwsm sddm \
+  hyprland uwsm sddm nwg-look qt6ct qt5ct \
   xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   quickshell accountsservice dgop \
   matugen cava dankcalendar-bin \

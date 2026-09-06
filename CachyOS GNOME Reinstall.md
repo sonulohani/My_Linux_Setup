@@ -123,7 +123,7 @@ below.
 paru -S --needed \
   kitty alacritty micro btop htop glances duf fastfetch \
   aria2 7zip unrar unzip wl-clipboard \
-  keyd profile-sync-daemon ufw
+  keyd profile-sync-daemon ufw gnome-rounded-blur
 ```
 
 `keyd.service` is enabled now, but no mapping files were found under `/etc/keyd`.

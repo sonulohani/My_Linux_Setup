@@ -1,61 +1,3 @@
-# CachyOS GNOME Reinstall Checklist
-
-Inventory captured on **2026-08-22** from CachyOS running **GNOME 50.4 on
-Wayland**. The current machine has Intel Meteor Lake graphics plus an NVIDIA RTX
-2000 Ada laptop GPU.
-
-This is a curated restore list. CachyOS marks many installer-provided packages
-as explicitly installed, so reinstalling the complete `pacman -Qqe` output would
-also pull in a large amount of default and hardware support software.
-
-## Before formatting
-
-Save exact package and extension inventories:
-
-```bash
-backup_dir="$HOME/cachyos-reinstall-backup-$(date +%F)"
-mkdir -p "$backup_dir"
-
-pacman -Qqen > "$backup_dir/pacman-official.txt"
-pacman -Qqem > "$backup_dir/pacman-foreign.txt"
-flatpak list --app --columns=application > "$backup_dir/flatpak-apps.txt"
-gnome-extensions list > "$backup_dir/gnome-extensions.txt"
-gnome-extensions list --enabled > "$backup_dir/gnome-extensions-enabled.txt"
-code --list-extensions > "$backup_dir/vscode-extensions.txt"
-dconf dump / > "$backup_dir/gnome-dconf.ini"
-```
-
-Archive the small local configuration and desktop assets:
-
-```bash
-tar -C "$HOME" -czf "$backup_dir/user-configs.tar.gz" \
-  .config/kitty \
-  .config/alacritty \
-  .config/Code/User \
-  .local/share/applications \
-  .local/share/gnome-shell/extensions \
-  .local/share/fonts \
-  .local/share/icons/Tela-nord-light \
-  .themes
-```
-
-Copy the backup directory to another disk or cloud storage. Also back up these
-larger paths separately if they are still needed:
-
-- `~/Documents/softwares/qylock-main` (about 620 MB; Live Lock Screen asset)
-- `~/Pictures/multi_monitor` (about 628 MB; wallpaper collection)
-- `~/.local/bin/Cursor.AppImage` (about 286 MB)
-- `~/Documents/softwares/Mako_Integrated_Simulator-x86_64.tar 2` (about 491 MB)
-- `~/QtCreator` (about 3.0 GB; custom Qt Creator 7, 11, and 17 installs)
-- `~/Qt` (about 5.8 GB; Qt SDK and Maintenance Tool)
-- `~/.local/p4v` (about 516 MB; Perforce Visual Client)
-- Any browser profiles not already synchronized
-- SSH/GPG keys, Git configuration, projects, documents, and application data
-
-The setup files already tracked in this repository include Kitty, Neovim,
-Starship, Niri, and related configuration. Push the latest repository changes
-before formatting.
-
 ## Fresh CachyOS installation
 
 1. Install the **GNOME** edition and choose the proprietary/open NVIDIA option
@@ -85,7 +27,7 @@ following groups reflect the useful non-default software on the current system.
 paru -S --needed \
   extension-manager gnome-tweaks gnome-shell-extensions \
   gnome-browser-connector dconf-editor gdm-settings \
-  flameshot pavucontrol meld
+  flameshot pavucontrol meld gnome-rounded-blur pipewire-control-center
 ```
 
 ### Browsers and productivity
@@ -100,7 +42,7 @@ paru -S --needed \
 
 ```bash
 paru -S --needed \
-  gimp obs-studio shotcut vlc vlc-plugins-all
+  gimp obs-studio vlc vlc-plugins-all
 ```
 
 ### Development and containers
@@ -108,14 +50,9 @@ paru -S --needed \
 ```bash
 paru -S --needed \
   base-devel git git-lfs neovim visual-studio-code-bin \
-  cmake ninja lldb nodejs npm ripgrep \
-  docker docker-buildx docker-compose distrobox \
-  p4 gp-saml-gui-git
+  cmake ninja lldb nodejs npm ripgrep fd gdb \
+  docker docker-buildx docker-compose distrobox clang
 ```
-
-`p4` and `gp-saml-gui-git` are currently foreign/AUR packages. The third
-foreign package, `gtk-engine-murrine`, is included with the appearance packages
-below.
 
 ### Terminal and system utilities
 
@@ -123,7 +60,7 @@ below.
 paru -S --needed \
   kitty alacritty micro btop htop glances duf fastfetch \
   aria2 7zip unrar unzip wl-clipboard \
-  keyd profile-sync-daemon ufw gnome-rounded-blur
+  keyd profile-sync-daemon ufw
 ```
 
 `keyd.service` is enabled now, but no mapping files were found under `/etc/keyd`.
@@ -156,34 +93,6 @@ fc-cache -fv
 gtk-update-icon-cache -f -t "$HOME/.local/share/icons/Tela-nord-light"
 ```
 
-## Graphics packages for this laptop
-
-The current machine uses Intel integrated graphics and the NVIDIA open kernel
-module. The CachyOS installer should select these automatically. Verify with:
-
-```bash
-pacman -Q \
-  intel-ucode intel-media-driver vulkan-intel vpl-gpu-rt \
-  linux-cachyos-nvidia-open nvidia-utils nvidia-prime nvidia-settings \
-  libva-nvidia-driver lib32-nvidia-utils lib32-vulkan-intel
-```
-
-Install any missing packages only if reinstalling on the same hardware:
-
-```bash
-sudo pacman -S --needed \
-  intel-ucode intel-media-driver vulkan-intel vpl-gpu-rt \
-  linux-cachyos-nvidia-open nvidia-utils nvidia-prime nvidia-settings \
-  libva-nvidia-driver lib32-nvidia-utils lib32-vulkan-intel
-```
-
-The system also has the LTS kernel and matching NVIDIA module as a fallback:
-
-```bash
-sudo pacman -S --needed \
-  linux-cachyos-lts linux-cachyos-lts-headers linux-cachyos-lts-nvidia-open
-```
-
 ## Flatpak applications
 
 ```bash
@@ -195,112 +104,33 @@ flatpak install -y flathub \
 
 There are currently no Snap packages installed.
 
-## Manually installed applications
-
-These applications appear in the GNOME app grid but are not owned by Pacman or
-Flatpak. Restore or reinstall their payloads, then restore
-`~/.local/share/applications` from the configuration archive.
-
-| Application | Current payload or launcher target |
-| --- | --- |
-| Cursor | `~/.local/bin/Cursor.AppImage` |
-| Mako Integrated Simulator | `~/Documents/softwares/Mako_Integrated_Simulator-x86_64.tar 2` |
-| Qt Creator 7.0.5, 11.0.8, and 17.0.1 | `~/QtCreator` |
-| Qt Maintenance Tool and SDK | `~/Qt` |
-| Perforce Visual Client (P4V) | `~/.local/p4v` |
-
-Qt Creator 17 and P4V currently launch inside a Distrobox named
-`ubuntu-22.04`. Its image is:
-
-```text
-artifactory.osep.stryker.com/osep-docker/strykercorp/osep/osep-build-tools/osep-cpp-build-tools:gcc-11
-```
-
-Recreate it after connecting to the required company network/registry:
-
-```bash
-distrobox create \
-  --name ubuntu-22.04 \
-  --image artifactory.osep.stryker.com/osep-docker/strykercorp/osep/osep-build-tools/osep-cpp-build-tools:gcc-11
-```
-
-The Distrobox container itself and any changes made inside it are not preserved
-by copying the launchers. Record or export any container-only work separately
-before formatting.
-
 ## GNOME extensions
 
 Install extensions through **Extension Manager** after the first update and
 reboot. Search by the display name and verify the UUID where shown.
 
-### Enabled now
-
-| Extension | UUID | Version |
-| --- | --- | ---: |
-| Alphabetical App Grid | `AlphabeticalAppGrid@stuarthayhurst` | 44 |
-| AppIndicator and KStatusNotifierItem Support | `appindicatorsupport@rgcjonas.gmail.com` | 64 |
-| Blur My Shell | `blur-my-shell@aunetx` | 72 |
-| Caffeine | `caffeine@patapon.info` | 60 |
-| Clipboard Indicator | `clipboard-indicator@tudmotu.com` | 71 |
-| Dhruva | `dhruva@narkagni` | 10 |
-| Just Perfection | `just-perfection-desktop@just-perfection` | 36 |
-| Live Lock Screen | `live-lockscreen@nick-redwill` | 8 |
-| User Themes | `user-theme@gnome-shell-extensions.gcampax.github.com` | 76 |
-| Removable Drive Menu | `drive-menu@gnome-shell-extensions.gcampax.github.com` | system |
+1.  [Advanced Alt+Tab Window Switcher](https://extensions.gnome.org/extension/4412/advanced-alttab-window-switcher/)
+2.  [Alphabetical App Grid](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/)
+3.  [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
+4.  [Color Picker](https://extensions.gnome.org/extension/3396/color-picker/)
+5.  [Logo Menu](https://extensions.gnome.org/extension/4451/logo-menu/)
+6.  [User Themes](https://extensions.gnome.org/extension/19/user-themes/)
+7.  [Clipboard Indicator](https://extensions.gnome.org/extension/779/clipboard-indicator/)
+8.  [Desktop Icons NG (DING)](https://extensions.gnome.org/extension/2087/desktop-icons-ng-ding/)
+9.  [AppIndicator Support](https://extensions.gnome.org/extension/615/appindicator-support/)
+10. [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
+11. [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+12. [Others](https://itsfoss.com/gnome-extensions-customization/)
+13. [Wack Sonoma Lockscreen](https://github.com/rinzler69-wastaken/wack-sonoma-lockscreen)
+14: [Auto Accent Colour](https://extensions.gnome.org/extension/7502/auto-accent-colour)
+15. [Blur My Shell](https://github.com/aunetx/blur-my-shell)
+16. [Compwiz windows effect](https://github.com/hermes83/compiz-windows-effect)
+17. [Modern Clock](https://github.com/Tony-Rain/Modern-Clock-Gnome)
 
 `User Themes` and `Removable Drive Menu` are supplied by the
 `gnome-shell-extensions` package. Live Lock Screen currently points to
 `~/Documents/softwares/qylock-main/themes/enfield/bg.mp4`, so restore that file
 before enabling it.
-
-### Installed but disabled
-
-| Extension | UUID | Version |
-| --- | --- | ---: |
-| Dash to Dock | `dash-to-dock@micxgx.gmail.com` | 105 |
-| Peek Bar | `peek-bar@rachalaraj.github.com` | 22 |
-
-GNOME's settings database also contains stale enabled entries for GNOME
-Clipboard, Wall Shuffle, and Fullscreen Avoider, but their extension files are
-not currently installed. They are intentionally omitted from the restore list.
-
-### Restore extension settings
-
-Install the extensions first, then restore the GNOME settings backup:
-
-```bash
-dconf load / < "$HOME/cachyos-reinstall-backup-YYYY-MM-DD/gnome-dconf.ini"
-```
-
-Log out and back in after restoring. Check the enabled set with:
-
-```bash
-gnome-extensions list --enabled
-```
-
-Important current appearance settings are light mode, blue accent, 125% text
-scaling, Inter 10, Maple Mono NF 10, Tela Nord Light icons, and Catppuccin Mocha
-Lavender cursors.
-
-## VS Code extensions
-
-```bash
-for extension in \
-  moshfeu.compare-folders \
-  ms-python.debugpy \
-  ms-python.python \
-  ms-python.vscode-pylance \
-  ms-python.vscode-python-envs \
-  ms-vscode.cmake-tools \
-  ms-vscode.cpp-devtools \
-  ms-vscode.cpptools
-do
-  code --install-extension "$extension"
-done
-```
-
-VS Code Settings Sync can restore these automatically if it was enabled before
-formatting.
 
 ## Services and groups
 
@@ -325,26 +155,3 @@ network, and snapshot services, including `ananicy-cpp`, `bpftune`, `cpupower`,
 timers, and `fstrim.timer`. Prefer CachyOS package presets for these instead of
 manually enabling them all on a new installation.
 
-## Final checks
-
-```bash
-# Confirm the desktop and graphics session
-echo "$XDG_CURRENT_DESKTOP / $XDG_SESSION_TYPE"
-lspci -k | grep -A3 -E 'VGA|3D'
-
-# Confirm containers and firewall
-docker run --rm hello-world
-sudo ufw status
-
-# Show missing packages from the saved exact inventories
-comm -23 \
-  <(sort "$HOME/cachyos-reinstall-backup-YYYY-MM-DD/pacman-official.txt") \
-  <(pacman -Qq | sort)
-
-# Confirm Flatpaks and extensions
-flatpak list --app
-gnome-extensions list --enabled
-```
-
-Review the `comm` output rather than installing it blindly; it will include
-packages that were part of the old CachyOS installer profile.

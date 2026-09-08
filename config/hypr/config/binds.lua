@@ -150,9 +150,9 @@ hl.bind(mainMod .. " + CONTROL + Right",       hl.dsp.focus({ workspace = "m+1" 
 hl.bind(mainMod .. " + CONTROL + Left",        hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + Down",        hl.dsp.focus({ workspace = "emptym" }))
 
--- Scroll through existing workspaces & monitors
-hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "m-1" }))
-hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "m+1" }))
+-- Scroll through columns in the scrolling layout
+hl.bind(mainMod .. " + mouse_up",   hl.dsp.layout("focus l"))
+hl.bind(mainMod .. " + mouse_down", hl.dsp.layout("focus r"))
 hl.bind(mainMod .. " + CONTROL + mouse_up",   hl.dsp.focus({ workspace = "m-1" }))
 hl.bind(mainMod .. " + CONTROL + mouse_down", hl.dsp.focus({ workspace = "m+1" }))
 

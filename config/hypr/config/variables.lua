@@ -1,10 +1,10 @@
 -- Hyprland default apps
 
-TERMINAL     = "kitty"
+TERMINAL = "ghostty"
 FILE_MANAGER = "nautilus"
-BROWSER      = "brave"
-EDITOR       = "zeditor"
-CALCULATOR   = "gnome-calculator"
+BROWSER = "brave"
+EDITOR = "zeditor"
+CALCULATOR = "gnome-calculator"
 
 -- Monitors
 MONITOR1 = "HDMI-A-1"

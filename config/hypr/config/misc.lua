@@ -1,4 +1,7 @@
 hl.config({
+    cursor = {
+        sync_gsettings_theme = false,
+    },
     general = {
         layout = "scrolling",
     },

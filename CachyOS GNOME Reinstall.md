@@ -27,7 +27,8 @@ following groups reflect the useful non-default software on the current system.
 paru -S --needed \
   extension-manager gnome-tweaks gnome-shell-extensions \
   gnome-browser-connector dconf-editor gdm-settings \
-  flameshot pavucontrol meld gnome-rounded-blur pipewire-control-center
+  flameshot pavucontrol meld gnome-rounded-blur pipewire-control-center \
+  ptyxis nautilus-open-any-terminal
 ```
 
 ### Browsers and productivity

@@ -31,6 +31,14 @@ paru -S --needed \
   ptyxis nautilus-open-any-terminal
 ```
 
+
+```bash
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal keybindings '<Ctrl><Alt>t'
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal flatpak system
+```
+
 ### Browsers and productivity
 
 ```bash
@@ -155,4 +163,3 @@ network, and snapshot services, including `ananicy-cpp`, `bpftune`, `cpupower`,
 `intel_lpmd`, `nvidia-powerd`, `thermald`, NetworkManager, Bluetooth, Snapper
 timers, and `fstrim.timer`. Prefer CachyOS package presets for these instead of
 manually enabling them all on a new installation.
-

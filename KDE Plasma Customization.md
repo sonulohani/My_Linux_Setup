@@ -176,6 +176,14 @@ and directories as well:
 The package versions above are a point-in-time inventory. Use package names,
 not pinned versions, when recreating the setup on an updated CachyOS system.
 
+### Kwin script
+
+* [KClear](https://github.com/AaronRohrbacher/klear_kwin)
+
+### Plasma Style
+
+* Apple-Dark
+
 ### All changes with one command
 
 Go to : https://github.com/ladybug-me/caelestia-dots-kde

@@ -135,11 +135,19 @@ reboot. Search by the display name and verify the UUID where shown.
 15. [Blur My Shell](https://github.com/aunetx/blur-my-shell)
 16. [Compwiz windows effect](https://github.com/hermes83/compiz-windows-effect)
 17. [Modern Clock](https://github.com/Tony-Rain/Modern-Clock-Gnome)
+18. [Compwiz alike magic lamp effect](https://extensions.gnome.org/extension/3740/compiz-alike-magic-lamp-effect/)
+19. [Global Menu for GNOME](https://extensions.gnome.org/extension/10288/global-menu-for-gnome/)
+20. [Kiwi is not apple](https://extensions.gnome.org/extension/8276/kiwi-is-not-apple/)
+21. [Space Bar](https://extensions.gnome.org/extension/5090/space-bar/)
 
 `User Themes` and `Removable Drive Menu` are supplied by the
 `gnome-shell-extensions` package. Live Lock Screen currently points to
 `~/Documents/softwares/qylock-main/themes/enfield/bg.mp4`, so restore that file
 before enabling it.
+
+### For wallpapers
+
+[Wallpapers](https://m-26.jp/)
 
 ## Services and groups
 

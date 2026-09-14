@@ -1,6 +1,6 @@
 -- Hyprland default apps
 
-TERMINAL = "ghostty"
+TERMINAL = "kitty"
 FILE_MANAGER = "nautilus"
 BROWSER = "brave"
 EDITOR = "zeditor"

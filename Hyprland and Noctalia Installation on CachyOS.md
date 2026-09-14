@@ -148,7 +148,7 @@ paru -Syu cachyos-hypr-noctalia hyprland noctalia uwsm \
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
   gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gnome-console \
-  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm --needed
+  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland --needed
 ```
 
 ### Hyprland plagins

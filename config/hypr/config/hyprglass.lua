@@ -21,8 +21,7 @@ if hl.plugin.hyprglass then
 		mask_threshold = 0.05,
 	})
 	hg.layer("noctalia-dock", {
-		preset = "glass",
-		mask_threshold = 0.05,
+		exclude = true,
 	})
 	hg.layer("noctalia-notification", {
 		preset = "glass",

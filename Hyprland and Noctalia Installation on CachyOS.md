@@ -153,6 +153,10 @@ paru -Syu cachyos-hypr-noctalia hyprland noctalia uwsm \
 
 ### Hyprland plagins
 
+```bash
+hyprpm add https://github.com/hyprwm/hyprland-plugins
+```
+
 #### Hypr dynamic cursors
 
 ```bash

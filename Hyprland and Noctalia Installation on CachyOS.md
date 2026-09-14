@@ -140,9 +140,46 @@ sudo pacman -S gnome-keyring
 systemctl --user enable --now gnome-keyring-daemon.socket
 ```
 
+### All commands at single shot
+
+```bash
+paru -Syu cachyos-hypr-noctalia hyprland noctalia uwsm \
+  xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+  matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
+  nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
+  gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gnome-console \
+  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm --needed
+```
+
+### Hyprland plagins
+
+#### Hypr dynamic cursors
+
+```bash
+hyprpm add https://github.com/virtcode/hypr-dynamic-cursors
+hyprpm enable dynamic-cursors
+```
+
+#### Hyprglass
+
+```bash
+hyprpm add https://github.com/hyprnux/hyprglass
+hyprpm enable hyprglass
+```
+
+#### To update plugins
+
+```bash
+ hyprpm update -f
+hyprpm reload
+```
+
+
 ## Sources
 
 - [CachyOS Hyprland post-install guide](https://wiki.cachyos.org/configuration/desktop_environments/hyprland/)
 - [Noctalia v5 installation guide](https://docs.noctalia.dev/noctalia/getting-started/installation/)
 - [CachyOS Hyprland/Noctalia settings package](https://dashboard.cachyos.org/package/cachyos/any/cachyos-hypr-noctalia)
 - [CachyOS Hyprland/Noctalia configuration repository](https://github.com/CachyOS/cachyos-hypr-noctalia)
+- [Hypr dynamic cursors](https://github.com/VirtCode/hypr-dynamic-cursors)
+- [Hyprglass](https://github.com/hyprnux/hyprglass)

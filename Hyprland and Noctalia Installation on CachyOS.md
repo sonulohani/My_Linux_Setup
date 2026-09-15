@@ -143,12 +143,12 @@ systemctl --user enable --now gnome-keyring-daemon.socket
 ### All commands at single shot
 
 ```bash
-paru -Syu cachyos-hypr-noctalia hyprland noctalia uwsm \
+paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland noctalia uwsm \
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
   gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gnome-console \
-  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland --needed
+  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland swash --needed
 ```
 
 ### Hyprland plagins

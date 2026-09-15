@@ -454,6 +454,12 @@ xdg-mime default nemo.desktop inode/directory
 
 Use bulky for renaming multiple files.
 
+#### For open in terminal defaults
+
+```bash
+gsettings set org.cinnamon.desktop.default-applications.terminal exec 'foot'
+nemo -q
+```
 
 ## Sources
 

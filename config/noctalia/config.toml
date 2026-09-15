@@ -91,6 +91,13 @@ settings_show_advanced = true
     shortcut = "5"
     variant = "destructive"
 
+[hot_corners]
+enabled = true
+delay_ms = 200
+
+[hot_corners.top_left]
+action = "window-switcher"
+
 [system.monitor]
 gpu_poll_seconds = 2
 

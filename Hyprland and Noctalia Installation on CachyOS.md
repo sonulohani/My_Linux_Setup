@@ -178,6 +178,22 @@ hyprpm enable hyprglass
 hyprpm reload
 ```
 
+### For performance
+```bash
+powerprofilesctl set performance
+sudo x86_energy_perf_policy --all performance
+sudo cpupower -c all frequency-set -g performance
+sudo pacman -S --needed thermald
+sudo systemctl enable --now thermald
+```
+
+For setting forcefully
+
+```bash
+for f in /sys/devices/system/cpu/cpu*/cpufreq/energy_performance_preference; do
+    echo performance | sudo tee "$f" >/dev/null
+done
+```
 
 ## Sources
 

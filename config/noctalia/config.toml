@@ -36,7 +36,7 @@ background_opacity = 0.88
 background_opacity = 0.88
 
 [shell]
-clipboard_image_action_command = "satty -f -"
+clipboard_image_action_command = "swash --stdin --name \"swash-$(date +'%Y-%m-%d_%H:%M:%S').png\""
 launch_apps_as_systemd_services = true
 polkit_agent = true
 settings_show_advanced = true
@@ -52,7 +52,7 @@ settings_show_advanced = true
 
     [shell.screenshot]
     copy_to_clipboard = false
-    pipe_command = "satty -f -"
+    pipe_command = "swash --stdin --name \"swash-$(date +'%Y-%m-%d_%H:%M:%S').png\""
     pipe_to_command = true
     save_to_file = false
 

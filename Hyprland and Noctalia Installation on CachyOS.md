@@ -13,13 +13,13 @@ files, and the supporting desktop applications.
 Install the CachyOS Hyprland/Noctalia bundle with one command:
 
 ```bash
-sudo pacman -Syu cachyos-hypr-noctalia
+sudo pacman -Syu cachyos-hypr-noctalia foot
 ```
 
 If you use `paru`, the equivalent command is:
 
 ```bash
-paru -Syu cachyos-hypr-noctalia
+paru -Syu cachyos-hypr-noctalia foot
 ```
 
 The package manager resolves the required dependencies automatically. The
@@ -143,7 +143,7 @@ systemctl --user enable --now gnome-keyring-daemon.socket
 ### All commands at single shot
 
 ```bash
-paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland noctalia uwsm \
+paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland noctalia uwsm foot \
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
@@ -428,6 +428,9 @@ sudo pacman -S --needed \
     nemo-emblems \
     nemo-media-columns \
     nemo-terminal \
+    nemo-audio-tab \
+    nemo-pastebin \
+    nemo-repairer \
     nemo-share \
     gvfs \
     gvfs-smb \

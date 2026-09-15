@@ -68,7 +68,7 @@ Use this when the CachyOS bundle is not wanted:
 ```bash
 sudo pacman -Syu hyprland noctalia uwsm \
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
-  matugen cliphist wl-clipboard grim slurp qt6ct qt5ct --needed
+  matugen cliphist wl-clipboard grim slurp qt6ct qt5ct chafa --needed
 ```
 
 `noctalia` is the maintained Noctalia v5 package in the Arch/CachyOS
@@ -144,7 +144,7 @@ systemctl --user enable --now gnome-keyring-daemon.socket
 
 ```bash
 paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland noctalia uwsm foot \
-  xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
+  xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk chafa \
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
   gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gnome-console \

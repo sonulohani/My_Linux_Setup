@@ -417,6 +417,43 @@ For your machine, I'd actually check `tlp-stat -p` next—especially the **scali
 [11]: https://linrunner.de/tlp/settings/introduction.html?utm_source=chatgpt.com "Introduction — TLP 1.10.2 documentation"
 [12]: https://wiki.cachyos.org/configuration/sched-ext/?utm_source=chatgpt.com "sched-ext Tutorial | CachyOS"
 
+### Install Nemo
+
+```bash
+sudo pacman -S --needed \
+    nemo \
+    nemo-fileroller \
+    nemo-image-converter \
+    nemo-compare \
+    nemo-emblems \
+    nemo-media-columns \
+    nemo-terminal \
+    nemo-share \
+    gvfs \
+    gvfs-smb \
+    gvfs-mtp \
+    gvfs-gphoto2 \
+    gvfs-dnssd \
+    udisks2 \
+    polkit-gnome \
+    tumbler \
+    ffmpegthumbnailer \
+    poppler-glib \
+    libgsf \
+    freetype2 \
+    webp-pixbuf-loader \
+    file-roller \
+    p7zip \
+    unzip \
+    unrar bulky
+```
+
+```bash
+xdg-mime default nemo.desktop inode/directory
+```
+
+Use bulky for renaming multiple files.
+
 
 ## Sources
 

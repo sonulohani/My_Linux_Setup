@@ -5,7 +5,7 @@
 Install the active repository packages:
 
 ```bash
-sudo pacman -S --needed \
+sudo paru -S --needed \
   kdeplasma-addons breeze breeze-icons breeze-cursors inter-font plasma6-applets-panel-colorizer
 ```
 
@@ -24,9 +24,7 @@ Install the optional packages that are present but inactive:
 sudo pacman -S --needed \
   cachyos-kde-settings cachyos-iridescent-kde \
   cachyos-nord-kde-theme-git cachyos-emerald-kde-theme-git \
-  cachyos-wallpapers bibata-cursor-theme
-
-paru -S --needed plasma6-applets-audio-visualizer
+  cachyos-wallpapers bibata-cursor-theme plasma6-applets-audio-visualizer tela-icon-theme
 ```
 
 Modern Clock, Ant-Dark, Maple Mono NF, Tela icons, and Vector Clock need to be

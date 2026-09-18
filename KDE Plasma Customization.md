@@ -138,7 +138,7 @@ Install the active foreign/AUR packages:
 paru -S --needed \
   darkly \
   kde-material-you-colors-git \
-  plasma6-applets-wallpaper-effects
+  plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git
 ```
 
 Install the optional packages that are present but inactive:

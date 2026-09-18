@@ -31,7 +31,7 @@ sudo systemctl enable plasmalogin.service
 ## 4. Copy cachy os config to home folder
 
 ```bash
-cp -r /etc/skel/.config/ ~/.config/a
+cp -r /etc/skel/.config/ ~/.config/
 ```
 
 ## 5. (Optional) CachyOS “Emerald” look

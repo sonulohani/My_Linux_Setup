@@ -46,6 +46,10 @@ Widgets/Themes** interface.
 
 * Mordern Clock
 
+### Icon theme
+
+* [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)
+
 ### All changes with one command
 
 Go to : https://github.com/ladybug-me/caelestia-dots-kde

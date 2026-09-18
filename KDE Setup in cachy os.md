@@ -13,7 +13,7 @@ sudo pacman -Syu
 ## 2. Install KDE Plasma (core)
 
 ```bash
-sudo pacman -S plasma-meta plasma-login-manager
+sudo pacman -S plasma-meta plasma-login-manager cachyos-kde-settings kde-applications drawy
 ```
 
 When `pacman` asks about providers (fonts, multimedia, etc.), press **Enter** to accept defaults unless you have a preference.
@@ -28,44 +28,18 @@ sudo systemctl enable plasmalogin.service
 
 ---
 
-## 4. (Recommended) CachyOS KDE tweaks
+## 4. Copy cachy os config to home folder
 
 ```bash
-sudo pacman -S cachyos-kde-settings
+cp -r /etc/skel/.config/ ~/.config/a
 ```
 
----
-
-## 5. (Optional) Full KDE application suite
-
-```bash
-sudo pacman -S kde-applications
-```
-
-Or install only what you need, e.g.:
-
-```bash
-sudo pacman -S dolphin konsole kate gwenview ark spectacle
-```
-
----
-
-## 6. (Optional) CachyOS “Emerald” look
+## 5. (Optional) CachyOS “Emerald” look
 
 ```bash
 sudo pacman -S cachyos-emerald-kde-theme-git qogir-icon-theme
 ```
 
 Then apply them in **Appearance & Style → Colors & Themes**.
-
----
-
-## 7. Reboot
-
-```bash
-sudo reboot
-```
-
-At the login screen, choose **Plasma (Wayland)** or **Plasma (X11)** if you installed X11.
 
 ---

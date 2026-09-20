@@ -34,6 +34,7 @@ Widgets/Themes** interface.
 ### Kwin script
 
 * [KClear](https://github.com/AaronRohrbacher/klear_kwin)
+* [KZones](https://github.com/gerritdevriese/kzones)
 
 ### Plasma Style
 

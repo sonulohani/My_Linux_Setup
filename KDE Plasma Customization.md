@@ -5,7 +5,7 @@
 Install the active repository packages:
 
 ```bash
-sudo paru -S --needed \
+paru -S --needed \
   kdeplasma-addons breeze breeze-icons breeze-cursors inter-font plasma6-applets-panel-colorizer
 ```
 
@@ -15,7 +15,7 @@ Install the active foreign/AUR packages:
 paru -S --needed \
   darkly \
   kde-material-you-colors-git \
-  plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git vinyl
+  plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git vinyl klassy
 ```
 
 Install the optional packages that are present but inactive:
@@ -40,6 +40,10 @@ Widgets/Themes** interface.
 
 * Apple-Dark
 * Ant-Dark
+* Layan look and feel theme
+* Dream-Dark-Color-Global-6
+* Nordic-bluish
+* Nordic
 
 ### Widgets
 

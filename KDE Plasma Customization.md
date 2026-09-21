@@ -8,7 +8,7 @@ Install the active repository packages:
 paru -S --needed \
   kdeplasma-addons breeze breeze-icons breeze-cursors \ 
   inter-font plasma6-applets-panel-colorizer kwin-effects-better-blur-dx \
-  kwin-effects-glass-git
+  kwin-effects-glass-git vicinae
 
 ```
 

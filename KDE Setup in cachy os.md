@@ -13,7 +13,8 @@ sudo pacman -Syu
 ## 2. Install KDE Plasma (core)
 
 ```bash
-sudo pacman -S plasma-meta plasma-login-manager cachyos-kde-settings kde-applications drawy
+sudo pacman -S plasma-meta plasma-login-manager cachyos-kde-settings kde-applications drawy \
+kdotool
 ```
 
 When `pacman` asks about providers (fonts, multimedia, etc.), press **Enter** to accept defaults unless you have a preference.

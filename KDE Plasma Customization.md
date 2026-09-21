@@ -6,7 +6,9 @@ Install the active repository packages:
 
 ```bash
 paru -S --needed \
-  kdeplasma-addons breeze breeze-icons breeze-cursors inter-font plasma6-applets-panel-colorizer
+  kdeplasma-addons breeze breeze-icons breeze-cursors \ 
+  inter-font plasma6-applets-panel-colorizer kwin-effects-better-blur-dx
+
 ```
 
 Install the active foreign/AUR packages:

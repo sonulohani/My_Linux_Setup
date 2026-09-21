@@ -12,6 +12,10 @@ paru -S --needed \
 
 ```
 
+```bash
+systemctl --user enable --now vicinae.service
+```
+
 Install the active foreign/AUR packages:
 
 ```bash

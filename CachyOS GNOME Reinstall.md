@@ -25,10 +25,29 @@ following groups reflect the useful non-default software on the current system.
 
 ```bash
 paru -S --needed \
-  extension-manager gnome-tweaks gnome-shell-extensions \
+  gnome extension-manager gnome-tweaks gnome-shell-extensions \
   gnome-browser-connector dconf-editor gdm-settings \
   flameshot pavucontrol meld gnome-rounded-blur pipewire-control-center \
-  ptyxis nautilus-open-any-terminal
+  ptyxis nautilus-open-any-terminal cachyos-gnome-settings \
+  fwupd gdm gnome-backgrounds gnome-console gnome-control-center \
+    gnome-keyring gnome-shell gnome-tweaks libnma sushi \
+    papers loupe file-roller simple-scan gnome-disk-utility \
+    gnome-power-manager gnome-calculator gnome-nettool \
+    gnome-usage malcontent showtime gvfs-afc gvfs-nfs \
+    gvfs-smb gvfs-gphoto2 gvfs-mtp gnome-extra \
+    gnome-shell-extension-appindicator gnome-shell-extension-dash-to-panel \
+    gnome-shell-extension-caffeine gnome-shell-extension-vitals \
+    gnome-shell-extension-arc-menu gnome-shell-extension-desktop-icons-ng \
+    gnome-shell-extension-advanced-alttab-window-switcher \
+    gnome-shell-extension-alphabetical-grid-extension-git \
+    gnome-shell-extension-color-picker gnome-shell-extension-logo-menu \
+    gnome-shell-extensions gnome-shell-extension-clipboard-indicator \
+    gnome-shell-extension-desktop-icons-ng gnome-shell-extension-just-perfection-desktop \
+    gnome-shell-extension-blur-my-shell gnome-shell-extension-space-bar
+```
+
+```bash
+sudo systemctl enable gdm
 ```
 
 

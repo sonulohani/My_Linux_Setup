@@ -38,7 +38,6 @@ paru -S --needed \
     gnome-shell-extension-appindicator gnome-shell-extension-dash-to-panel \
     gnome-shell-extension-caffeine gnome-shell-extension-vitals \
     gnome-shell-extension-arc-menu gnome-shell-extension-desktop-icons-ng \
-    gnome-shell-extension-advanced-alttab-window-switcher \
     gnome-shell-extension-alphabetical-grid-extension-git \
     gnome-shell-extension-color-picker gnome-shell-extension-logo-menu \
     gnome-shell-extensions gnome-shell-extension-clipboard-indicator \

@@ -96,7 +96,8 @@ enabled = true
 delay_ms = 200
 
 [hot_corners.top_left]
-action = "window-switcher"
+action = "command"
+command = "hyprctl eval 'hl.plugin.hyprwinview.overview(\"toggle\")'"
 
 [system.monitor]
 gpu_poll_seconds = 2

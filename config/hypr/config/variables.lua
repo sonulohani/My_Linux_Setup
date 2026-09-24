@@ -1,7 +1,7 @@
 -- Hyprland default apps
 
-TERMINAL = "kitty"
-FILE_MANAGER = "nautilus"
+TERMINAL = "foot"
+FILE_MANAGER = "nemo"
 BROWSER = "brave"
 EDITOR = "zeditor"
 CALCULATOR = "gnome-calculator"

@@ -12,6 +12,9 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + ALT + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
 hl.bind(mainMod .. " + SHIFT + F", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("/home/sonul/.config/hypr/scripts/minimize-window.sh minimize"))
+hl.bind(mainMod .. " + SHIFT + I", hl.dsp.exec_cmd("/home/sonul/.config/hypr/scripts/minimize-window.sh restore"))
+hl.bind(mainMod .. " + M", hl.dsp.workspace.toggle_special("minimized"))
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
 
 -- Change focus

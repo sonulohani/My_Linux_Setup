@@ -171,6 +171,13 @@ hyprpm add https://github.com/hyprnux/hyprglass
 hyprpm enable hyprglass
 ```
 
+### Hyprwinview
+
+```bash
+hyprpm add https://github.com/colonelpanic8/hyprwinview
+hyprpm enable hyprwinview
+```
+
 #### To update plugins
 
 ```bash

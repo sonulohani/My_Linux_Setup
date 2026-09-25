@@ -153,7 +153,7 @@ paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctal
   sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland swash --needed
 ```
 
-### Hyprland plagins
+### Hyprland plugins
 
 ```bash
 hyprpm add https://github.com/hyprwm/hyprland-plugins
@@ -178,6 +178,13 @@ hyprpm enable hyprglass
 ```bash
 hyprpm add https://github.com/colonelpanic8/hyprwinview
 hyprpm enable hyprwinview
+```
+
+### hypr-autoscroll
+
+```bash
+hyprpm add https://github.com/estebanhiram/hypr-autoscroll
+hyprpm enable hypr-autoscroll
 ```
 
 #### To update plugins

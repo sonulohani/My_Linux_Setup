@@ -1,108 +1,5 @@
 # DankMaterialShell Git with Hyprland
 
-Setup and recovery guide for
-[DankMaterialShell](https://danklinux.com/docs/dankmaterialshell/installation)
-(DMS) development builds on CachyOS / Arch Linux, using the already-installed
-Hyprland compositor, UWSM session management, SDDM greeter, and
-[Qylock](https://github.com/Darkkal44/qylock) themes.
-
-This guide deliberately installs `dms-shell-git`, not the stable `dms-shell`
-package.
-
-## Current machine audit
-
-Inventory checked on **2026-08-28**.
-
-### Core desktop and session
-
-| Component | Installed version | State |
-| --- | --- | --- |
-| CachyOS | rolling release | Installed |
-| `hyprland` | 0.56.2-1 | Installed |
-| `uwsm` | 0.26.7-1 | Installed |
-| `sddm` | 0.21.0-8 | Enabled and active |
-| `xdg-desktop-portal-hyprland` | 1.4.1-1.1 | Installed |
-| `xdg-desktop-portal-gtk` | 1.15.3-1.1 | Installed |
-
-SDDM provides both **Hyprland** and **Hyprland (uwsm-managed)** sessions. Use
-the UWSM-managed session. Its desktop entry runs:
-
-```bash
-uwsm start -e -D Hyprland hyprland.desktop
-```
-
-### DMS and integrations
-
-| Package | Installed version | Purpose |
-| --- | --- | --- |
-| `dms-shell-git` | 1.5.0.r460.g4aac96c-1 | Latest development DMS shell and CLI |
-| `dms-shell-hyprland` | 1.5.3-1 | CachyOS Hyprland integration meta package |
-| `quickshell` | 0.3.1-1.1 | Required shell framework |
-| `accountsservice` | 26.27.3-1.1 | User profile persistence |
-| `dgop` | 0.2.3-1.1 | Detailed system metrics |
-| `dsearch` | d95d611 | Filesystem search, built from Git source |
-| `cava` | 0.10.7-1.1 | Audio visualizer |
-| `matugen` | 4.2.0-1.1 | Material color generation |
-| `dankcalendar-bin` | 0.3.1-1 | Calendar integration |
-| `qt6-multimedia` | 6.11.2-1.1 | DMS sound feedback |
-| `qt6-multimedia-ffmpeg` | 6.11.2-1.1 | Qt multimedia backend |
-| `cliphist` / `wl-clipboard` | 0.7.0 / 2.3.0 | Clipboard history |
-| `grim` / `slurp` | 1.5.0 / 1.5.0 | Screenshots and region selection |
-
-The upstream optional package `i2c-tools` is **not installed**. `brightnessctl`
-and `playerctl` are also missing; install them if the related hardware/media
-controls need those command-line backends.
-
-DSearch was built from `~/Documents/github/danksearch` and installed as
-`/usr/local/bin/dsearch`. Its systemd user service is installed but disabled.
-
-The installed `dms-shell-git` package files, Quickshell package files, and DMS
-service were verified. The DMS service is currently active.
-
-### Qylock and SDDM
-
-The Qylock checkout is present at `~/Documents/github/qylock` and tracks
-`https://github.com/Darkkal44/qylock.git`. All dependencies listed by Qylock are
-installed:
-
-- `sddm`, `qt6-declarative`, `qt6-5compat`, and `qt6-svg`
-- `qt6-multimedia` and `qt6-multimedia-ffmpeg`
-- `gst-plugins-base`, `gst-plugins-good`, `gst-plugins-bad`, and
-  `gst-plugins-ugly`
-- `fzf` (optional theme picker)
-
-The Qylock `last-of-us` SDDM theme is installed and selected in
-`/etc/sddm.conf.d/theme.conf`:
-
-```ini
-[Theme]
-Current=last-of-us
-```
-
-Qylock's separate Quickshell lockscreen is **not currently deployed**. The
-working desktop lock is DMS, bound to `Super+Alt+L`. This distinction matters:
-SDDM is the login greeter, while DMS or Qylock handles locking after login.
-
-## Install or restore the DMS git build
-
-Update the system and install an AUR helper if `paru` is not already available:
-
-```bash
-sudo pacman -Syu
-sudo pacman -S --needed base-devel git paru
-```
-
-Install the latest DMS development package from the AUR:
-
-```bash
-paru -S dms-shell-git
-```
-
-Do not replace it with `sudo pacman -S dms-shell`; that command installs the
-stable release. `dms-shell-git` provides the `dms-shell` dependency required by
-the CachyOS `dms-shell-hyprland` integration package, so both package names can
-appear in the installed package list without installing two DMS payloads.
-
 Ensure the compositor, session, greeter, portals, and useful integrations are
 installed:
 
@@ -114,7 +11,8 @@ paru -S --needed \
   matugen cava dankcalendar-bin \
   qt6-multimedia qt6-multimedia-ffmpeg \
   i2c-tools brightnessctl playerctl \
-  cliphist wl-clipboard grim slurp xdg-terminal-exec
+  cliphist wl-clipboard grim slurp xdg-terminal-exec \
+  dms-shell-hyprland
 ```
 
 Only Quickshell is strictly required by upstream DMS. The other DMS packages
@@ -165,6 +63,8 @@ Do not restart SDDM from inside a graphical session because doing so terminates
 the session. Log out or reboot after finishing the setup.
 
 ## Generate the Hyprland configuration
+
+Refer this for the service: https://danklinux.com/docs/dankmaterialshell/cli-doctor#services
 
 Back up an existing Hyprland configuration before asking DMS to generate its
 starter files:

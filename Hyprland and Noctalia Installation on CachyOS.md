@@ -144,6 +144,8 @@ systemctl --user enable --now gnome-keyring-daemon.socket
 
 ```bash
 paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctalia uwsm foot \
+  hyprpaper hyprpicker hyprlauncher hypridle hyprlock hyprpwcenter hyprshutdown hyprtoolkit \
+  hyprcursor hyprutils hyprlang hyprwayland-scanner aquamarine hyprgraphics hyprland-guiutil \
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk chafa hyprpolkitagent \
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \

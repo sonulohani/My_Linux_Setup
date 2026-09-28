@@ -101,10 +101,16 @@ hl.window_rule({
 
 -- Opacity Overrides
 local terminals = "^(kitty|ghostty|[Kk]onsole|Alacritty|gnome-terminal|xfce[0-9]?-terminal)$"
-local opaqueApps = "^(brave-browser|Brave-browser|brave|cursor)$"
+local opaqueApps =
+	"^(brave-browser|Brave-browser|brave|cursor|edge|microsoft-edge|[Qq]t[Cc]reator|org\\.qt-project\\.qtcreator)$"
 
 hl.window_rule({ match = { class = opaqueApps }, no_blur = true, opaque = true })
-hl.window_rule({ match = { class = "^(firefox|zen|brave-browser|Brave-browser|brave|cursor)$" }, opacity = "1.0 override" })
+hl.window_rule({
+	match = {
+		class = "^(firefox|zen|brave-browser|Brave-browser|brave|cursor|[Qq]t[Cc]reator|org\\.qt-project\\.qtcreator)$",
+	},
+	opacity = "1.0 override",
+})
 hl.window_rule({ match = { class = terminals }, opacity = "1.0 override" }) -- Override opacity in favor of terminal settings for opacity. If your terminal doesn't support transparency, you can remove this rule.
 hl.window_rule({
 	match = { class = "^(mpv|org.kde.haruna|.*plex.*|org\\.kde\\.gwenview|.*vlc.*)$" },

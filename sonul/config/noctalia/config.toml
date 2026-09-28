@@ -91,6 +91,15 @@ settings_show_advanced = true
     shortcut = "5"
     variant = "destructive"
 
+    [shell.window_switcher]
+    style = "carousel"
+    mru = true
+    show_caption = true
+    show_count = true
+    show_app_icon = true
+    show_all_outputs = false
+    current_workspace_only = false
+
 [hot_corners]
 enabled = true
 delay_ms = 200

@@ -126,7 +126,7 @@ The expected session files include `hyprland.desktop` and
 ### Alt + Tab switcher + hyprmod
 
 ```bash
-paru -S snappy-switcher hyprmod
+paru -S hyprmod
 ```
 
 ### Some extra packages
@@ -150,7 +150,7 @@ paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctal
   matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring \
   nautilus qt6-declarative qt6-5compat qt6-svg qt6-multimedia qt6-multimedia-ffmpeg \
   gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gnome-console \
-  sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland swash  kora-icon-theme xwayland-satellite --needed
+  sddm ddcutil playerctl power-profiles-daemon upower kitty zed hyprmod hyprpm pyprland swash  kora-icon-theme xwayland-satellite --needed
 ```
 
 ### Additional

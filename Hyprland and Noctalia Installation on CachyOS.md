@@ -188,6 +188,12 @@ ttf-nerd-fonts-symbols \
 noto-fonts-emoji
 ```
 
+### Install git version of noctalia
+
+```bash
+paru -S noctalia-git
+```
+
 ### Hyprland plugins
 
 ```bash

@@ -153,6 +153,41 @@ paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctal
   sddm ddcutil playerctl power-profiles-daemon upower snappy-switcher kitty zed hyprmod hyprpm pyprland swash --needed
 ```
 
+### Additional
+
+```bash
+paru -S --needed hyprshutdown \
+libnotify \
+qt5-wayland \
+qt6-wayland \
+gnome-themes-extra \
+python-pip \
+python-pipx \
+python-gobject \
+python-screeninfo \
+nm-connection-editor \
+network-manager-applet \
+imagemagick \
+polkit-gnome \
+hyprsunset \
+pacman-contrib \
+loupe \
+tesseract-data-eng \
+otf-font-awesome \
+ttf-firacode-nerd \
+ttf-jetbrains-mono-nerd \
+qt6-svg \
+qt6-virtualkeyboard \
+qt6-multimedia-ffmpeg \
+gvfs-mtp \
+awww \
+matugen \
+nwg-displays \
+ttf-font-awesome \
+ttf-nerd-fonts-symbols \
+noto-fonts-emoji
+```
+
 ### Hyprland plugins
 
 ```bash

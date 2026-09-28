@@ -151,11 +151,10 @@ hl.bind(mainMod .. " + ALT + SHIFT + Right", hl.dsp.window.move({ monitor = "r" 
 hl.bind(mainMod .. " + ALT + SHIFT + Up", hl.dsp.window.move({ monitor = "u" }))
 hl.bind(mainMod .. " + ALT + SHIFT + Down", hl.dsp.window.move({ monitor = "d" }))
 
--- Focus or move to workspaces 1-10 (0 selects workspace 10)
-for i = 1, NUM_WPM * 2 do
-	local key = i % 10
-	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+-- Focus or move to workspace 1-5 on the currently focused monitor
+for i = 1, NUM_WPM do
+	hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = "m~" .. i }))
+	hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = "m~" .. i }))
 end
 
 -- Move to adjacent workspaces and next empty on a given monitor

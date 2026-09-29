@@ -103,6 +103,9 @@ numlock_toggle = true
 [input.focus]
 follows_mouse = true
 
+[input.touchpad]
+natural_scroll = true
+
 # Confine touch input to one display.
 # [input.touch]
 # enabled = true
@@ -134,6 +137,7 @@ follows_mouse = true
 "Mod+Alt+C" = { action = "spawn:noctalia msg panel-toggle session", repeat = false }
 "Mod+L" = { action = "spawn:noctalia msg session lock", repeat = false }
 "Mod+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Shift+Slash" = { action = "cheatsheet-toggle", repeat = false }
 
 # Screen capture
 # Screenshots open in swash via [shell.screenshot].pipe_command in ~/.config/noctalia/config.toml.

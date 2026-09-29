@@ -2,34 +2,17 @@
 
 ```bash
 paru -S --needed noctalia-git xwayland-satellite \
-umbriel-git nautilus zed kitty qt6-declarative qt6-5compat \
+umbriel-git xdg-desktop-portal-umbriel-git nautilus zed kitty qt6-declarative qt6-5compat \
 qt6-svg qt6-multimedia qt6-multimedia-ffmpeg gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly \
 sddm brave udiskie udisks2 chafa \
 matugen cliphist wl-clipboard grim slurp qt6ct qt5ct gnome-keyring gnome-console \
 ddcutil playerctl upower swash kora-icon-theme libnotify \
-qt5-wayland \
-qt6-wayland \
-gnome-themes-extra \
-nm-connection-editor \
-network-manager-applet \
-imagemagick \
-polkit-gnome \
-pacman-contrib \
-loupe \
-tesseract-data-eng \
-otf-font-awesome \
-ttf-firacode-nerd \
-ttf-jetbrains-mono-nerd \
-qt6-svg \
-qt6-virtualkeyboard \
-qt6-multimedia-ffmpeg \
-gvfs-mtp \
-awww \
-matugen \
-nwg-displays \
-ttf-font-awesome \
-ttf-nerd-fonts-symbols \
-noto-fonts-emoji
+qt5-wayland qt6-wayland gnome-themes-extra nm-connection-editor \
+network-manager-applet imagemagick polkit-gnome pacman-contrib \
+loupe tesseract-data-eng otf-font-awesome ttf-firacode-nerd \
+ttf-jetbrains-mono-nerd qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg \
+gvfs-mtp awww matugen nwg-displays ttf-font-awesome \
+ttf-nerd-fonts-symbols noto-fonts-emoji
 ```
 
 ## TLP

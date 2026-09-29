@@ -106,6 +106,14 @@ follows_mouse = true
 [input.touchpad]
 natural_scroll = true
 
+[input.cursor]
+theme = "Bibata-Original-Ice"
+size = 24
+hardware_cursor = true
+follows_focus = false
+hide_when_typing = false
+hide_timeout_ms = 0
+
 # Confine touch input to one display.
 # [input.touch]
 # enabled = true

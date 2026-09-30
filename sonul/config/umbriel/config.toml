@@ -48,7 +48,7 @@ files = [
 # Missing optional files are ignored and watched, so creating one later
 # reloads the configuration.
 [include.optional]
-files = []
+files = ["noctalia.toml"]
 
 # ==============================================================================
 # DRM devices

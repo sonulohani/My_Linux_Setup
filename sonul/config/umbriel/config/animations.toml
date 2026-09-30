@@ -3,84 +3,113 @@
 #
 # Top-level values are defaults; every event except windows_drag also accepts
 # enabled, duration_ms (1 to 10000), curve, and effect (an animation preset,
-# see effects.toml). Spring curves choose their own duration.
+# see effects.toml). Spring curves choose their own duration, so duration_ms
+# only matters for bezier curves.
 #
 # Curves: linear, ease, easeout, snappy, bounce, elastic, a cubic bezier
 # "x1,y1,x2,y2", "spring:<damping>,<stiffness>", or a name registered under
-# [animation.beziers] / [animation.springs].
+# [animation.beziers] / [animation.springs] below.
 #
-# Commented values are built-in defaults. The per-event curves are the values
-# shown in the Umbriel docs; `umbriel config schema` doesn't list them.
+# Springs: damping below 1 overshoots, 1 settles without overshoot, above 1
+# approaches more slowly; higher stiffness settles faster.
+#
+# Built-in values are noted as "default" so any event can be reverted.
 # https://docs.noctalia.dev/umbriel/animation/
 # ==============================================================================
 
-# [animation]
-# enabled = true                     # master switch for every transition
-# duration_ms = 250                  # used by non-spring curves
-# curve = "easeout"
+# Bundled squash-and-settle shader used by windows_move below.
+[include]
+files = ["/usr/share/umbriel/effects/animation/squash/effect.toml"]
 
-# Window opening. style: popin, zoom, slide, fade, none
-# [animation.windows_in]
-# enabled = true
-# curve = "spring:1,900"
-# style = "popin"
-# scale = 0.5                        # popin start size, 0.1 to 1.0
+# ------------------------------------------------------------------------------
+# Named curves. Tune the feel of every event from here.
+# ------------------------------------------------------------------------------
 
-# Window closing. style: fade, slide, popin, zoom
-# [animation.windows_out]
-# enabled = true
-# curve = "spring:1,1400"
-# style = "popin"
-# scale = 0.8                        # popin end size, 0.1 to 1.0
+[animation.springs]
+pop = { damping = 0.75, stiffness = 800 }     # lively, a hint of overshoot
+glide = { damping = 1.0, stiffness = 700 }    # smooth, no overshoot
+swift = { damping = 1.0, stiffness = 1200 }   # quick and clean
+float = { damping = 0.85, stiffness = 650 }   # soft landing, barely overshoots
+filmstrip = { damping = 1.0, stiffness = 900 }
 
-# Move, resize, reflow, maximize and restore
-# [animation.windows_move]
-# enabled = true
-# curve = "spring:1,900"
+[animation.beziers]
+fluent = [0.16, 1.0, 0.3, 1.0]                # expo ease-out: fast start, long gentle finish
+silk = [0.45, 0.0, 0.55, 1.0]                 # symmetric ease-in-out for color and opacity fades
 
-# [animation.workspaces]
-# enabled = true
-# curve = "spring:1,800"
+# ------------------------------------------------------------------------------
+# Events
+# ------------------------------------------------------------------------------
 
-# [animation.overview]
-# enabled = true
-# curve = "spring:1,800"
-# workspace_curve = "spring:1,1000"  # filmstrip movement after wheel, keyboard or touchpad navigation
+[animation]
+enabled = true                       # master switch for every transition
+duration_ms = 300                    # default 250
+curve = "fluent"                     # default "easeout"; fallback for events without a curve
+
+# Window opening: rises and grows into place out of a soft accent glow, with a
+# gentle springy settle (bloom shader, defined in effects.toml).
+# style and scale only apply when effect is removed; style: popin, zoom, slide, fade, none
+[animation.windows_in]
+enabled = true
+curve = "pop"                        # default "spring:1,900"
+effect = "bloom"                     # default: none
+style = "popin"
+scale = 0.85                         # default 0.5; popin start size, 0.1 to 1.0
+
+# Window closing: sinks back into the glow and fades out quickly.
+# style and scale only apply when effect is removed; style: fade, slide, popin, zoom
+[animation.windows_out]
+enabled = true
+curve = "swift"                      # default "spring:1,1400"
+effect = "bloom"                     # default: none
+style = "popin"
+scale = 0.92                         # default 0.8; popin end size, 0.1 to 1.0
+
+# Move, resize, reflow, maximize and restore, with a subtle squash-and-settle.
+[animation.windows_move]
+enabled = true
+curve = "glide"                      # default "spring:1,900"
+effect = "squash"                    # default: none
+
+[animation.workspaces]
+enabled = true
+curve = "glide"                      # default "spring:1,800"
+
+[animation.overview]
+enabled = true
+curve = "float"                      # default "spring:1,800"
+workspace_curve = "filmstrip"        # default "spring:1,1000"; filmstrip movement after wheel, keyboard or touchpad navigation
 
 # Blur the workspace behind a shown scratchpad, on top of the default dim.
 # dim and blur stay active without a fade when animations are disabled.
 # scale, maximize and fullscreen set how a window is shown while in a scratchpad.
 [animation.scratchpad]
+enabled = true
+curve = "float"                      # default "spring:1,800"
 blur = true
-# enabled = true
-# curve = "spring:1,800"
 # dim = 0.8                          # 0.0 to 1.0
 # scale = 0.0                        # 0.0 to 1.0
 # maximize = false
 # fullscreen = false
 
-# Focus-border color
-# [animation.border]
-# enabled = true
-# curve = "spring:1,900"
+# Focus-border color crossfade.
+[animation.border]
+enabled = true
+curve = "silk"                       # default "spring:1,900"
+duration_ms = 320
 
-# Unfocused-window dimming
-# [animation.dim_unfocused]
-# enabled = false
-# dim = 0.0                          # 0.0 to 1.0
+# Unfocused windows fade slightly darker so the focused one stands out.
+[animation.dim_unfocused]
+enabled = true                       # default false
+curve = "silk"
+duration_ms = 280                    # default 250
+dim = 0.1                            # default 0.0; 0.0 to 1.0
 
-# Layer-shell surfaces mapping and unmapping
-# [animation.layers]
-# enabled = false
+# Noctalia bar, panels, notifications and OSD mapping and unmapping.
+[animation.layers]
+enabled = true                       # default false
+curve = "fluent"
+duration_ms = 220                    # default 250
 
 # Dragged windows bend like an elastic sheet and settle when released.
-# [animation.windows_drag]
-# physics = false
-
-# Reusable named curves, used as curve = "myBezier" or curve = "myBounce".
-# Examples:
-# [animation.beziers]
-# myBezier = [0.05, 0.9, 0.1, 1.05]
-#
-# [animation.springs]
-# myBounce = { damping = 0.5, stiffness = 200 }   # damping 0.01 to 5, stiffness 1 to 10000
+[animation.windows_drag]
+physics = true                       # default false

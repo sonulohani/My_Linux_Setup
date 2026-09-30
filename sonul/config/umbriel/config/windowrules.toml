@@ -5,6 +5,7 @@
 # the order in this file intentional. A rule without selectors matches every
 # window. Regexes match any part of a value; anchor with ^ and $.
 # Run `umbriel windows` to see app IDs, titles, tags and content types.
+# Rules that switch effects off (border_effect, window_effect) are in effects.toml.
 # https://docs.noctalia.dev/umbriel/window-rules/
 #
 # Selectors (match.*):

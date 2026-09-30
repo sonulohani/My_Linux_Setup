@@ -1,0 +1,51 @@
+# ==============================================================================
+# Effects
+#
+# GLSL programs for animation events, the focused window's border, every
+# window, whole outputs, and around the pointer. Every effect is off until a
+# preset is included and selected by name.
+# https://docs.noctalia.dev/umbriel/effects/
+#
+# Bundled presets, in /usr/share/umbriel/effects/<kind>/<name>/effect.toml:
+#   reveal     animation   [animation.windows_in] or windows_out: effect = "reveal"
+#   squash     animation   [animation.windows_move]: effect = "squash"
+#   pulse      border      [effects] border = "pulse"
+#   scanlines  window      [effects] window = "scanlines"
+#   vignette   screen      [effects] screen = "vignette"
+#   glow       cursor      [effects] cursor = "glow"
+#
+# Including a preset only makes it available; a selector turns it on.
+# Relative paths below resolve from this file.
+# ==============================================================================
+
+# [include]
+# files = ["/usr/share/umbriel/effects/border/pulse/effect.toml"]
+
+# Commented values are built-in defaults. "" selects nothing.
+# [effects]
+# border = ""                        # border preset or pool for the focused window
+# window = ""                        # window preset or pool for every window
+# screen = ""                        # screen preset or pool for every output
+# cursor = ""                        # cursor preset or pool, shared across outputs
+# max_fps = 0                        # 0 to 240 cap on frames drawn only for effects; 0 follows refresh
+# in_capture = false                 # include window, screen and cursor effects in screenshots
+
+# Pools pick a stable preset for each window or output. Select a pool like a
+# preset, e.g. border = "borders". This one-member example uses pulse.
+# [effects.pool.borders]
+# kind = "border"                    # border, window, screen, cursor
+# choose = ["pulse"]
+# selection = "unused_first"         # unused_first, round_robin, random
+
+# Custom preset (example). Border presets also accept padding, speed, animated,
+# overlay and a [effects.preset.<name>.light] table (spread, intensity,
+# threshold); cursor presets accept radius.
+# [effects.preset.tint]
+# kind = "window"                    # animation, border, window, screen, cursor
+# shader = "tint.glsl"
+# palette = true                     # pass the [colors] accents to the shader
+
+# Runtime selection binds go in binds.toml, for example:
+# "Mod+Shift+E" = "effect-border-cycle:borders"
+# "Mod+Ctrl+E" = "effect-border-toggle"
+# "Mod+Alt+E" = "effect-border-reset"

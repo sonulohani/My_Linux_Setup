@@ -1,0 +1,9 @@
+# ==============================================================================
+# Autostart
+#
+# Commands started once with the session. Changes require a restart.
+# https://docs.noctalia.dev/umbriel/configuration/#general
+# ==============================================================================
+
+[general]
+autostart = ["noctalia"]

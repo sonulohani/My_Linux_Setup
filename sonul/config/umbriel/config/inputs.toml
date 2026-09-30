@@ -1,0 +1,84 @@
+# ==============================================================================
+# Input
+#
+# Keyboard, pointer, touchpad, tablet, touch, cursor and focus behaviour.
+# Commented values are built-in defaults unless marked "example". Where a
+# block says so, leaving a key unset keeps the device's libinput default.
+# https://docs.noctalia.dev/umbriel/input/
+# ==============================================================================
+
+# [input]
+# middle_click_paste = true          # false disables primary-selection paste, including Shift+Insert
+# client_window_drag = true          # false ignores move requests from client title bars and tab strips
+# window_drag_toggle = "none"        # other mouse button during a drag: none, floating, pinned
+
+# Enable NumLock when a physical keyboard connects.
+[input.keyboard]
+numlock_toggle = true
+# layout = ""                        # XKB layout list, e.g. "us,de"; empty uses the system default
+# variant = ""
+# options = ""                       # XKB options, e.g. "grp:alt_shift_toggle,caps:escape"
+# repeat_rate = 25                   # repeats per second, 0 to 1000; 0 disables repeat
+# repeat_delay = 600                 # ms before a held key repeats, 0 to 10000
+# track_layout = "global"            # global, or window to remember the layout per window
+
+# Focus can follow the pointer across tiled, floating, and pinned windows.
+[input.focus]
+follows_mouse = true
+# follows_mouse_max_scroll = 0.5     # example; max layout scroll (in viewport widths) to reveal the
+#                                    # window under the pointer. Unset means no limit.
+
+[input.touchpad]
+natural_scroll = true
+# tap = true                         # tap-to-click
+# Unset keys below keep the libinput default; values are examples.
+# left_handed = false
+# accel_profile = "adaptive"         # flat, adaptive, or "custom <step> <points...>"
+# sensitivity = 0.0                  # -1.0 to 1.0
+# scroll_factor = 1.0                # 0.1 to 10.0, or { horizontal = 1.0, vertical = 1.0 }
+# disable_while_typing = true
+# disable_on_external_mouse = false
+# click_method = "clickfinger"       # button_areas, clickfinger
+# tap_button_map = "left_right_middle"   # left_right_middle, left_middle_right
+
+# [input.mouse]
+# sensitivity = 0.0                  # -1.0 to 1.0
+# scroll_wheel_step = 60             # logical px per layout-scroll action, 1 to 1000
+# Unset keys below keep the libinput default; values are examples.
+# natural_scroll = false
+# left_handed = false
+# accel_profile = "flat"             # flat, adaptive, or "custom <step> <points...>"
+# scroll_button = "MouseMiddle"      # hold to scroll with motion: MouseLeft, MouseRight, MouseMiddle, MouseBack, MouseForward
+# scroll_button_lock = false         # true makes scroll_button a toggle instead of hold
+
+[input.cursor]
+theme = "Bibata-Original-Ice"        # Xcursor theme; empty uses the environment default
+size = 24                            # 1 to 512 logical px
+hardware_cursor = true               # set false to work around cursor flicker or disappearance
+follows_focus = false                # warp the cursor to windows focused from the keyboard
+hide_when_typing = false             # hide after a non-modifier key press
+hide_timeout_ms = 0                  # hide after inactivity, up to 3600000; 0 disables
+
+# Confine touch input to one display.
+# [input.touch]
+# enabled = true
+# map_to_output = "eDP-1"            # example; unset uses the device's output or the built-in panel
+
+# [input.tablet]
+# enabled = true                     # tablet and pad input
+# map_to_output = "eDP-1"            # example; confine the tablet to one output
+# map_to_focused_output = false      # follow the output with keyboard focus
+# map_to_focused_window = false      # map the tablet area to the focused window
+# left_handed = false                # flip the tablet orientation
+# calibration_matrix = [1.0, 0.0, 0.0, 0.0, 1.0, 0.0]   # example; six-number libinput matrix
+
+# Per-device overrides. name must exactly match the "Device" value from
+# `libinput list-devices`. Each entry inherits its keyboard, touchpad or mouse
+# settings and replaces only the keys it sets. Accepted keys: name, layout,
+# variant, options, repeat_rate, repeat_delay, natural_scroll, tap,
+# left_handed, accel_profile, sensitivity, click_method, tap_button_map,
+# disable_while_typing, scroll_button, scroll_button_lock.
+# [[input.device]]
+# name = "Acme Gaming Mouse"
+# accel_profile = "flat"
+# sensitivity = 0.0

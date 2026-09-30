@@ -1,0 +1,22 @@
+# ==============================================================================
+# Scratchpads
+#
+# Without [[scratchpad]] entries there is one implicit scratchpad named
+# "default", which the scratchpad binds in binds.toml use. Defining any named
+# scratchpad removes "default", so every scratchpad bind then needs a name
+# suffix, e.g. "scratchpad-toggle:music".
+#
+# Backdrop dim, blur and entry sizing are in animations.toml
+# ([animation.scratchpad]); scratchpad border colors are a window rule in
+# windowrules.toml.
+# https://docs.noctalia.dev/umbriel/scratchpads/
+# ==============================================================================
+
+# Named scratchpads can launch an application when toggled while empty.
+# [[scratchpad]]
+# name = "music"
+# spawn_when_empty = "spotify"
+
+# [[window_rule]]
+# match.app_id = "^spotify$"
+# default_scratchpad = "music"

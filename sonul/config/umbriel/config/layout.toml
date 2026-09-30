@@ -1,0 +1,39 @@
+# ==============================================================================
+# Layout
+#
+# Default layout for every workspace. Per-output overrides go in monitors.toml
+# and per-workspace overrides in workspaces.toml.
+# Commented values are built-in defaults.
+# https://docs.noctalia.dev/umbriel/layout/
+# ==============================================================================
+
+[layout]
+extent_presets = [0.333, 0.5, 0.667] # fractions walked by the *-extent-cycle binds, 0.1 to 1.0
+# mode = "scrolling"                 # scrolling, dwindle, master
+# gap = 8                            # 0 to 500 logical px
+# new_exits_fullscreen = []          # "tiled", "floating", "pinned", "all", or an array of them
+
+# New scrolling-layout windows start at half the output width. Without this
+# setting, each application chooses its starting width. Stacked columns retain
+# their most recently focused row when focus leaves and later returns.
+[layout.scrolling]
+default_extent_fraction = 0.5        # 0.1 to 1.0
+# center_underfull_strip = true      # center a strip narrower than the screen
+# center_focused = "never"           # never, always, on_overflow
+
+# [layout.dwindle]
+# preserve_split = false             # keep each split direction fixed after creation
+
+# [layout.master]
+# position = "left"                  # left, right, center
+# default_width_fraction = 0.55      # 0.1 to 0.9
+# new_on_top = true                  # new stack windows go on top
+# new_becomes_master = false         # each new window takes the master slot
+
+# Extra space reserved inside panel exclusive zones, in logical px
+# (-65535 to 65535). Negative values let tiled windows extend under panels.
+# [layout.struts]
+# left = 0
+# right = 0
+# top = 0
+# bottom = 0

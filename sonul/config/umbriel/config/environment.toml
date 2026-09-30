@@ -1,0 +1,21 @@
+# ==============================================================================
+# Environment
+#
+# Variables for Umbriel and every command started in its session. In a managed
+# native session they are also published to the systemd user manager, so
+# session services such as Noctalia see them too.
+#
+# Names must match [A-Za-z_][A-Za-z0-9_]* and values must be strings. Umbriel
+# owns WAYLAND_DISPLAY, WAYLAND_SOCKET, DISPLAY, UMBRIEL_SOCKET,
+# XDG_CURRENT_DESKTOP, XDG_SESSION_DESKTOP and XDG_SESSION_TYPE; they can't be
+# set here.
+#
+# Changes require a restart. Removing a key doesn't clear a value already
+# published to systemd; run `systemctl --user unset-environment NAME` for that.
+# https://docs.noctalia.dev/umbriel/configuration/#environment
+# ==============================================================================
+
+# Nothing is set by default. Examples:
+# [environment]
+# ELECTRON_OZONE_PLATFORM_HINT = "auto"
+# SDL_VIDEODRIVER = "wayland"

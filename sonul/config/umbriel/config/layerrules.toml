@@ -1,0 +1,19 @@
+# ==============================================================================
+# Layer rules
+#
+# Visual effects for layer-shell surfaces such as bars, launchers and
+# notifications. Layer blur is off unless a rule enables it. Every matching
+# rule contributes its settings, and later values take precedence.
+# Run `umbriel layers` to list active namespaces.
+#
+# Keys: match.namespace (regex), blur, blur_popups, blur_ignore_alpha
+# (0.0 to 1.0), blur_optimized.
+# https://docs.noctalia.dev/umbriel/layer-rules/
+# ==============================================================================
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+blur_optimized = false

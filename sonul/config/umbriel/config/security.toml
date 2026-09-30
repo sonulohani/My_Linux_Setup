@@ -1,0 +1,15 @@
+# ==============================================================================
+# Sandboxed Wayland clients
+#
+# Sandboxed apps (e.g. Flatpak) get a restricted protocol set. Grant extra
+# Wayland globals only to a narrowly matched app that genuinely needs them.
+# Selectors match the complete value. Changes apply to new connections, so
+# restart the app afterwards. No grants are configured by default.
+# https://docs.noctalia.dev/umbriel/security/#per-application-grants
+# ==============================================================================
+
+# Example: let a sandboxed clipboard manager use both data-control variants.
+# [[security_context_rule]]
+# match.sandbox_engine = 'org\.flatpak'
+# match.app_id = 'org\.example\.ClipboardManager'
+# allow_globals = ["ext_data_control_manager_v1", "zwlr_data_control_manager_v1"]

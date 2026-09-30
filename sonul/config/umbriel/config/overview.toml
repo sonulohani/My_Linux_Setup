@@ -1,0 +1,30 @@
+# ==============================================================================
+# Overview and hot corners
+#
+# Built-in overview values are used. Commented values are built-in defaults.
+# Overview: https://docs.noctalia.dev/umbriel/workspaces-overview/
+# Hot corners: https://docs.noctalia.dev/umbriel/keybinds/#hot-corners
+# ==============================================================================
+
+# [overview]
+# zoom = 0.5                         # workspace preview scale, 0.1 to 0.75
+# scroll_factor_horizontal = 1.0     # gesture and wheel sensitivity, 0.1 to 10.0
+# scroll_factor_vertical = 1.0
+# background_blur = true             # blur the desktop behind the overview
+# workspace_wallpaper = true         # show the wallpaper inside workspace previews
+# shortcuts = true                   # keyboard shortcut badges on window cards
+# shortcut_keys = "1234567890"       # at least two unique printable ASCII characters
+
+# Hot corners run any keybind action after the pointer rests in an output
+# corner, and are inactive while the focused window is fullscreen. Corners:
+# top_left, top_right, bottom_left, bottom_right; all are disabled by default.
+# The top-left hot corner opens the overview after a short delay.
+[hot_corners.top_left]
+enabled = true
+delay_ms = 500                       # 0 to 10000
+action = "overview-open"
+
+# [hot_corners.top_right]
+# enabled = true
+# delay_ms = 500
+# action = "overview-toggle"         # example

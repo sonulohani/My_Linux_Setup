@@ -1,0 +1,33 @@
+# ==============================================================================
+# Decorations
+#
+# Borders, corners, blur and shadows. Commented values are built-in defaults.
+# https://docs.noctalia.dev/umbriel/appearance/
+# ==============================================================================
+
+# [appearance]
+# prefer_no_csd = true               # prefer Umbriel's border-only decorations; restart apps after changing
+# border_width = 2                   # inner border, 0 to 100 logical px
+# outer_border_width = 0             # outer ring, 0 to 100 logical px
+# corner_radius = 10                 # 0 to 100; 0 keeps corners square
+# drag_opacity = 0.75                # opacity while dragging a window, 0.0 to 1.0
+# opaque_fullscreen = true           # fullscreen windows ignore rule opacity and skip blur
+
+# Blur uses a smaller radius than the built-in default.
+# Blur only shows where a surface is transparent and a window or layer rule
+# enables it (see windowrules.toml and layerrules.toml).
+[appearance.blur]
+radius = 3                           # 0 to 100 (default 5)
+# enabled = true                     # master switch
+# optimized = true                   # share one cached background blur per output
+# passes = 3                         # 0 to 8
+# noise = 0.02                       # 0.0 to 1.0
+# brightness = 0.9                   # 0.0 to 2.0
+# contrast = 0.9                     # 0.0 to 2.0
+# saturation = 1.1                   # 0.0 to 2.0
+
+# [appearance.shadow]
+# enabled = true                     # shadows behind tiled and floating windows
+# softness = 10                      # 0 to 200
+# offset_x = 2                       # -200 to 200
+# offset_y = 2                       # -200 to 200

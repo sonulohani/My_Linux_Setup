@@ -1,0 +1,27 @@
+# ==============================================================================
+# Workspaces
+#
+# Each output has its own workspaces. The workspace model per output
+# (workspaces, min_workspaces, cyclic_workspaces, workspace_axis) is set in
+# monitors.toml. Commented values are built-in defaults.
+# https://docs.noctalia.dev/umbriel/workspaces/
+# ==============================================================================
+
+# [workspaces]
+# back_and_forth = false             # selecting the active workspace returns to the previous one
+# empty_above = false                # keep a leading empty workspace on dynamic outputs
+
+# Workspace rules (examples). Select with exactly one of name or index,
+# optionally limited to one output. A name also creates a persistent workspace
+# on dynamic outputs. layout.* accepts the same keys as [layout]: mode, gap,
+# extent_presets, new_exits_fullscreen, struts.*, scrolling.*, master.*,
+# dwindle.preserve_split.
+# [[workspace]]
+# name = "CHAT"
+# output = "HDMI-A-1"
+# layout.mode = "master"
+#
+# [[workspace]]
+# index = 4
+# layout.gap = 0
+# layout.struts.top = 24

@@ -1,0 +1,27 @@
+# ==============================================================================
+# General
+#
+# Session behaviour. autostart lives in autostart.toml.
+# Commented values are built-in defaults unless marked "example".
+# https://docs.noctalia.dev/umbriel/configuration/#general
+# ==============================================================================
+
+# XWayland support is enabled by default.
+[general]
+xwayland = true                      # start Xwayland lazily for X11 apps; changes require a restart
+show_cheatsheet = true               # show the keybind cheatsheet when Umbriel starts
+# mod_key = "Super"                  # key used for "Mod" in binds: Super, Alt, Ctrl, Shift (default: Super, or Alt when nested)
+# focus_on_activate = false          # let app activation requests focus and reveal their window
+# honor_restored_maximize = false    # honor maximize requests an app makes while its window opens
+
+# ==============================================================================
+# Screencast
+#
+# By default, the first target-changing action during an active share asks for
+# confirmation. Disable that protection only if immediate keybind changes are
+# preferred.
+# https://docs.noctalia.dev/umbriel/configuration/#screencast
+# ==============================================================================
+
+# [screencast]
+# disable_dynamic_confirmation = false

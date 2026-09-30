@@ -1,0 +1,86 @@
+# ==============================================================================
+# Animation
+#
+# Top-level values are defaults; every event except windows_drag also accepts
+# enabled, duration_ms (1 to 10000), curve, and effect (an animation preset,
+# see effects.toml). Spring curves choose their own duration.
+#
+# Curves: linear, ease, easeout, snappy, bounce, elastic, a cubic bezier
+# "x1,y1,x2,y2", "spring:<damping>,<stiffness>", or a name registered under
+# [animation.beziers] / [animation.springs].
+#
+# Commented values are built-in defaults. The per-event curves are the values
+# shown in the Umbriel docs; `umbriel config schema` doesn't list them.
+# https://docs.noctalia.dev/umbriel/animation/
+# ==============================================================================
+
+# [animation]
+# enabled = true                     # master switch for every transition
+# duration_ms = 250                  # used by non-spring curves
+# curve = "easeout"
+
+# Window opening. style: popin, zoom, slide, fade, none
+# [animation.windows_in]
+# enabled = true
+# curve = "spring:1,900"
+# style = "popin"
+# scale = 0.5                        # popin start size, 0.1 to 1.0
+
+# Window closing. style: fade, slide, popin, zoom
+# [animation.windows_out]
+# enabled = true
+# curve = "spring:1,1400"
+# style = "popin"
+# scale = 0.8                        # popin end size, 0.1 to 1.0
+
+# Move, resize, reflow, maximize and restore
+# [animation.windows_move]
+# enabled = true
+# curve = "spring:1,900"
+
+# [animation.workspaces]
+# enabled = true
+# curve = "spring:1,800"
+
+# [animation.overview]
+# enabled = true
+# curve = "spring:1,800"
+# workspace_curve = "spring:1,1000"  # filmstrip movement after wheel, keyboard or touchpad navigation
+
+# Blur the workspace behind a shown scratchpad, on top of the default dim.
+# dim and blur stay active without a fade when animations are disabled.
+# scale, maximize and fullscreen set how a window is shown while in a scratchpad.
+[animation.scratchpad]
+blur = true
+# enabled = true
+# curve = "spring:1,800"
+# dim = 0.8                          # 0.0 to 1.0
+# scale = 0.0                        # 0.0 to 1.0
+# maximize = false
+# fullscreen = false
+
+# Focus-border color
+# [animation.border]
+# enabled = true
+# curve = "spring:1,900"
+
+# Unfocused-window dimming
+# [animation.dim_unfocused]
+# enabled = false
+# dim = 0.0                          # 0.0 to 1.0
+
+# Layer-shell surfaces mapping and unmapping
+# [animation.layers]
+# enabled = false
+
+# Dragged windows bend like an elastic sheet and settle when released.
+# [animation.windows_drag]
+# physics = false
+
+# Reusable named curves, used as curve = "myBezier" or curve = "myBounce".
+# Examples:
+# [animation.beziers]
+# myBezier = [0.05, 0.9, 0.1, 1.05]
+#
+# [animation.springs]
+# myBounce = { damping = 0.5, stiffness = 200 }   # damping 0.01 to 5, stiffness 1 to 10000

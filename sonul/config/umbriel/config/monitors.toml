@@ -1,0 +1,53 @@
+# ==============================================================================
+# Outputs (monitors)
+#
+# Outputs are machine-specific. Run `umbriel outputs` to find names and modes.
+# A section matches a connector name (eDP-1) or the monitor identity shown as
+# "Config name"; the monitor identity wins when both match.
+# https://docs.noctalia.dev/umbriel/outputs/
+#
+# Every key an output section accepts, with its default:
+#   enabled = true
+#   mode = "1920x1080@60"            # default: the output's preferred mode
+#   position = [0, 0]                # logical coords; default: automatic, left to right
+#   scale = 1.0                      # 0.25 to 4.0
+#   transform = "normal"             # normal, 90, 180, 270, flipped, flipped-90, flipped-180, flipped-270
+#   vrr = "disabled"                 # disabled, always, fullscreen
+#   tearing = false                  # allow async page flips for eligible fullscreen windows
+#   direct_scanout = true            # let eligible fullscreen buffers bypass composition
+#   hdr = "off"                      # off, on, auto, fullscreen
+#   sdr_white = 203.0                # SDR reference white (cd/m²) while HDR is active, 80 to 1000
+#   bit_depth = 8                    # 8 or 10 (SDR render format)
+#   workspaces = "dynamic"           # "dynamic", a fixed count (1 to 64), or a list of names
+#   min_workspaces = 1               # floor for a dynamic output, 1 to 64
+#   cyclic_workspaces = false        # wrap workspace next/previous at the ends
+#   workspace_axis = "vertical"      # vertical, horizontal
+#   screen_effect = "off"            # default: inherits effects.screen; "off" disables it here
+#   layout.scrolling.default_extent_fraction = 0.4   # default: inherits [layout.scrolling]
+# ==============================================================================
+
+# Positions are logical: at scale 1.25 the laptop panel is 1536 units wide.
+[output.eDP-1]
+mode = "1920x1200@60.003"
+position = [0, 0]
+scale = 1.25
+vrr = "fullscreen"
+
+[output.HDMI-A-1]
+mode = "1920x1080@60.000"
+position = [1536, -10]
+scale = 1.25
+vrr = "fullscreen"
+
+# ==============================================================================
+# Lid events
+#
+# Remove the laptop panel from the desktop while the lid is closed, then
+# restore it when the lid opens. Umbriel also runs the command for the current
+# lid state once at startup. Nothing runs by default.
+# https://docs.noctalia.dev/umbriel/configuration/#events
+# ==============================================================================
+
+# [events]
+# lid_close = "umbriel msg output-disable:eDP-1"
+# lid_open = "umbriel msg output-enable:eDP-1"

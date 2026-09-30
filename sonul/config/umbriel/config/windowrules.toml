@@ -1,0 +1,89 @@
+# ==============================================================================
+# Window rules
+#
+# Rules combine in order, with later values overriding earlier ones, so keep
+# the order in this file intentional. A rule without selectors matches every
+# window. Regexes match any part of a value; anchor with ^ and $.
+# Run `umbriel windows` to see app IDs, titles, tags and content types.
+# https://docs.noctalia.dev/umbriel/window-rules/
+#
+# Selectors (match.*):
+#   app_id, title, xdg_tag              regex
+#   content_type                        "none", "photo", "video", "game"
+#   is_focused, is_floating, is_pinned, is_scratchpad, is_alone, at_startup
+#
+# Applied once when a window opens:
+#   default_output, default_workspace (1-based position or exact name),
+#   default_scratchpad, default_fullscreen, default_floating, default_maximize,
+#   default_maximize_to_edges, default_focused, default_pinned,
+#   default_scrolling_column, default_scrolling_column_order,
+#   default_floating_size_px = { width, height }   logical px
+#   default_floating_size = { width, height }      fraction of usable area, 0.1 to 1.0
+#   default_scrolling_extent_px, default_scrolling_extent (0.1 to 1.0)
+#   default_position = { x, y, anchor }            anchor: center, top_left, top_right,
+#                                                  bottom_left, bottom_right, top, bottom, left, right
+#
+# Updated while the window is open:
+#   opacity (0.0 to 1.0), blur, blur_popups, blur_ignore_alpha, blur_optimized,
+#   focus_on_activate, vrr, tearing, hdr,
+#   border_color_focused, border_color_unfocused, border_color_outer,
+#   border_width, outer_border_width, corner_radius, shadow,
+#   border_effect, window_effect ("off" disables the [effects] default)
+# ==============================================================================
+
+# Blur windows using the non-optimized path so translucent windows include
+# overlapping windows behind them.
+[[window_rule]]
+blur = true
+blur_optimized = false
+
+# Translucent windows so the blur shows. Fullscreen windows stay opaque because
+# appearance.opaque_fullscreen defaults to true.
+[[window_rule]]
+match.is_focused = false
+opacity = 0.65
+
+[[window_rule]]
+match.is_focused = true
+opacity = 0.90
+
+# Browsers stay opaque and unblurred.
+[[window_rule]]
+match.app_id = "^(brave-browser|zen|firefox|microsoft-edge.*)$"
+blur = false
+opacity = 1.0
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1020, height = 900 }
+
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+# Give scratchpad windows their own border colors.
+[[window_rule]]
+match.is_scratchpad = true
+border_color_focused = "#E5C07BFF"
+border_color_unfocused = "#5C4A2AFF"
+
+# Leave an application that draws its own corners and shadow undecorated.
+# [[window_rule]]
+# match.app_id = "^org[.]gnome[.]TextEditor$"
+# border_width = 0
+# corner_radius = 0
+# shadow = false

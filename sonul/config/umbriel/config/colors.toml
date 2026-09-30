@@ -1,0 +1,31 @@
+# ==============================================================================
+# Colors
+#
+# Colors use #RRGGBB or #RRGGBBAA. Commented values are built-in defaults.
+# Uncomment a table header together with the keys you change.
+# https://docs.noctalia.dev/umbriel/appearance/#colors
+# ==============================================================================
+
+# [colors]
+# background = "#141419FF"           # Umbriel panels and banners
+# text_primary = "#E8E8EAFF"
+# text_muted = "#8A8A92FF"           # secondary help and status text
+# accent_primary = "#7AA3FFFF"       # titles, key chords, primary emphasis
+# accent_secondary = "#F5C96BFF"     # secondary emphasis, group headings
+# warning = "#F5C96BFF"
+# error = "#FF6B6BFF"
+# insert_hint = "#7FC8FF80"          # drop-target preview while dragging
+# backdrop = "#000000FF"             # fullscreen background; also shown if the lock screen takes too long to appear
+# shadow = "#0000007F"               # window shadow
+
+# Inner border (focused/unfocused) and the optional outer ring. Window rules
+# can override these per window (see windowrules.toml).
+# [colors.border]
+# focused = "#7AA3FFFF"
+# unfocused = "#292933FF"
+# outer = "#1A1A1FFF"
+
+# [colors.overview]
+# background_tint = "#10101430"      # tint over the desktop behind the overview
+# workspace_background = "#00000044" # behind each workspace preview
+# badge = "#7AA3FFFF"                # shortcut badges

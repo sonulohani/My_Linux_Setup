@@ -1,0 +1,113 @@
+# ==============================================================================
+# Keybinds
+#
+# Defining this table replaces the built-in bind set, so every active bind that
+# should remain available is listed here.
+# Syntax: https://docs.noctalia.dev/umbriel/keybinds/
+# Actions: https://docs.noctalia.dev/umbriel/actions/ (or `umbriel msg --help`)
+#
+# Modifiers: Mod (general.mod_key), Shift, Ctrl, Alt, Super. Mouse and wheel
+# keys (MouseLeft, WheelUp, ...) need at least one modifier.
+#
+# Table form, with defaults:
+#   "Keys" = { action = "...", repeat = true, allow_when_locked = false,
+#              allow_when_inhibited = false, cooldown_ms = 0, submap = "reset" }
+#   repeat                repeat while held, at the keyboard repeat rate
+#   allow_when_locked     run even while the session is locked
+#   allow_when_inhibited  run even while an app inhibits shortcuts
+#   cooldown_ms           ignore repeats for this long, 0 to 3600000
+#   submap                optional submap transition after the action
+# Binds inside a submap are prefixed: "submap[name],Key".
+# ==============================================================================
+
+[keybinds]
+
+# Applications and session
+"Mod+Return" = { action = "spawn:kitty", repeat = false }
+"Mod+T" = { action = "spawn:zeditor", repeat = false }
+"Mod+W" = { action = "spawn:brave", repeat = false }
+"Mod+E" = { action = "spawn:nautilus", repeat = false }
+"Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Mod+Z" = { action = "spawn:noctalia msg settings-toggle", repeat = false }
+"Mod+X" = { action = "spawn:noctalia msg panel-toggle control-center", repeat = false }
+"Mod+A" = { action = "spawn:noctalia msg panel-toggle control-center notifications", repeat = false }
+"Mod+Shift+W" = { action = "spawn:noctalia msg panel-toggle wallpaper", repeat = false }
+"Mod+V" = { action = "spawn:noctalia msg panel-toggle clipboard", repeat = false }
+"Alt+Tab" = { action = "spawn:noctalia msg window-switcher", repeat = false }
+"Mod+Q" = { action = "window-close", repeat = false }
+# Force-kill the focused window's process. XWayland windows report no usable PID and are skipped.
+"Mod+Shift+Escape" = { action = "spawn:pid=$(umbriel windows --json | jq -r '.[] | select(.active and (.xwayland | not)) | .pid'); [ \"${pid:-0}\" -gt 1 ] && kill -9 \"$pid\"", repeat = false }
+"Mod+Alt+C" = { action = "spawn:noctalia msg panel-toggle session", repeat = false }
+"Mod+L" = { action = "spawn:noctalia msg session lock", repeat = false }
+"Mod+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Shift+Slash" = { action = "cheatsheet-toggle", repeat = false }
+
+# Screen capture
+# Screenshots open in swash via [shell.screenshot].pipe_command in ~/.config/noctalia/config.toml.
+"Mod+P" = { action = "spawn:hyprpicker -a -n", repeat = false }
+"Print" = { action = "spawn:noctalia msg screenshot-region", repeat = false }
+"Mod+Print" = { action = "spawn:noctalia msg screenshot-fullscreen", repeat = false }
+
+# Focus and movement
+"Mod+Left" = "window-focus-left"
+"Mod+Down" = "window-focus-down"
+"Mod+Up" = "window-focus-up"
+"Mod+Right" = "window-focus-right"
+"Mod+F1" = "window-focus-next"
+"Mod+Shift+Left" = "column-move-left"
+"Mod+Shift+Down" = "window-move-down"
+"Mod+Shift+Up" = "window-move-up"
+"Mod+Shift+Right" = "column-move-right"
+"Mod+Alt+Left" = "output-focus-left"
+"Mod+Alt+Down" = "output-focus-down"
+"Mod+Alt+Up" = "output-focus-up"
+"Mod+Alt+Right" = "output-focus-right"
+"Mod+Alt+Shift+Left" = "window-move-to-output-left"
+"Mod+Alt+Shift+Down" = "window-move-to-output-down"
+"Mod+Alt+Shift+Up" = "window-move-to-output-up"
+"Mod+Alt+Shift+Right" = "window-move-to-output-right"
+
+# Window state and layout
+"Mod+Alt+Space" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+T" = { action = "window-focus-switch-floating", repeat = false }
+"Mod+Shift+P" = { action = "window-toggle-pinned", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+Shift+F" = { action = "window-toggle-fullscreen", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+"Mod+Minus" = "window-modify-primary-extent:-0.05"
+"Mod+Equal" = "window-modify-primary-extent:0.05"
+"Mod+Shift+Minus" = "window-modify-secondary-extent:-0.05"
+"Mod+Shift+Equal" = "window-modify-secondary-extent:0.05"
+"Mod+Comma" = "window-consume-left"
+"Mod+Period" = "window-consume-right"
+"Mod+WheelUp" = "window-focus-left"
+"Mod+WheelDown" = "window-focus-right"
+"Mod+O" = { action = "overview-toggle", repeat = false }
+
+# Workspaces
+"Mod+1" = "workspace-switch:1"
+"Mod+2" = "workspace-switch:2"
+"Mod+3" = "workspace-switch:3"
+"Mod+4" = "workspace-switch:4"
+"Mod+5" = "workspace-switch:5"
+"Mod+6" = "workspace-switch:6"
+"Mod+7" = "workspace-switch:7"
+"Mod+8" = "workspace-switch:8"
+"Mod+9" = "workspace-switch:9"
+"Mod+Shift+1" = "window-move-to-workspace:1"
+"Mod+Shift+2" = "window-move-to-workspace:2"
+"Mod+Shift+3" = "window-move-to-workspace:3"
+"Mod+Shift+4" = "window-move-to-workspace:4"
+"Mod+Shift+5" = "window-move-to-workspace:5"
+"Mod+Shift+6" = "window-move-to-workspace:6"
+"Mod+Shift+7" = "window-move-to-workspace:7"
+"Mod+Shift+8" = "window-move-to-workspace:8"
+"Mod+Shift+9" = "window-move-to-workspace:9"
+
+# Scratchpad
+"Mod+Shift+M" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+M" = "scratchpad-toggle"
+"Mod+Ctrl+M" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+Tab" = "scratchpad-focus-next"

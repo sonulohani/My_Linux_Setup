@@ -6,4 +6,7 @@
 # ==============================================================================
 
 [general]
-autostart = ["noctalia"]
+autostart = [
+  "noctalia",
+  "/home/sonul/.config/umbriel/scripts/warp-to-new-window.sh",   # move the cursor onto newly opened windows
+]

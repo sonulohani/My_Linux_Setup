@@ -11,35 +11,24 @@ hl.config({
 	-- },
 })
 
--- Three fingers navigate the horizontal scrolling tape and workspaces.
+-- Three fingers scroll windows horizontally within the current workspace.
 hl.gesture({ fingers = 3, direction = "horizontal", action = "scroll_move" })
-hl.gesture({
-	fingers = 3,
-	direction = "up",
-	action = function()
-		hl.exec_cmd("hyprctl dispatch workspace m-1")
-	end,
-})
-hl.gesture({
-	fingers = 3,
-	direction = "down",
-	action = function()
-		hl.exec_cmd("hyprctl dispatch workspace m+1")
-	end,
-})
 
--- Noctalia's window switcher is its Hyprland overview equivalent.
+-- Four fingers swipe horizontally to switch workspaces.
+hl.gesture({ fingers = 4, direction = "horizontal", action = "workspace" })
+
+-- Four fingers up/down open/close the hymission overview.
 hl.gesture({
 	fingers = 4,
 	direction = "up",
 	action = function()
-		hl.exec_cmd("noctalia msg window-switcher")
+		hl.plugin.hymission.open()
 	end,
 })
 hl.gesture({
 	fingers = 4,
 	direction = "down",
 	action = function()
-		hl.exec_cmd("noctalia msg window-switcher close")
+		hl.plugin.hymission.close()
 	end,
 })

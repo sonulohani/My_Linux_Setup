@@ -200,6 +200,11 @@ paru -S noctalia-git
 hyprpm add https://github.com/hyprwm/hyprland-plugins
 ```
 
+```bash
+hyprpm add https://github.com/gfhdhytghd/hymission
+hyprpm enable hymission
+```
+
 #### Hypr dynamic cursors
 
 ```bash
@@ -231,7 +236,7 @@ hyprpm enable hypr-autoscroll
 #### To update plugins
 
 ```bash
- hyprpm update -f
+hyprpm update -f
 hyprpm reload
 ```
 

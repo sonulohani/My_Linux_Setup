@@ -143,7 +143,7 @@ systemctl --user enable --now gnome-keyring-daemon.socket
 ### All commands at single shot
 
 ```bash
-paru -Syu brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctalia uwsm foot \
+paru -Syu yazi brave udiskie udisks2 cachyos-hypr-noctalia hyprland hyprsunset noctalia uwsm foot \
   hyprpaper hyprpicker hyprlauncher hypridle hyprlock hyprpwcenter hyprshutdown hyprtoolkit \
   hyprcursor hyprutils hyprlang hyprwayland-scanner aquamarine hyprgraphics hyprland-guiutils \
   xdg-desktop-portal xdg-desktop-portal-hyprland xdg-desktop-portal-gtk chafa hyprpolkitagent \
@@ -524,6 +524,11 @@ Use bulky for renaming multiple files.
 ```bash
 gsettings set org.cinnamon.desktop.default-applications.terminal exec 'foot'
 nemo -q
+```
+
+### Install rhun
+```bash
+curl -fsSL https://github.com/vshvedov/rhun/releases/latest/download/install.sh | sh
 ```
 
 ## Sources

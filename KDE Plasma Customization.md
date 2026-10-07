@@ -27,7 +27,7 @@ plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git vinyl klassy
 Install the optional packages that are present but inactive:
 
 ```bash
-sudo pacman -S --needed \
+paru -S --needed \
 cachyos-kde-settings cachyos-iridescent-kde \
 cachyos-nord-kde-theme-git cachyos-emerald-kde-theme-git \
 cachyos-wallpapers bibata-cursor-theme plasma6-applets-audio-visualizer tela-icon-theme
@@ -59,6 +59,6 @@ Widgets/Themes** interface.
 
 * [Tela Icon Theme](https://github.com/vinceliuice/Tela-icon-theme)
 
-### All changes with one command
+### Caelestia dots kde
 
 Go to : https://github.com/ladybug-me/caelestia-dots-kde

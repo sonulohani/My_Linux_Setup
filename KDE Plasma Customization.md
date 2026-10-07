@@ -6,9 +6,8 @@ Install the active repository packages:
 
 ```bash
 paru -S --needed \
-  kdeplasma-addons breeze breeze-icons breeze-cursors \ 
-  inter-font plasma6-applets-panel-colorizer kwin-effects-better-blur-dx \
-  kwin-effects-glass-git vicinae
+kdeplasma-addons breeze breeze-icons breeze-cursors inter-font plasma6-applets-panel-colorizer kwin-effects-better-blur-dx \
+kwin-effects-glass-git vicinae
 
 ```
 
@@ -20,18 +19,18 @@ Install the active foreign/AUR packages:
 
 ```bash
 paru -S --needed \
-  darkly \
-  kde-material-you-colors-git \
-  plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git vinyl klassy
+darkly \
+kde-material-you-colors-git \
+plasma6-applets-wallpaper-effects kwin-effect-rounded-corners-git vinyl klassy
 ```
 
 Install the optional packages that are present but inactive:
 
 ```bash
 sudo pacman -S --needed \
-  cachyos-kde-settings cachyos-iridescent-kde \
-  cachyos-nord-kde-theme-git cachyos-emerald-kde-theme-git \
-  cachyos-wallpapers bibata-cursor-theme plasma6-applets-audio-visualizer tela-icon-theme
+cachyos-kde-settings cachyos-iridescent-kde \
+cachyos-nord-kde-theme-git cachyos-emerald-kde-theme-git \
+cachyos-wallpapers bibata-cursor-theme plasma6-applets-audio-visualizer tela-icon-theme
 ```
 
 Modern Clock, Ant-Dark, Maple Mono NF, Tela icons, and Vector Clock need to be

@@ -104,6 +104,7 @@ KLEAR_FORCE=1 ~/.local/share/kwin/scripts/klear/build-applist.sh
 * Dream-Dark-Color-Global-6
 * Nordic-bluish
 * Nordic
+* https://github.com/catppuccin/kde
 
 ### Widgets
 

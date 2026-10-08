@@ -105,6 +105,7 @@ KLEAR_FORCE=1 ~/.local/share/kwin/scripts/klear/build-applist.sh
 * Nordic-bluish
 * Nordic
 * https://github.com/catppuccin/kde
+* https://github.com/L4ki/Slot-Plasma-Themes
 
 ### Widgets
 
